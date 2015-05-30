@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6E64D031B19752900EF7820 /* Blogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D021B19752900EF7820 /* Blogger.swift */; };
+		E6E64D071B19859500EF7820 /* OnlineInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D061B19859500EF7820 /* OnlineInformation.swift */; };
+		E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D081B1986DC00EF7820 /* OnlineNews.swift */; };
+		E6E64D0B1B19872300EF7820 /* OnlineBlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D0A1B19872300EF7820 /* OnlineBlog.swift */; };
+		E6E64D0D1B19888F00EF7820 /* OfflineInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D0C1B19888F00EF7820 /* OfflineInformation.swift */; };
+		E6E64D111B198A2A00EF7820 /* OfflineBlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D101B198A2A00EF7820 /* OfflineBlog.swift */; };
+		E6E64D131B198A4500EF7820 /* OfflineNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D121B198A4500EF7820 /* OfflineNews.swift */; };
 		E6EF871B1B196C15009FF4A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EF871A1B196C15009FF4A9 /* AppDelegate.swift */; };
 		E6EF871E1B196C15009FF4A9 /* CNBlogsClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6EF871C1B196C15009FF4A9 /* CNBlogsClient.xcdatamodeld */; };
 		E6EF87201B196C15009FF4A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EF871F1B196C15009FF4A9 /* ViewController.swift */; };
@@ -27,6 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E6E64D021B19752900EF7820 /* Blogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blogger.swift; path = Model/Blogger.swift; sourceTree = "<group>"; };
+		E6E64D061B19859500EF7820 /* OnlineInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineInformation.swift; path = Model/OnlineInformation.swift; sourceTree = "<group>"; };
+		E6E64D081B1986DC00EF7820 /* OnlineNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineNews.swift; path = Model/OnlineNews.swift; sourceTree = "<group>"; };
+		E6E64D0A1B19872300EF7820 /* OnlineBlog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineBlog.swift; path = Model/OnlineBlog.swift; sourceTree = "<group>"; };
+		E6E64D0C1B19888F00EF7820 /* OfflineInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineInformation.swift; path = Model/OfflineInformation.swift; sourceTree = "<group>"; };
+		E6E64D101B198A2A00EF7820 /* OfflineBlog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineBlog.swift; path = Model/OfflineBlog.swift; sourceTree = "<group>"; };
+		E6E64D121B198A4500EF7820 /* OfflineNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineNews.swift; sourceTree = "<group>"; };
 		E6EF87151B196C15009FF4A9 /* CNBlogsClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNBlogsClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6EF87191B196C15009FF4A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6EF871A1B196C15009FF4A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +72,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E6E64D041B19850200EF7820 /* 在线资讯类 */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D061B19859500EF7820 /* OnlineInformation.swift */,
+				E6EF873F1B196C41009FF4A9 /* News */,
+				E6EF873E1B196C30009FF4A9 /* Blogs */,
+			);
+			name = "在线资讯类";
+			sourceTree = "<group>";
+		};
+		E6E64D051B19853700EF7820 /* 离线资讯类 */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D0C1B19888F00EF7820 /* OfflineInformation.swift */,
+				E6E64D0F1B198A0E00EF7820 /* Blog */,
+				E6E64D0E1B198A0200EF7820 /* News */,
+			);
+			name = "离线资讯类";
+			sourceTree = "<group>";
+		};
+		E6E64D0E1B198A0200EF7820 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D121B198A4500EF7820 /* OfflineNews.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		E6E64D0F1B198A0E00EF7820 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D101B198A2A00EF7820 /* OfflineBlog.swift */,
+			);
+			name = Blog;
+			sourceTree = "<group>";
+		};
 		E6EF870C1B196C15009FF4A9 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +129,7 @@
 		E6EF87171B196C15009FF4A9 /* CNBlogsClient */ = {
 			isa = PBXGroup;
 			children = (
+				E6EF873D1B196C1F009FF4A9 /* Model */,
 				E6EF871A1B196C15009FF4A9 /* AppDelegate.swift */,
 				E6EF871F1B196C15009FF4A9 /* ViewController.swift */,
 				E6EF87211B196C15009FF4A9 /* Main.storyboard */,
@@ -113,6 +164,40 @@
 				E6EF87321B196C15009FF4A9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E6EF873D1B196C1F009FF4A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D051B19853700EF7820 /* 离线资讯类 */,
+				E6E64D041B19850200EF7820 /* 在线资讯类 */,
+				E6EF87401B196C48009FF4A9 /* Blogger */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E6EF873E1B196C30009FF4A9 /* Blogs */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D0A1B19872300EF7820 /* OnlineBlog.swift */,
+			);
+			name = Blogs;
+			sourceTree = "<group>";
+		};
+		E6EF873F1B196C41009FF4A9 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D081B1986DC00EF7820 /* OnlineNews.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		E6EF87401B196C48009FF4A9 /* Blogger */ = {
+			isa = PBXGroup;
+			children = (
+				E6E64D021B19752900EF7820 /* Blogger.swift */,
+			);
+			name = Blogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +300,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6E64D0B1B19872300EF7820 /* OnlineBlog.swift in Sources */,
+				E6E64D031B19752900EF7820 /* Blogger.swift in Sources */,
 				E6EF87201B196C15009FF4A9 /* ViewController.swift in Sources */,
+				E6E64D071B19859500EF7820 /* OnlineInformation.swift in Sources */,
+				E6E64D0D1B19888F00EF7820 /* OfflineInformation.swift in Sources */,
 				E6EF871B1B196C15009FF4A9 /* AppDelegate.swift in Sources */,
+				E6E64D131B198A4500EF7820 /* OfflineNews.swift in Sources */,
 				E6EF871E1B196C15009FF4A9 /* CNBlogsClient.xcdatamodeld in Sources */,
+				E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */,
+				E6E64D111B198A2A00EF7820 /* OfflineBlog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +505,7 @@
 				E6EF87391B196C15009FF4A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6EF873A1B196C15009FF4A9 /* Build configuration list for PBXNativeTarget "CNBlogsClientTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +514,7 @@
 				E6EF873C1B196C15009FF4A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
