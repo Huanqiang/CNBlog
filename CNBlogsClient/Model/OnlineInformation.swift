@@ -23,6 +23,7 @@ class OnlineInformation: NSObject {
     var content: String     = ""       // 内容
     var publishTime: NSDate = NSDate() // 发布时间
     var iconPath: String    = ""       // 标题图片 本地路径
+    var hasIcon: Bool       = false    // 是否有标题图片
     
     init(let oId:String, let oTitle:String, let oSummary:String, let oAuthor:String, let oPublishDate:NSDate, let oDiggs:Int, let oViews:Int, let oIconURL:String) {
         super.init()

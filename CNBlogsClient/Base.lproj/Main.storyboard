@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oqK-ON-Qs7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--新闻-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="NewsViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +18,200 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="新闻" id="3Vu-TA-s8P">
+                        <barButtonItem key="leftBarButtonItem" image="menuBtn" id="0LS-Go-sbb">
+                            <connections>
+                                <action selector="showMenu:" destination="vXZ-lx-hvc" id="yb9-gw-ups"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1350" y="250.5"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="O6F-hk-a9F">
+            <objects>
+                <viewController restorationIdentifier="RootViewController" storyboardIdentifier="RootViewController" id="oqK-ON-Qs7" customClass="RootViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BuO-O6-3w9"/>
+                        <viewControllerLayoutGuide type="bottom" id="a92-Vb-hex"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Ac-Ru-M2C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zyJ-zo-Qda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439.5" y="250.5"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="RTm-py-OEg">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mxy-rT-iJI" customClass="MenuViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rjy-8K-sKJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="chQ-zi-oFn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iCI-nY-Whv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="NNX-V7-6dp">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="N6K-ad-FGd">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N6K-ad-FGd" secondAttribute="height" multiplier="1:1" id="ulo-vk-1C8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ulo-vk-1C8"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ulo-vk-1C8"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尚未设置博主" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ez-mH-bjb">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ds9-Gf-26o">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuTableCell" textLabel="iAA-nz-I1x" rowHeight="44" style="IBUITableViewCellStyleDefault" id="WK5-aT-eSK">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WK5-aT-eSK" id="Ezo-sy-yZG">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iAA-nz-I1x">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mxy-rT-iJI" id="QSX-oI-uG3"/>
+                                    <outlet property="delegate" destination="mxy-rT-iJI" id="tfE-NZ-bwt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="N6K-ad-FGd" secondAttribute="centerX" id="47g-lm-VBL"/>
+                            <constraint firstItem="N6K-ad-FGd" firstAttribute="top" secondItem="Rjy-8K-sKJ" secondAttribute="bottom" constant="8" id="GpH-gd-J4E"/>
+                            <constraint firstItem="N6K-ad-FGd" firstAttribute="leading" secondItem="iCI-nY-Whv" secondAttribute="leadingMargin" constant="110" id="Hrc-cQ-OKT"/>
+                            <constraint firstItem="NNX-V7-6dp" firstAttribute="leading" secondItem="iCI-nY-Whv" secondAttribute="leadingMargin" constant="-16" id="Iix-3g-poT"/>
+                            <constraint firstItem="7ez-mH-bjb" firstAttribute="top" secondItem="N6K-ad-FGd" secondAttribute="bottom" constant="8" id="SoH-7n-skS"/>
+                            <constraint firstItem="ds9-Gf-26o" firstAttribute="top" secondItem="7ez-mH-bjb" secondAttribute="bottom" constant="8" id="Trs-yP-mJ5"/>
+                            <constraint firstItem="ds9-Gf-26o" firstAttribute="leading" secondItem="iCI-nY-Whv" secondAttribute="leadingMargin" constant="-16" id="bxN-eW-wyK"/>
+                            <constraint firstItem="chQ-zi-oFn" firstAttribute="top" secondItem="ds9-Gf-26o" secondAttribute="bottom" id="lTr-bR-rKV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NNX-V7-6dp" secondAttribute="trailing" constant="-16" id="oj4-Ah-219"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ds9-Gf-26o" secondAttribute="trailing" constant="-16" id="sG5-rb-5D2"/>
+                            <constraint firstItem="7ez-mH-bjb" firstAttribute="centerX" secondItem="N6K-ad-FGd" secondAttribute="centerX" constant="-0.5" id="wal-2T-xQg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="NNX-V7-6dp" secondAttribute="bottom" id="xFt-7c-6BS"/>
+                            <constraint firstItem="NNX-V7-6dp" firstAttribute="top" secondItem="iCI-nY-Whv" secondAttribute="topMargin" id="yV9-HZ-84H"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="NNX-V7-6dp"/>
+                                <exclude reference="N6K-ad-FGd"/>
+                                <exclude reference="7ez-mH-bjb"/>
+                                <exclude reference="ds9-Gf-26o"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="SoH-7n-skS"/>
+                                <exclude reference="wal-2T-xQg"/>
+                                <exclude reference="lTr-bR-rKV"/>
+                                <exclude reference="47g-lm-VBL"/>
+                                <exclude reference="GpH-gd-J4E"/>
+                                <exclude reference="Hrc-cQ-OKT"/>
+                                <exclude reference="Iix-3g-poT"/>
+                                <exclude reference="oj4-Ah-219"/>
+                                <exclude reference="xFt-7c-6BS"/>
+                                <exclude reference="yV9-HZ-84H"/>
+                                <exclude reference="Trs-yP-mJ5"/>
+                                <exclude reference="bxN-eW-wyK"/>
+                                <exclude reference="sG5-rb-5D2"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="NNX-V7-6dp"/>
+                                <include reference="N6K-ad-FGd"/>
+                                <include reference="7ez-mH-bjb"/>
+                                <include reference="ds9-Gf-26o"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="SoH-7n-skS"/>
+                                <include reference="wal-2T-xQg"/>
+                                <include reference="lTr-bR-rKV"/>
+                                <include reference="47g-lm-VBL"/>
+                                <include reference="GpH-gd-J4E"/>
+                                <include reference="Hrc-cQ-OKT"/>
+                                <include reference="Iix-3g-poT"/>
+                                <include reference="oj4-Ah-219"/>
+                                <include reference="xFt-7c-6BS"/>
+                                <include reference="yV9-HZ-84H"/>
+                                <include reference="Trs-yP-mJ5"/>
+                                <include reference="bxN-eW-wyK"/>
+                                <include reference="sG5-rb-5D2"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="MenuTableView" destination="ds9-Gf-26o" id="bK0-Y1-ZYe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecs-4L-Yrj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439.5" y="935.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZXy-xe-fCP">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GJs-5t-QmE" customClass="NavigationController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yoi-Py-S2t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="iib-F8-i61"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5d4-Jn-ViL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604.5" y="250.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menuBgImage" width="640" height="1520"/>
+        <image name="menuBtn" width="30" height="30"/>
+        <image name="userIcon" width="240" height="240"/>
+    </resources>
 </document>

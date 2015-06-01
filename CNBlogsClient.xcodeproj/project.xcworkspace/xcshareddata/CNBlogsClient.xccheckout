@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6E1D3928-1876-4DB8-893F-A20821A142A0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CNBlogsClient</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>47814BC62C90D1D42B1758B344D542111DC420CD</key>
+		<string>github.com:861645007/CNBlog.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CNBlogsClient.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>47814BC62C90D1D42B1758B344D542111DC420CD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:861645007/CNBlog.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>47814BC62C90D1D42B1758B344D542111DC420CD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>47814BC62C90D1D42B1758B344D542111DC420CD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CNBlogsClient</string>
+		</dict>
+	</array>
+</dict>
+</plist>
