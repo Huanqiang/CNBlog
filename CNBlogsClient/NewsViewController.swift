@@ -7,13 +7,28 @@
 //
 
 import UIKit
+import AFNetworking
 
-class NewsViewController: UIViewController {
+class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var newsModel: NewsViewModel = NewsViewModel()
+    
+    @IBOutlet weak var newsListTableView: UITableView!
+    @IBOutlet weak var recentNewsBtnStateView: UIView!
+    @IBOutlet weak var popNewsBtnStateView: UIView!
+    @IBOutlet weak var commendNewsBtnStateView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        newsModel = NewsViewModel(newsVC: self)
+        // 加载下拉刷新
+        self.setTableRefreshing()
+        
+        //添加这行代码
+        self.newsListTableView.rowHeight = UITableViewAutomaticDimension
+        self.newsListTableView.estimatedRowHeight = 100.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,19 +36,125 @@ class NewsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        var indexPath:NSIndexPath = newsListTableView.indexPathForSelectedRow()!
+
+        if equal(segue.identifier!, "NewsListWithImageToDetail") || equal(segue.identifier!, "NewsListWithoutImageToDetail") {
+            var newsDetailVC: NewsDetailViewController = segue.destinationViewController as! NewsDetailViewController
+            newsDetailVC.newsDetailModel = self.newsModel.newsDetailViewModelForIndexPath(indexPath.row, vc: newsDetailVC)
+        }
     }
-    */
+
 
     // MARK: - 打开菜单
     @IBAction func showMenu(sender: AnyObject) {
         self.frostedViewController.presentMenuViewController()
+    }
+    
+    
+    // MARK: - 下拉刷新
+    func setTableRefreshing() {
+        // 添加传统的下拉刷新
+        // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+        self.newsListTableView.addLegendHeaderWithRefreshingBlock { () -> Void in
+            self.loadNewNews()
+        }
+        
+        self.beginTableRefreshing()
+    }
+
+    // 开始刷新
+    func beginTableRefreshing() {
+        self.newsListTableView.legendHeader.beginRefreshing()
+    }
+    
+    // 刷新完成后需要结束刷新状态 : 一般在 加载数据完之后使用
+    func endTableRefreshing() {
+        // 拿到当前的下拉刷新控件，结束刷新状态
+        self.newsListTableView.header.endRefreshing()
+    }
+    
+    // 加载新数据
+    func loadNewNews() {
+        newsModel.gainNewsListFromNetwork()
+    }
+    
+    func reloadTabeleView() {
+        self.newsListTableView.reloadData()
+    }
+    
+    // MARK: - TableView DataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newsModel.newsElementLists.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let news: OnlineNews = self.newsModel.gainOnlineNewsAtIndexPath(indexPath.row)
+        if news.hasIcon {
+            var cell:NewsWithImageTableViewCell? = tableView.dequeueReusableCellWithIdentifier("NewsCellWithImage") as? NewsWithImageTableViewCell
+            
+            self.configurationImageCellOfIndex(cell!, news: news)
+            
+            return cell!
+        }else {
+            var cell:NewsWithoutImageTableViewCell? = tableView.dequeueReusableCellWithIdentifier("NewsCellWithoutImage") as? NewsWithoutImageTableViewCell
+            
+            self.configurationNoImageCellOfIndex(cell!, news: news)
+            
+            return cell!
+        }
+    }
+    
+    
+    // MARK: - TableView Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    
+    //MARK: - 私有方法
+    // 设置内容
+    func configurationImageCellOfIndex(cell: NewsWithImageTableViewCell, news: OnlineNews) {
+        cell.newsTitleLabel.text       = news.title
+        cell.newsSummaryLabel.text     = news.summary
+        cell.newsAuathorLabel.text     = news.author
+        cell.newsPublishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
+        
+        // 获取标题图片
+        weak var weakCell = cell
+        let url: NSURL = NSURL(string: news.iconURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
+        cell.newsImageView.setImageWithURLRequest(NSURLRequest(URL: url), placeholderImage: UIImage(named: "tableCellDefaultImage"), success: { (request, response, image) -> Void in
+            cell.newsImageView.image = image
+            news.iconInfo = image
+        }) { (request, response, error) -> Void in
+            
+        }
+    }
+    
+    func configurationNoImageCellOfIndex(cell: NewsWithoutImageTableViewCell, news: OnlineNews) {
+        cell.newsTitleLabel.text       = news.title
+        cell.newsSummaryLabel.text     = news.summary
+        cell.newsPublishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
+        cell.newsAuathorLabel.text     = news.author
+    }
+    
+    /**
+    网络操作失败时，弹出topAlert指示
+    */
+    func gainNewsInfoFailure() {
+        TopAlert().createFailureTopAlert("获取新闻失败", parentView: self.view)
     }
 }

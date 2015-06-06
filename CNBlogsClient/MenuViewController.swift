@@ -76,14 +76,6 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell!
     }
     
-    // 设置内容
-    func configurationCellOfIndex(cell: UITableViewCell, indexPath:NSIndexPath) {        
-        let menuItem:MenuItem = self.menuItemAtIndexPath(indexPath)
-
-        cell.imageView!.image = UIImage(named: menuItem.menuImageName)
-        cell.textLabel!.text = menuItem.menuTitle
-    }
-    
     
     // MARK: - UITableView Delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -95,6 +87,15 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         navigationController.viewControllers = [menuItem.menuNextVC];
         self.frostedViewController.hideMenuViewController()
+    }
+    
+    //MARK: - 私有方法
+    // 设置内容
+    func configurationCellOfIndex(cell: UITableViewCell, indexPath:NSIndexPath) {
+        let menuItem:MenuItem = self.menuItemAtIndexPath(indexPath)
+        
+        cell.imageView!.image = UIImage(named: menuItem.menuImageName)
+        cell.textLabel!.text = menuItem.menuTitle
     }
     
     // 获取当前单元格对应的菜单信息

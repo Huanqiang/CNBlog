@@ -9,5 +9,47 @@
 import UIKit
 
 class NewsViewModel: NSObject {
-
+    // 操作型 变量
+    var networkOperation: NetworkOperation = NetworkOperation()
+    var newsVC: NewsViewController!
+    
+    // 数据型 变量
+    var newsElementLists: [OnlineInformation] = []
+    
+    override init() {
+        super.init()
+    }
+    
+    init(newsVC: NewsViewController) {
+        self.newsVC = newsVC
+        super.init()
+    }
+    
+    // MARK: - 网络操作
+    func gainNewsListFromNetwork() {
+        networkOperation = NetworkOperationWithNews()
+        // 防止 闭包循环， 使用weak
+        weak var weakSelf: NewsViewModel? = self
+        networkOperation.gainInfomationFromNetwork(CNBlogAPIOption.recentNews, parameters: ["20"]) { (onlineInfo) -> Void in
+            if (onlineInfo != nil) {
+                weakSelf!.newsElementLists = onlineInfo!
+                weakSelf!.newsVC.reloadTabeleView()
+            }else {
+                weakSelf!.newsVC.gainNewsInfoFailure()
+            }
+            // 结束刷新
+            weakSelf!.newsVC.endTableRefreshing()
+        }
+    }
+    
+    // MARK: - 数据传递
+    func gainOnlineNewsAtIndexPath(index: Int) -> OnlineNews {
+        return newsElementLists[index] as! OnlineNews
+    }
+    
+    // MARK: - 界面数据传递
+    func newsDetailViewModelForIndexPath(index: Int, vc: NewsDetailViewController) -> NewsDetailViewModel {
+        return NewsDetailViewModel(newsInfo: self.gainOnlineNewsAtIndexPath(index), newsDetailVC: vc)
+    }
+    
 }

@@ -9,5 +9,8 @@
 import UIKit
 
 class OfflineNews: OfflineInformation {
-   
+
+    override init(onlineInfo: OnlineInformation) {
+        super.init(onlineInfo: onlineInfo)
+    }
 }

@@ -7,7 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E61900F21B1C8A2F00E583C5 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F11B1C8A2F00E583C5 /* BlogViewController.swift */; };
+		E61900F41B1C8A4D00E583C5 /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F31B1C8A4D00E583C5 /* BlogViewModel.swift */; };
+		E61900F71B1C924900E583C5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */; };
+		E61901131B1C9A1A00E583C5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61900FB1B1C9A1A00E583C5 /* MJRefresh.bundle */; };
+		E61901141B1C9A1A00E583C5 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E61900FE1B1C9A1A00E583C5 /* MJRefreshComponent.m */; };
+		E61901151B1C9A1A00E583C5 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901001B1C9A1A00E583C5 /* MJRefreshConst.m */; };
+		E61901161B1C9A1A00E583C5 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901021B1C9A1A00E583C5 /* MJRefreshFooter.m */; };
+		E61901171B1C9A1A00E583C5 /* MJRefreshGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901041B1C9A1A00E583C5 /* MJRefreshGifFooter.m */; };
+		E61901181B1C9A1A00E583C5 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901061B1C9A1A00E583C5 /* MJRefreshGifHeader.m */; };
+		E61901191B1C9A1A00E583C5 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901081B1C9A1A00E583C5 /* MJRefreshHeader.m */; };
+		E619011A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E619010A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m */; };
+		E619011B1B1C9A1A00E583C5 /* MJRefreshLegendHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E619010C1B1C9A1A00E583C5 /* MJRefreshLegendHeader.m */; };
+		E619011C1B1C9A1A00E583C5 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E619010E1B1C9A1A00E583C5 /* UIScrollView+MJExtension.m */; };
+		E619011D1B1C9A1A00E583C5 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901101B1C9A1A00E583C5 /* UIScrollView+MJRefresh.m */; };
+		E619011E1B1C9A1A00E583C5 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901121B1C9A1A00E583C5 /* UIView+MJExtension.m */; };
+		E62426EA1B1D3790002AF56B /* EnumOptionManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62426E91B1D3790002AF56B /* EnumOptionManage.swift */; };
+		E62426ED1B1D4513002AF56B /* XMLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62426EC1B1D4513002AF56B /* XMLOperation.swift */; };
+		E62426EF1B1D74B5002AF56B /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62426EE1B1D74B5002AF56B /* NetworkOperation.swift */; };
 		E6580DDB1B1C7CCD00D98072 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */; };
+		E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */; };
+		E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */; };
+		E69303861B20520400DE6E45 /* MozTopAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69303841B20520400DE6E45 /* MozTopAlertView.m */; };
+		E693038E1B20521A00DE6E45 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69303881B20521A00DE6E45 /* FAImageView.m */; };
+		E693038F1B20521A00DE6E45 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E69303891B20521A00DE6E45 /* FontAwesome.ttf */; };
+		E69303901B20521A00DE6E45 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E693038B1B20521A00DE6E45 /* NSString+FontAwesome.m */; };
+		E69303911B20521A00DE6E45 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E693038D1B20521A00DE6E45 /* UIFont+FontAwesome.m */; };
+		E69303941B2052E300DE6E45 /* TopAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69303931B2052E300DE6E45 /* TopAlert.swift */; };
+		E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */; };
+		E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */; };
+		E6D6E22B1B21B94F00CEB66C /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */; };
+		E6D6E22D1B21B9E600CEB66C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D6E22C1B21B9E600CEB66C /* libxml2.dylib */; };
+		E6D6E2311B21C6E100CEB66C /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2301B21C6E100CEB66C /* SwiftNotice.swift */; };
+		E6D6E2351B21ED0E00CEB66C /* CoreDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2341B21ED0E00CEB66C /* CoreDataOperation.swift */; };
 		E6E64D031B19752900EF7820 /* Blogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D021B19752900EF7820 /* Blogger.swift */; };
 		E6E64D071B19859500EF7820 /* OnlineInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D061B19859500EF7820 /* OnlineInformation.swift */; };
 		E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D081B1986DC00EF7820 /* OnlineNews.swift */; };
@@ -54,7 +86,55 @@
 /* Begin PBXFileReference section */
 		13BE447160303073D1406A0A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7AA2F0EFF1CDD8A96E413EA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E61900F11B1C8A2F00E583C5 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		E61900F31B1C8A4D00E583C5 /* BlogViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
+		E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		E61900FB1B1C9A1A00E583C5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = Function/MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
+		E61900FC1B1C9A1A00E583C5 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = Function/MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
+		E61900FD1B1C9A1A00E583C5 /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = Function/MJRefresh/MJRefreshComponent.h; sourceTree = "<group>"; };
+		E61900FE1B1C9A1A00E583C5 /* MJRefreshComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = Function/MJRefresh/MJRefreshComponent.m; sourceTree = "<group>"; };
+		E61900FF1B1C9A1A00E583C5 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = Function/MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
+		E61901001B1C9A1A00E583C5 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = Function/MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
+		E61901011B1C9A1A00E583C5 /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = Function/MJRefresh/MJRefreshFooter.h; sourceTree = "<group>"; };
+		E61901021B1C9A1A00E583C5 /* MJRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = Function/MJRefresh/MJRefreshFooter.m; sourceTree = "<group>"; };
+		E61901031B1C9A1A00E583C5 /* MJRefreshGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifFooter.h; path = Function/MJRefresh/MJRefreshGifFooter.h; sourceTree = "<group>"; };
+		E61901041B1C9A1A00E583C5 /* MJRefreshGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifFooter.m; path = Function/MJRefresh/MJRefreshGifFooter.m; sourceTree = "<group>"; };
+		E61901051B1C9A1A00E583C5 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = Function/MJRefresh/MJRefreshGifHeader.h; sourceTree = "<group>"; };
+		E61901061B1C9A1A00E583C5 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = Function/MJRefresh/MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		E61901071B1C9A1A00E583C5 /* MJRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = Function/MJRefresh/MJRefreshHeader.h; sourceTree = "<group>"; };
+		E61901081B1C9A1A00E583C5 /* MJRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = Function/MJRefresh/MJRefreshHeader.m; sourceTree = "<group>"; };
+		E61901091B1C9A1A00E583C5 /* MJRefreshLegendFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshLegendFooter.h; path = Function/MJRefresh/MJRefreshLegendFooter.h; sourceTree = "<group>"; };
+		E619010A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshLegendFooter.m; path = Function/MJRefresh/MJRefreshLegendFooter.m; sourceTree = "<group>"; };
+		E619010B1B1C9A1A00E583C5 /* MJRefreshLegendHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshLegendHeader.h; path = Function/MJRefresh/MJRefreshLegendHeader.h; sourceTree = "<group>"; };
+		E619010C1B1C9A1A00E583C5 /* MJRefreshLegendHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshLegendHeader.m; path = Function/MJRefresh/MJRefreshLegendHeader.m; sourceTree = "<group>"; };
+		E619010D1B1C9A1A00E583C5 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "Function/MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		E619010E1B1C9A1A00E583C5 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "Function/MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		E619010F1B1C9A1A00E583C5 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "Function/MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		E61901101B1C9A1A00E583C5 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "Function/MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		E61901111B1C9A1A00E583C5 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "Function/MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
+		E61901121B1C9A1A00E583C5 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "Function/MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
+		E62426E91B1D3790002AF56B /* EnumOptionManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumOptionManage.swift; sourceTree = "<group>"; };
+		E62426EC1B1D4513002AF56B /* XMLOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLOperation.swift; sourceTree = "<group>"; };
+		E62426EE1B1D74B5002AF56B /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
+		E69303831B20520400DE6E45 /* MozTopAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MozTopAlertView.h; path = Function/TopAlertView/MozTopAlertView.h; sourceTree = "<group>"; };
+		E69303841B20520400DE6E45 /* MozTopAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MozTopAlertView.m; path = Function/TopAlertView/MozTopAlertView.m; sourceTree = "<group>"; };
+		E69303871B20521A00DE6E45 /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FAImageView.h; path = Function/TopAlertView/fontawesome/FAImageView.h; sourceTree = "<group>"; };
+		E69303881B20521A00DE6E45 /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FAImageView.m; path = Function/TopAlertView/fontawesome/FAImageView.m; sourceTree = "<group>"; };
+		E69303891B20521A00DE6E45 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = Function/TopAlertView/fontawesome/FontAwesome.ttf; sourceTree = "<group>"; };
+		E693038A1B20521A00DE6E45 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+FontAwesome.h"; path = "Function/TopAlertView/fontawesome/NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		E693038B1B20521A00DE6E45 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+FontAwesome.m"; path = "Function/TopAlertView/fontawesome/NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		E693038C1B20521A00DE6E45 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+FontAwesome.h"; path = "Function/TopAlertView/fontawesome/UIFont+FontAwesome.h"; sourceTree = "<group>"; };
+		E693038D1B20521A00DE6E45 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+FontAwesome.m"; path = "Function/TopAlertView/fontawesome/UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		E69303931B2052E300DE6E45 /* TopAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopAlert.swift; path = TopAlert/TopAlert.swift; sourceTree = "<group>"; };
+		E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderOperation.swift; sourceTree = "<group>"; };
+		E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLNode.swift; path = Function/HTMLParser/HTMLNode.swift; sourceTree = "<group>"; };
+		E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLParser.swift; path = Function/HTMLParser/HTMLParser.swift; sourceTree = "<group>"; };
+		E6D6E22C1B21B9E600CEB66C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E6D6E2301B21C6E100CEB66C /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotice.swift; path = Function/Notice/SwiftNotice.swift; sourceTree = "<group>"; };
+		E6D6E2341B21ED0E00CEB66C /* CoreDataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataOperation.swift; path = Model/CoreData/CoreDataOperation.swift; sourceTree = "<group>"; };
 		E6E64D021B19752900EF7820 /* Blogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blogger.swift; path = Model/Blogger.swift; sourceTree = "<group>"; };
 		E6E64D061B19859500EF7820 /* OnlineInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineInformation.swift; path = Model/OnlineInformation.swift; sourceTree = "<group>"; };
 		E6E64D081B1986DC00EF7820 /* OnlineNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineNews.swift; path = Model/OnlineNews.swift; sourceTree = "<group>"; };
@@ -104,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D6E22D1B21B9E600CEB66C /* libxml2.dylib in Frameworks */,
 				F3C5675A7A777B458F122FD0 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +202,7 @@
 		27E9517F60269A284770A024 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E6D6E22C1B21B9E600CEB66C /* libxml2.dylib */,
 				7AA2F0EFF1CDD8A96E413EA9 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -135,42 +217,197 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E6580DDD1B1C7CE900D98072 /* News View */ = {
+		E61900F51B1C8A5500E583C5 /* Blog View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E61900F11B1C8A2F00E583C5 /* BlogViewController.swift */,
+				E61900F31B1C8A4D00E583C5 /* BlogViewModel.swift */,
+			);
+			name = "Blog View Controller";
+			sourceTree = "<group>";
+		};
+		E61900FA1B1C944B00E583C5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E62426EE1B1D74B5002AF56B /* NetworkOperation.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		E619011F1B1C9A2400E583C5 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				E61900FB1B1C9A1A00E583C5 /* MJRefresh.bundle */,
+				E61900FC1B1C9A1A00E583C5 /* MJRefresh.h */,
+				E61900FD1B1C9A1A00E583C5 /* MJRefreshComponent.h */,
+				E61900FE1B1C9A1A00E583C5 /* MJRefreshComponent.m */,
+				E61900FF1B1C9A1A00E583C5 /* MJRefreshConst.h */,
+				E61901001B1C9A1A00E583C5 /* MJRefreshConst.m */,
+				E61901011B1C9A1A00E583C5 /* MJRefreshFooter.h */,
+				E61901021B1C9A1A00E583C5 /* MJRefreshFooter.m */,
+				E61901031B1C9A1A00E583C5 /* MJRefreshGifFooter.h */,
+				E61901041B1C9A1A00E583C5 /* MJRefreshGifFooter.m */,
+				E61901051B1C9A1A00E583C5 /* MJRefreshGifHeader.h */,
+				E61901061B1C9A1A00E583C5 /* MJRefreshGifHeader.m */,
+				E61901071B1C9A1A00E583C5 /* MJRefreshHeader.h */,
+				E61901081B1C9A1A00E583C5 /* MJRefreshHeader.m */,
+				E61901091B1C9A1A00E583C5 /* MJRefreshLegendFooter.h */,
+				E619010A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m */,
+				E619010B1B1C9A1A00E583C5 /* MJRefreshLegendHeader.h */,
+				E619010C1B1C9A1A00E583C5 /* MJRefreshLegendHeader.m */,
+				E619010D1B1C9A1A00E583C5 /* UIScrollView+MJExtension.h */,
+				E619010E1B1C9A1A00E583C5 /* UIScrollView+MJExtension.m */,
+				E619010F1B1C9A1A00E583C5 /* UIScrollView+MJRefresh.h */,
+				E61901101B1C9A1A00E583C5 /* UIScrollView+MJRefresh.m */,
+				E61901111B1C9A1A00E583C5 /* UIView+MJExtension.h */,
+				E61901121B1C9A1A00E583C5 /* UIView+MJExtension.m */,
+			);
+			name = MJRefresh;
+			sourceTree = "<group>";
+		};
+		E62426EB1B1D44E6002AF56B /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				E62426EC1B1D4513002AF56B /* XMLOperation.swift */,
+			);
+			name = XML;
+			sourceTree = "<group>";
+		};
+		E6580DDD1B1C7CE900D98072 /* News View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E693037B1B203FE500DE6E45 /* NewsList View Controller */,
+				E693037C1B203FFA00DE6E45 /* NewsDetail View Controller */,
+			);
+			name = "News View Controller";
+			sourceTree = "<group>";
+		};
+		E693037B1B203FE500DE6E45 /* NewsList View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				E6F6B85D1B1B31AD004BC482 /* NewsViewController.swift */,
 				E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */,
+				E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */,
 			);
-			name = "News View";
+			name = "NewsList View Controller";
+			sourceTree = "<group>";
+		};
+		E693037C1B203FFA00DE6E45 /* NewsDetail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */,
+				E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */,
+			);
+			name = "NewsDetail View Controller";
+			sourceTree = "<group>";
+		};
+		E69303811B2051E900DE6E45 /* TopAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				E69303831B20520400DE6E45 /* MozTopAlertView.h */,
+				E69303841B20520400DE6E45 /* MozTopAlertView.m */,
+				E69303871B20521A00DE6E45 /* FAImageView.h */,
+				E69303881B20521A00DE6E45 /* FAImageView.m */,
+				E69303891B20521A00DE6E45 /* FontAwesome.ttf */,
+				E693038A1B20521A00DE6E45 /* NSString+FontAwesome.h */,
+				E693038B1B20521A00DE6E45 /* NSString+FontAwesome.m */,
+				E693038C1B20521A00DE6E45 /* UIFont+FontAwesome.h */,
+				E693038D1B20521A00DE6E45 /* UIFont+FontAwesome.m */,
+			);
+			name = TopAlertView;
+			sourceTree = "<group>";
+		};
+		E69303921B2052AF00DE6E45 /* Top Alert */ = {
+			isa = PBXGroup;
+			children = (
+				E69303931B2052E300DE6E45 /* TopAlert.swift */,
+			);
+			name = "Top Alert";
+			sourceTree = "<group>";
+		};
+		E6B0FF231B211D5400FD5F80 /* Folder Operation */ = {
+			isa = PBXGroup;
+			children = (
+				E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */,
+			);
+			name = "Folder Operation";
 			sourceTree = "<group>";
 		};
 		E6B5020B1B1B12810018689C /* Function */ = {
 			isa = PBXGroup;
 			children = (
-				E6F6B8691B1B58F4004BC482 /* UIKit Extends */,
+				E6D6E22F1B21C6A800CEB66C /* AlertIndicator-Notice */,
+				E6D6E2271B21B94200CEB66C /* HTMLParser */,
+				E69303811B2051E900DE6E45 /* TopAlertView */,
+				E619011F1B1C9A2400E583C5 /* MJRefresh */,
+				E6F6B8691B1B58F4004BC482 /* UIKit Or Foundation Extends */,
 				E6F6B8551B1B2E5B004BC482 /* REFrostedViewController */,
 			);
 			name = Function;
 			sourceTree = "<group>";
 		};
-		E6E64D041B19850200EF7820 /* &#22312;&#32447;&#36164;&#35759;&#31867; */ = {
+		E6D6E2271B21B94200CEB66C /* HTMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */,
+				E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */,
+			);
+			name = HTMLParser;
+			sourceTree = "<group>";
+		};
+		E6D6E22E1B21BA1F00CEB66C /* HTML Parser  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "HTML Parser ";
+			sourceTree = "<group>";
+		};
+		E6D6E22F1B21C6A800CEB66C /* AlertIndicator-Notice */ = {
+			isa = PBXGroup;
+			children = (
+				E6D6E2301B21C6E100CEB66C /* SwiftNotice.swift */,
+			);
+			name = "AlertIndicator-Notice";
+			sourceTree = "<group>";
+		};
+		E6D6E2321B21ECD300CEB66C /* BaseDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				E6F29C221B1AE26F000264D7 /* OfflineNewsBaseInfoEntity.swift */,
+				E6F29C201B1AE26F000264D7 /* OfflineNewsContentEntity.swift */,
+				E6F29C1E1B1AE26F000264D7 /* BloggerAttentionEntity.swift */,
+				E6F29C1C1B1AE26E000264D7 /* OfflineBlogContentEntity.swift */,
+				E6F29C1A1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift */,
+			);
+			name = BaseDataModel;
+			sourceTree = "<group>";
+		};
+		E6D6E2331B21ECE300CEB66C /* CoreData Operation */ = {
+			isa = PBXGroup;
+			children = (
+				E6D6E2341B21ED0E00CEB66C /* CoreDataOperation.swift */,
+			);
+			name = "CoreData Operation";
+			sourceTree = "<group>";
+		};
+		E6E64D041B19850200EF7820 /* OnlineInformation */ = {
 			isa = PBXGroup;
 			children = (
 				E6E64D061B19859500EF7820 /* OnlineInformation.swift */,
 				E6EF873F1B196C41009FF4A9 /* News */,
 				E6EF873E1B196C30009FF4A9 /* Blogs */,
 			);
-			name = "&#22312;&#32447;&#36164;&#35759;&#31867;";
+			name = OnlineInformation;
 			sourceTree = "<group>";
 		};
-		E6E64D051B19853700EF7820 /* &#31163;&#32447;&#36164;&#35759;&#31867; */ = {
+		E6E64D051B19853700EF7820 /* OfflineInformation */ = {
 			isa = PBXGroup;
 			children = (
 				E6E64D0C1B19888F00EF7820 /* OfflineInformation.swift */,
 				E6E64D0F1B198A0E00EF7820 /* Blog */,
 				E6E64D0E1B198A0200EF7820 /* News */,
 			);
-			name = "&#31163;&#32447;&#36164;&#35759;&#31867;";
+			name = OfflineInformation;
 			sourceTree = "<group>";
 		};
 		E6E64D0E1B198A0200EF7820 /* News */ = {
@@ -213,11 +450,18 @@
 		E6EF87171B196C15009FF4A9 /* CNBlogsClient */ = {
 			isa = PBXGroup;
 			children = (
+				E6D6E22E1B21BA1F00CEB66C /* HTML Parser  */,
+				E6B0FF231B211D5400FD5F80 /* Folder Operation */,
+				E69303921B2052AF00DE6E45 /* Top Alert */,
+				E62426EB1B1D44E6002AF56B /* XML */,
+				E61900FA1B1C944B00E583C5 /* Network */,
 				E6F6B8621B1B33BC004BC482 /* 左划框架配置 */,
 				E6EF873D1B196C1F009FF4A9 /* Model */,
 				E6F6B85C1B1B3177004BC482 /* Menu View Controller */,
-				E6580DDD1B1C7CE900D98072 /* News View */,
+				E6580DDD1B1C7CE900D98072 /* News View Controller */,
+				E61900F51B1C8A5500E583C5 /* Blog View Controller */,
 				E6EF871A1B196C15009FF4A9 /* AppDelegate.swift */,
+				E62426E91B1D3790002AF56B /* EnumOptionManage.swift */,
 				E6EF87211B196C15009FF4A9 /* Main.storyboard */,
 				E6F6B85F1B1B31DA004BC482 /* Sources */,
 				E6EF87181B196C15009FF4A9 /* Supporting Files */,
@@ -255,8 +499,8 @@
 			isa = PBXGroup;
 			children = (
 				E6F29C191B1ACB78000264D7 /* CoreData */,
-				E6E64D041B19850200EF7820 /* &#22312;&#32447;&#36164;&#35759;&#31867; */,
-				E6E64D051B19853700EF7820 /* &#31163;&#32447;&#36164;&#35759;&#31867; */,
+				E6E64D041B19850200EF7820 /* OnlineInformation */,
+				E6E64D051B19853700EF7820 /* OfflineInformation */,
 				E6EF87401B196C48009FF4A9 /* Blogger */,
 			);
 			name = Model;
@@ -289,11 +533,8 @@
 		E6F29C191B1ACB78000264D7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E6F29C221B1AE26F000264D7 /* OfflineNewsBaseInfoEntity.swift */,
-				E6F29C201B1AE26F000264D7 /* OfflineNewsContentEntity.swift */,
-				E6F29C1E1B1AE26F000264D7 /* BloggerAttentionEntity.swift */,
-				E6F29C1C1B1AE26E000264D7 /* OfflineBlogContentEntity.swift */,
-				E6F29C1A1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift */,
+				E6D6E2331B21ECE300CEB66C /* CoreData Operation */,
+				E6D6E2321B21ECD300CEB66C /* BaseDataModel */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -345,12 +586,12 @@
 			name = "左划框架配置";
 			sourceTree = "<group>";
 		};
-		E6F6B8691B1B58F4004BC482 /* UIKit Extends */ = {
+		E6F6B8691B1B58F4004BC482 /* UIKit Or Foundation Extends */ = {
 			isa = PBXGroup;
 			children = (
 				E6F6B86A1B1B5A3A004BC482 /* ExtensionUIKit.swift */,
 			);
-			name = "UIKit Extends";
+			name = "UIKit Or Foundation Extends";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,7 +678,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6EF87231B196C15009FF4A9 /* Main.storyboard in Resources */,
+				E693038F1B20521A00DE6E45 /* FontAwesome.ttf in Resources */,
 				E6EF87281B196C15009FF4A9 /* LaunchScreen.xib in Resources */,
+				E61901131B1C9A1A00E583C5 /* MJRefresh.bundle in Resources */,
 				E6EF87251B196C15009FF4A9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,33 +747,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E619011B1B1C9A1A00E583C5 /* MJRefreshLegendHeader.m in Sources */,
 				E6F29C1D1B1AE26E000264D7 /* OfflineBlogContentEntity.swift in Sources */,
+				E61900F21B1C8A2F00E583C5 /* BlogViewController.swift in Sources */,
+				E61900F71B1C924900E583C5 /* NewsTableViewCell.swift in Sources */,
+				E61901181B1C9A1A00E583C5 /* MJRefreshGifHeader.m in Sources */,
 				E6F6B8611B1B339A004BC482 /* NavigationController.swift in Sources */,
 				E6F6B8501B1B2E49004BC482 /* REFrostedViewController.m in Sources */,
+				E69303901B20521A00DE6E45 /* NSString+FontAwesome.m in Sources */,
 				E6F6B8661B1B395C004BC482 /* MenuViewModel.swift in Sources */,
+				E6D6E22B1B21B94F00CEB66C /* HTMLParser.swift in Sources */,
 				E6F6B85E1B1B31AD004BC482 /* NewsViewController.swift in Sources */,
 				E6F6B84F1B1B2E49004BC482 /* REFrostedContainerViewController.m in Sources */,
 				E6E64D0B1B19872300EF7820 /* OnlineBlog.swift in Sources */,
 				E6E64D031B19752900EF7820 /* Blogger.swift in Sources */,
+				E619011E1B1C9A1A00E583C5 /* UIView+MJExtension.m in Sources */,
 				E6F6B8641B1B35BB004BC482 /* MenuViewController.swift in Sources */,
 				E6F6B8521B1B2E49004BC482 /* UIView+REFrostedViewController.m in Sources */,
 				E6580DDB1B1C7CCD00D98072 /* NewsViewModel.swift in Sources */,
+				E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */,
+				E619011A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m in Sources */,
 				E6F29C231B1AE26F000264D7 /* OfflineNewsBaseInfoEntity.swift in Sources */,
+				E62426EA1B1D3790002AF56B /* EnumOptionManage.swift in Sources */,
 				E6F6B8531B1B2E49004BC482 /* UIViewController+REFrostedViewController.m in Sources */,
 				E6E64D071B19859500EF7820 /* OnlineInformation.swift in Sources */,
 				E6E64D0D1B19888F00EF7820 /* OfflineInformation.swift in Sources */,
 				E6F6B84E1B1B2E49004BC482 /* RECommonFunctions.m in Sources */,
 				E6F6B8591B1B3120004BC482 /* RootViewController.swift in Sources */,
+				E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */,
+				E6D6E2311B21C6E100CEB66C /* SwiftNotice.swift in Sources */,
 				E6F29C1F1B1AE26F000264D7 /* BloggerAttentionEntity.swift in Sources */,
+				E6D6E2351B21ED0E00CEB66C /* CoreDataOperation.swift in Sources */,
+				E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */,
 				E6F29C211B1AE26F000264D7 /* OfflineNewsContentEntity.swift in Sources */,
 				E6EF871B1B196C15009FF4A9 /* AppDelegate.swift in Sources */,
+				E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */,
 				E6F29C1B1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift in Sources */,
+				E61901161B1C9A1A00E583C5 /* MJRefreshFooter.m in Sources */,
+				E619011C1B1C9A1A00E583C5 /* UIScrollView+MJExtension.m in Sources */,
+				E619011D1B1C9A1A00E583C5 /* UIScrollView+MJRefresh.m in Sources */,
+				E61900F41B1C8A4D00E583C5 /* BlogViewModel.swift in Sources */,
+				E62426EF1B1D74B5002AF56B /* NetworkOperation.swift in Sources */,
+				E61901151B1C9A1A00E583C5 /* MJRefreshConst.m in Sources */,
+				E61901171B1C9A1A00E583C5 /* MJRefreshGifFooter.m in Sources */,
+				E62426ED1B1D4513002AF56B /* XMLOperation.swift in Sources */,
 				E6E64D131B198A4500EF7820 /* OfflineNews.swift in Sources */,
 				E6F6B86B1B1B5A3A004BC482 /* ExtensionUIKit.swift in Sources */,
 				E6EF871E1B196C15009FF4A9 /* CNBlogsClient.xcdatamodeld in Sources */,
+				E61901191B1C9A1A00E583C5 /* MJRefreshHeader.m in Sources */,
+				E69303911B20521A00DE6E45 /* UIFont+FontAwesome.m in Sources */,
+				E69303941B2052E300DE6E45 /* TopAlert.swift in Sources */,
 				E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */,
 				E6E64D111B198A2A00EF7820 /* OfflineBlog.swift in Sources */,
 				E6F6B8511B1B2E49004BC482 /* UIImage+REFrostedViewController.m in Sources */,
+				E693038E1B20521A00DE6E45 /* FAImageView.m in Sources */,
+				E61901141B1C9A1A00E583C5 /* MJRefreshComponent.m in Sources */,
+				E69303861B20520400DE6E45 /* MozTopAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +933,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = CNBlogsClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -676,6 +953,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = CNBlogsClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -699,6 +981,7 @@
 				INFOPLIST_FILE = CNBlogsClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CNBlogsClient.app/CNBlogsClient";
 			};
 			name = Debug;
@@ -714,6 +997,7 @@
 				INFOPLIST_FILE = CNBlogsClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CNBlogsClient.app/CNBlogsClient";
 			};
 			name = Release;
