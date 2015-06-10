@@ -45,7 +45,12 @@ class NewsDetailViewModel: NSObject {
         // 1、将 NewsInfo 的标题图片存储
         newsInfo.saveIconToDisk()
         // 2、创建离线新闻类
-        var offlineNews:OfflineNews = OfflineNews(onlineInfo: newsInfo)
+        var offlineNews: OfflineInformation = OfflineNews(onlineInfo: newsInfo)
+        offlineNews.setNewsContent(newsInfo.content)
+        
+        if offlineNews.saveOfflineInfo() {
+            self.newsDetailVC.offlineNewsSuccess()
+        }
     }
     
 }

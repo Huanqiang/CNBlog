@@ -12,5 +12,26 @@ class OfflineNews: OfflineInformation {
 
     override init(onlineInfo: OnlineInformation) {
         super.init(onlineInfo: onlineInfo)
+        
+        self.coreDataOperation = CoreDataOperationWithNews()
+    }
+    
+    init(offlineInfo: OfflineNewsBaseInfoEntity) {
+        super.init()
+        self.id          = offlineInfo.newsId
+        self.title       = offlineInfo.newsTitle
+        self.summary     = offlineInfo.newsSummary
+        self.author      = offlineInfo.newsAuthor
+        self.publishTime = offlineInfo.newsPublishTime
+        self.iconPath    = offlineInfo.newsIconPath
+        
+        self.coreDataOperation = CoreDataOperationWithNews()
+    }
+    
+    init(offlineContent: OfflineNewsContentEntity) {
+        super.init()
+        self.content = offlineContent.newsContent
+        
+        self.coreDataOperation = CoreDataOperationWithNews()
     }
 }

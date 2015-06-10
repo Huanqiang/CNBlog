@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D131" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="BloggerAttentionEntity" representedClassName="PRODUCT_MODULE_NAME.BloggerAttentionEntity" syncable="YES">
+    <entity name="BloggerAttentionEntity" representedClassName="BloggerAttentionEntity" syncable="YES">
         <attribute name="bloggerArticleCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bloggerIconPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bloggerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bloggerName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="OfflineBlogBaseInfoEntity" representedClassName="PRODUCT_MODULE_NAME.OfflineBlogBaseInfoEntity" syncable="YES">
+    <entity name="OfflineBlogBaseInfoEntity" representedClassName="OfflineBlogBaseInfoEntity" syncable="YES">
         <attribute name="blogAuthor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blogHasIcon" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="blogIconPath" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,11 +15,11 @@
         <attribute name="blogSummary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blogTitle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="OfflineBlogContentEntity" representedClassName="PRODUCT_MODULE_NAME.OfflineBlogContentEntity" syncable="YES">
+    <entity name="OfflineBlogContentEntity" representedClassName="OfflineBlogContentEntity" syncable="YES">
         <attribute name="blogContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blogId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="OfflineNewsBaseInfoEntity" representedClassName="PRODUCT_MODULE_NAME.OfflineNewsBaseInfoEntity" syncable="YES">
+    <entity name="OfflineNewsBaseInfoEntity" representedClassName="OfflineNewsBaseInfoEntity" syncable="YES">
         <attribute name="newsAuthor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newsHasIcon" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="newsIconPath" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,15 +28,15 @@
         <attribute name="newsSummary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newsTitle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="OfflineNewsContentEntity" representedClassName="PRODUCT_MODULE_NAME.OfflineNewsContentEntity" syncable="YES">
+    <entity name="OfflineNewsContentEntity" representedClassName="OfflineNewsContentEntity" syncable="YES">
         <attribute name="newsContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newsId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BloggerAttentionEntity" positionX="-243" positionY="138" width="128" height="103"/>
-        <element name="OfflineNewsBaseInfoEntity" positionX="-54" positionY="-9" width="128" height="148"/>
-        <element name="OfflineBlogBaseInfoEntity" positionX="-54" positionY="207" width="128" height="148"/>
-        <element name="OfflineBlogContentEntity" positionX="189" positionY="234" width="128" height="73"/>
-        <element name="OfflineNewsContentEntity" positionX="187" positionY="27" width="128" height="73"/>
+        <element name="BloggerAttentionEntity" positionX="-243" positionY="138" width="128" height="105"/>
+        <element name="OfflineBlogBaseInfoEntity" positionX="-54" positionY="207" width="128" height="150"/>
+        <element name="OfflineBlogContentEntity" positionX="189" positionY="234" width="128" height="75"/>
+        <element name="OfflineNewsBaseInfoEntity" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="OfflineNewsContentEntity" positionX="187" positionY="27" width="128" height="75"/>
     </elements>
 </model>

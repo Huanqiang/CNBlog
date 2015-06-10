@@ -9,12 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>Pods-Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Alamofire.xcscheme</key>
+		<key>Pods-DTCoreText.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-DTFoundation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0028BEC99CC11BBE3DAD1D87</key>
+		<key>26E8F495315FDCABE30B094A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69F8B2158CB6A5A16EA5034E</key>
+		<key>40CEE9B9B7FD69F0FCF91AD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCDEBFAB522136C8738A672A</key>
+		<key>45EDA39E8C5FFABEE8A2E2FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC1109AD4FEF1AB685C02F78</key>
+		<key>6A269DD4980185C54F15729A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88CE30EFA4AAE4EADA85276E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9404F6F47B99B99B6E48CB03</key>
 		<dict>
 			<key>primary</key>
 			<true/>

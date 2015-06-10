@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(BloggerAttentionEntity)
 class BloggerAttentionEntity: NSManagedObject {
 
     @NSManaged var bloggerId: String

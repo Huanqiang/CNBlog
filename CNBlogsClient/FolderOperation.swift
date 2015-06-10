@@ -33,7 +33,7 @@ class FolderOperation: NSObject {
     */
     func saveImageToFolder(folderName: String, imageData: NSData, imageName: String) -> String{
         let folderPath: String = self.gainFolderPath(folderName)
-        let imagePath: String = folderPath.stringByAppendingString("\(imageName).png")
+        let imagePath: String = folderPath.stringByAppendingString("/\(imageName).png")
         var fileManager: NSFileManager = NSFileManager.defaultManager()
         //把刚刚图片转换的data对象保存至沙盒中
         fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil)

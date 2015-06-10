@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(OfflineNewsContentEntity)
 class OfflineNewsContentEntity: NSManagedObject {
 
     @NSManaged var newsId: String

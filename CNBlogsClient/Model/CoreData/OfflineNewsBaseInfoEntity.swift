@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(OfflineNewsBaseInfoEntity)
 class OfflineNewsBaseInfoEntity: NSManagedObject {
 
     @NSManaged var newsPublishTime: NSDate

@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(OfflineBlogBaseInfoEntity)
 class OfflineBlogBaseInfoEntity: NSManagedObject {
 
     @NSManaged var blogId: String

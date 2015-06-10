@@ -49,11 +49,15 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'AEXML.framework'
-  install_framework 'AFNetworking.framework'
   install_framework 'Alamofire.framework'
+  install_framework 'DTCoreText.framework'
+  install_framework 'DTFoundation.framework'
+  install_framework 'SDWebImage.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'AEXML.framework'
-  install_framework 'AFNetworking.framework'
   install_framework 'Alamofire.framework'
+  install_framework 'DTCoreText.framework'
+  install_framework 'DTFoundation.framework'
+  install_framework 'SDWebImage.framework'
 fi

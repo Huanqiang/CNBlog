@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AFNetworking
+import SDWebImage
 
 class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -136,11 +136,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // 获取标题图片
         weak var weakCell = cell
         let url: NSURL = NSURL(string: news.iconURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
-        cell.newsImageView.setImageWithURLRequest(NSURLRequest(URL: url), placeholderImage: UIImage(named: "tableCellDefaultImage"), success: { (request, response, image) -> Void in
+        cell.newsImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "tableCellDefaultImage")) {
+            (image, error, SDImageCacheType, url) -> Void in
             cell.newsImageView.image = image
             news.iconInfo = image
-        }) { (request, response, error) -> Void in
-            
         }
     }
     

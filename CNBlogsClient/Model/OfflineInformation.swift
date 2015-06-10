@@ -20,6 +20,8 @@ class OfflineInformation: NSObject {
     var iconPath: String    = ""       // 标题图片 本地路径
     var hasIcon: Bool       = false    // 是否有标题图片
     
+    var coreDataOperation: CoreDataOperation!
+    
     override init() {
         super.init()
     }
@@ -50,36 +52,26 @@ class OfflineInformation: NSObject {
     
     :param: oContent 资讯内容
     */
-    func setContent(let oContent:String) {
+    func setNewsContent(oContent:String) {
         self.content = oContent;
     }
     
     // MARK: - 存储 离线内容
-    // 在获取时，则按照需求从各个表获取所需的信息，分别有两个表，第一个基本信息表，第二个内容表（id + 内容）
-    func saveNewsBaseInfo() {
-        
-    }
-    
-    func saveNewsContent() {
-        
-    }
-    
-    // MARK: - 读取 离线数据
     // 在存储时要注意，存为两个表，第一个表存基本信息，第一个表存 id+内容
-    func gainNewsBaseInfo() {
-        
-    }
-    
-    func gainNewsContent() {
-        
+    func saveOfflineInfo() -> Bool {
+        return coreDataOperation.insertOfflineInfo(self)
     }
     
     // MARK: - 删除 离线数据
-    func deleteNewsBaseInfo() {
-        
+    func deleteOfflineInfo() -> Bool { return true}
+    
+    // MARK: - 读取 离线数据
+    // 在获取时，则按照需求从各个表获取所需的信息，分别有两个表，第一个基本信息表，第二个内容表（id + 内容）
+    func gainOfflineBaseInfo() -> [OfflineInformation] {
+        return coreDataOperation.gainOfflineBaseInfos()
     }
     
-    func deleteNewsContent() {
-        
+    func gainOfflineContent() {
+        self.content = coreDataOperation.gainOfflineContentInfo(self.id).content
     }
 }
