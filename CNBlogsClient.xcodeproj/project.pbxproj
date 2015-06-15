@@ -26,6 +26,10 @@
 		E62426ED1B1D4513002AF56B /* XMLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62426EC1B1D4513002AF56B /* XMLOperation.swift */; };
 		E62426EF1B1D74B5002AF56B /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62426EE1B1D74B5002AF56B /* NetworkOperation.swift */; };
 		E6580DDB1B1C7CCD00D98072 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */; };
+		E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */; };
+		E6908E5A1B2C18930003681D /* OfflineInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */; };
+		E6908E5D1B2C1F070003681D /* InfoWithImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */; };
+		E6908E5F1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E5E1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift */; };
 		E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */; };
 		E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */; };
 		E69303861B20520400DE6E45 /* MozTopAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69303841B20520400DE6E45 /* MozTopAlertView.m */; };
@@ -34,6 +38,7 @@
 		E69303901B20521A00DE6E45 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E693038B1B20521A00DE6E45 /* NSString+FontAwesome.m */; };
 		E69303911B20521A00DE6E45 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E693038D1B20521A00DE6E45 /* UIFont+FontAwesome.m */; };
 		E69303941B2052E300DE6E45 /* TopAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69303931B2052E300DE6E45 /* TopAlert.swift */; };
+		E6A5142C1B27E6B500F017A4 /* HTMLParserForInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */; };
 		E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */; };
 		E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */; };
 		E6D6E22B1B21B94F00CEB66C /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */; };
@@ -117,6 +122,10 @@
 		E62426EC1B1D4513002AF56B /* XMLOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLOperation.swift; sourceTree = "<group>"; };
 		E62426EE1B1D74B5002AF56B /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewController.swift; sourceTree = "<group>"; };
+		E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewModel.swift; sourceTree = "<group>"; };
+		E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWithImageTableViewCell.swift; sourceTree = "<group>"; };
+		E6908E5E1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWithoutImageTableViewCell.swift; sourceTree = "<group>"; };
 		E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
 		E69303831B20520400DE6E45 /* MozTopAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MozTopAlertView.h; path = Function/TopAlertView/MozTopAlertView.h; sourceTree = "<group>"; };
@@ -129,6 +138,7 @@
 		E693038C1B20521A00DE6E45 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+FontAwesome.h"; path = "Function/TopAlertView/fontawesome/UIFont+FontAwesome.h"; sourceTree = "<group>"; };
 		E693038D1B20521A00DE6E45 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+FontAwesome.m"; path = "Function/TopAlertView/fontawesome/UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		E69303931B2052E300DE6E45 /* TopAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopAlert.swift; path = TopAlert/TopAlert.swift; sourceTree = "<group>"; };
+		E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParserForInformation.swift; sourceTree = "<group>"; };
 		E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderOperation.swift; sourceTree = "<group>"; };
 		E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLNode.swift; path = Function/HTMLParser/HTMLNode.swift; sourceTree = "<group>"; };
 		E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLParser.swift; path = Function/HTMLParser/HTMLParser.swift; sourceTree = "<group>"; };
@@ -282,6 +292,24 @@
 			name = "News View Controller";
 			sourceTree = "<group>";
 		};
+		E6908E5B1B2C18A40003681D /* OfflineInfo View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */,
+				E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */,
+			);
+			name = "OfflineInfo View Controller";
+			sourceTree = "<group>";
+		};
+		E6908E601B2C20190003681D /* Info TableView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */,
+				E6908E5E1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift */,
+			);
+			name = "Info TableView Cell";
+			sourceTree = "<group>";
+		};
 		E693037B1B203FE500DE6E45 /* NewsList View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +386,7 @@
 		E6D6E22E1B21BA1F00CEB66C /* HTML Parser  */ = {
 			isa = PBXGroup;
 			children = (
+				E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */,
 			);
 			name = "HTML Parser ";
 			sourceTree = "<group>";
@@ -460,6 +489,8 @@
 				E6F6B85C1B1B3177004BC482 /* Menu View Controller */,
 				E6580DDD1B1C7CE900D98072 /* News View Controller */,
 				E61900F51B1C8A5500E583C5 /* Blog View Controller */,
+				E6908E5B1B2C18A40003681D /* OfflineInfo View Controller */,
+				E6908E601B2C20190003681D /* Info TableView Cell */,
 				E6EF871A1B196C15009FF4A9 /* AppDelegate.swift */,
 				E62426E91B1D3790002AF56B /* EnumOptionManage.swift */,
 				E6EF87211B196C15009FF4A9 /* Main.storyboard */,
@@ -761,11 +792,13 @@
 				E6F6B84F1B1B2E49004BC482 /* REFrostedContainerViewController.m in Sources */,
 				E6E64D0B1B19872300EF7820 /* OnlineBlog.swift in Sources */,
 				E6E64D031B19752900EF7820 /* Blogger.swift in Sources */,
+				E6A5142C1B27E6B500F017A4 /* HTMLParserForInformation.swift in Sources */,
 				E619011E1B1C9A1A00E583C5 /* UIView+MJExtension.m in Sources */,
 				E6F6B8641B1B35BB004BC482 /* MenuViewController.swift in Sources */,
 				E6F6B8521B1B2E49004BC482 /* UIView+REFrostedViewController.m in Sources */,
 				E6580DDB1B1C7CCD00D98072 /* NewsViewModel.swift in Sources */,
 				E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */,
+				E6908E5F1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift in Sources */,
 				E619011A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m in Sources */,
 				E6F29C231B1AE26F000264D7 /* OfflineNewsBaseInfoEntity.swift in Sources */,
 				E62426EA1B1D3790002AF56B /* EnumOptionManage.swift in Sources */,
@@ -780,6 +813,7 @@
 				E6D6E2351B21ED0E00CEB66C /* CoreDataOperation.swift in Sources */,
 				E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */,
 				E6F29C211B1AE26F000264D7 /* OfflineNewsContentEntity.swift in Sources */,
+				E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */,
 				E6EF871B1B196C15009FF4A9 /* AppDelegate.swift in Sources */,
 				E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */,
 				E6F29C1B1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift in Sources */,
@@ -796,12 +830,14 @@
 				E6EF871E1B196C15009FF4A9 /* CNBlogsClient.xcdatamodeld in Sources */,
 				E61901191B1C9A1A00E583C5 /* MJRefreshHeader.m in Sources */,
 				E69303911B20521A00DE6E45 /* UIFont+FontAwesome.m in Sources */,
+				E6908E5A1B2C18930003681D /* OfflineInfoViewModel.swift in Sources */,
 				E69303941B2052E300DE6E45 /* TopAlert.swift in Sources */,
 				E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */,
 				E6E64D111B198A2A00EF7820 /* OfflineBlog.swift in Sources */,
 				E6F6B8511B1B2E49004BC482 /* UIImage+REFrostedViewController.m in Sources */,
 				E693038E1B20521A00DE6E45 /* FAImageView.m in Sources */,
 				E61901141B1C9A1A00E583C5 /* MJRefreshComponent.m in Sources */,
+				E6908E5D1B2C1F070003681D /* InfoWithImageTableViewCell.swift in Sources */,
 				E69303861B20520400DE6E45 /* MozTopAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,6 +977,20 @@
 				INFOPLIST_FILE = CNBlogsClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"AEXML\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"DTCoreText\"",
+					"-framework",
+					"\"DTFoundation\"",
+					"-framework",
+					"\"SDWebImage\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_NAME/CNBlogsClient-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -961,6 +1011,20 @@
 				INFOPLIST_FILE = CNBlogsClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"AEXML\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"DTCoreText\"",
+					"-framework",
+					"\"DTFoundation\"",
+					"-framework",
+					"\"SDWebImage\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_NAME/CNBlogsClient-Bridging-Header.h";
 			};

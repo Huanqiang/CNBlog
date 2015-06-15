@@ -9,6 +9,11 @@
 import UIKit
 
 class OfflineNews: OfflineInformation {
+    override init() {
+        super.init()
+        
+        self.coreDataOperation = CoreDataOperationWithNews()
+    }
 
     override init(onlineInfo: OnlineInformation) {
         super.init(onlineInfo: onlineInfo)

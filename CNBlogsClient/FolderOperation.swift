@@ -22,6 +22,17 @@ class FolderOperation: NSObject {
     }
     
     // *********** 文件操作 **********
+    
+    func gainImageFromFolder(folderName: String, imageName: String) -> UIImage {
+        let folderPath: String = self.gainFolderPath(folderName)
+        // 这里不能加 .png 后缀，因为之前在存的时候就是直接存在url 的lastPathComponent
+        let imagePath: String = folderPath.stringByAppendingString("/\(imageName)")
+//        var fileManager: NSFileManager = NSFileManager.defaultManager()
+//        let image: UIImage =
+        
+        return UIImage(contentsOfFile: imagePath)!
+    }
+    
     /**
     保存图片
     
@@ -42,6 +53,17 @@ class FolderOperation: NSObject {
     
     
     // ***********  文件夹操作 *********
+    /**
+    先判断一个指定文件夹存不存在，如果不存在就创建它
+    
+    :param: folderName folderName 文件夹名称
+    */
+    func createFolderWhenNon(folderName: String) {
+        if !self.isExitsWithTheFolder(folderName) {
+            self.createFolderInDocuments(folderName)
+        }
+    }
+    
     /**
     创建指定文件夹(单层）
     

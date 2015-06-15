@@ -33,6 +33,7 @@ class OfflineInformation: NSObject {
         self.author      = onlineInfo.author
         self.publishTime = onlineInfo.publishTime
         self.iconPath    = onlineInfo.iconPath
+        self.hasIcon     = onlineInfo.hasIcon
     }
     
     init(let oId:String, let oTitle:String, let oSummary:String, let oAuthor:String, let oPublishDate:NSDate, let oIconPath:String) {
@@ -52,7 +53,7 @@ class OfflineInformation: NSObject {
     
     :param: oContent 资讯内容
     */
-    func setNewsContent(oContent:String) {
+    func setInfoContent(oContent:String) {
         self.content = oContent;
     }
     

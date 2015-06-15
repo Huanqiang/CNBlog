@@ -142,7 +142,6 @@ class CoreDataOperationWithNews: CoreDataOperation {
         return self.managedObjectContext.save(nil)
     }
     
-    
     // ********** 删除离线数据 **********
     
     

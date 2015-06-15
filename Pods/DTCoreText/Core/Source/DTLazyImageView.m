@@ -211,6 +211,15 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 		{
 			// cache image
 			[_imageCache setObject:image forKey:_url];
+            NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+            path = [path stringByAppendingString:@"/Cache"];
+            NSFileManager *fileM = [NSFileManager defaultManager];
+            
+            if (![fileM fileExistsAtPath:path]) {
+                [fileM createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+            }
+            path = [path stringByAppendingFormat:@"/%@",_url.lastPathComponent];
+            [fileM createFileAtPath:path contents:UIImagePNGRepresentation(image) attributes:nil];
 		}
 		else
 		{

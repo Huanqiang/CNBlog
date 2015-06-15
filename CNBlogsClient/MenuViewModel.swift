@@ -35,10 +35,16 @@ class MenuViewModel: NSObject {
     func setMenuItem() {
         var newsItem        = MenuItem(imageName: "menuNews", title: "最新新闻")
         newsItem.menuNextVC = self.gainVCInStoryBoard("NewsViewController") as! NewsViewController
+        
         var blogItem        = MenuItem(imageName: "menuBlog", title: "热门博客")
+        blogItem.menuNextVC = self.gainVCInStoryBoard("BlogViewController") as! BlogViewController
+        
         var myBlogItem      = MenuItem(imageName: "menuMyBlog", title: "我的博客")
         var myAttentionItem = MenuItem(imageName: "menuMyAttention", title: "我的关注人")
+        
         var myOfflineInfo   = MenuItem(imageName: "menuMyOffline", title: "我的离线")
+        myOfflineInfo.menuNextVC = self.gainVCInStoryBoard("OfflineInfoViewController") as! OfflineInfoViewController
+        
         var settingItem     = MenuItem(imageName: "menuSetting", title: "设置")
         
         menuItems = ["推荐阅读": [newsItem, blogItem],

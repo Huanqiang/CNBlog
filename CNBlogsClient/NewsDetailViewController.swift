@@ -8,7 +8,6 @@
 
 import UIKit
 import DTCoreText
-import SDWebImage
 
 class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAttributedTextContentViewDelegate {
     
@@ -88,23 +87,19 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
     /**
     网络操作失败时，弹出topAlert指示
     */
-    func gainNewsInfoFailure() {
+    func showGainNewsInfoFailure() {
         TopAlert().createFailureTopAlert("获取新闻失败", parentView: self.view)
     }
 
     // MARK: - 数据离线
-    @IBAction func newsOffline(sender: AnyObject) {        
-        var imageCache: SDImageCache = SDImageCache.sharedImageCache()
-        
-        let image: UIImage = imageCache.imageFromDiskCacheForKey("http://images.cnitblog.com/news_topic/4533.jpg")!
-        
+    @IBAction func newsOffline(sender: AnyObject) {
         self.newsDetailModel.newsOffline()
     }
     
     /**
     新闻离线成功时的提示
     */
-    func offlineNewsSuccess() {
+    func showOfflineNewsSuccess() {
         TopAlert().createBaseTopAlert(MozAlertTypeSuccess, alertInfo: "离线成功", parentView: self.view)
     }
     

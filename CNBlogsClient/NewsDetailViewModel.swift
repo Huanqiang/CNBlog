@@ -34,7 +34,7 @@ class NewsDetailViewModel: NSObject {
                 weakSelf!.newsInfo.content = (onlineInfo![0] as! OnlineNews).content
                 weakSelf!.newsDetailVC.gainNewsInfoSuccess()
             }else {
-                weakSelf!.newsDetailVC.gainNewsInfoFailure()
+                weakSelf!.newsDetailVC.showGainNewsInfoFailure()
             }
         }
     }
@@ -43,13 +43,17 @@ class NewsDetailViewModel: NSObject {
     // MARK: - 数据离线
     func newsOffline() {
         // 1、将 NewsInfo 的标题图片存储
-        newsInfo.saveIconToDisk()
-        // 2、创建离线新闻类
+        if newsInfo.hasIcon {
+            newsInfo.saveIconToDisk()
+        }
+        // 2、将 NewsInfo 信息（新闻、博客）中的所有的图片超链接全部修改为磁盘连接
+        newsInfo.replaceContentImageUrl()
+        // 3、创建离线新闻类
         var offlineNews: OfflineInformation = OfflineNews(onlineInfo: newsInfo)
-        offlineNews.setNewsContent(newsInfo.content)
+        offlineNews.setInfoContent(newsInfo.content)
         
         if offlineNews.saveOfflineInfo() {
-            self.newsDetailVC.offlineNewsSuccess()
+            self.newsDetailVC.showOfflineNewsSuccess()
         }
     }
     
