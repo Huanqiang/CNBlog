@@ -11,7 +11,8 @@
 
 #import "DTColor+Compatibility.h"
 #import "DTImage+HTML.h"
-#import "DTWeakSupport.h"
+#import <DTFoundation/DTWeakSupport.h>
+//#import "DTWeakSupport.h"
 
 // common utilities
 #if TARGET_OS_IPHONE

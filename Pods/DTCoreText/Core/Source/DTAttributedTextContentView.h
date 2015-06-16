@@ -7,7 +7,8 @@
 //
 
 #import "DTCoreTextLayoutFrame.h"
-#import "DTWeakSupport.h"
+#import <DTFoundation/DTWeakSupport.h>
+//#import "DTWeakSupport.h"
 
 @class DTAttributedTextContentView;
 @class DTCoreTextLayoutFrame;

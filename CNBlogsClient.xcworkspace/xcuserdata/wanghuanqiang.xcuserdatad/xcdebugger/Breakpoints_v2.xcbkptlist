@@ -153,13 +153,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CNBlogsClient/OfflineInfoViewController.swift"
-            timestampString = "456023329.058119"
+            filePath = "CNBlogsClient/Model/CoreData/CoreDataOperation.swift"
+            timestampString = "456023390.971788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "gainOfflineBaseInfos()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,12 +170,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CNBlogsClient/Model/CoreData/CoreDataOperation.swift"
-            timestampString = "456023390.971788"
+            timestampString = "456138176.741227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "gainOfflineBaseInfos()"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "gainAppointInfo(_:sortDescriptors:predicates:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

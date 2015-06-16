@@ -6,7 +6,8 @@
 //  Copyright 2011 Drobnik.com. All rights reserved.
 //
 
-#import "DTWeakSupport.h"
+#import <DTFoundation/DTWeakSupport.h>
+//#import "DTWeakSupport.h"
 
 @class DTWebVideoView;
 @class DTTextAttachment;
