@@ -28,7 +28,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //添加这行代码
         self.newsListTableView.rowHeight = UITableViewAutomaticDimension
-        self.newsListTableView.estimatedRowHeight = 100.0
+        self.newsListTableView.estimatedRowHeight = 44
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,22 +100,22 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsModel.newsElementLists.count
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let news: OnlineNews = self.newsModel.gainOnlineNewsAtIndexPath(indexPath.row)
+        var cell: UITableViewCell?
+        
         if news.hasIcon {
-            var cell:NewsWithImageTableViewCell? = tableView.dequeueReusableCellWithIdentifier("NewsCellWithImage") as? NewsWithImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("NewsCellWithImage") as? NewsWithImageTableViewCell
             
-            self.configurationImageCellOfIndex(cell!, news: news)
-            
-            return cell!
+            self.configurationImageCellOfIndex(cell as! NewsWithImageTableViewCell, news: news)
         }else {
-            var cell:NewsWithoutImageTableViewCell? = tableView.dequeueReusableCellWithIdentifier("NewsCellWithoutImage") as? NewsWithoutImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("NewsCellWithoutImage") as? NewsWithoutImageTableViewCell
             
-            self.configurationNoImageCellOfIndex(cell!, news: news)
-            
-            return cell!
+            self.configurationNoImageCellOfIndex(cell as! NewsWithoutImageTableViewCell, news: news)
         }
+        
+        return cell!
     }
     
     

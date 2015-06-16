@@ -28,10 +28,6 @@ class NewsWithImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func estimatedCellHeight() -> Float {
-        return 100.0;
-    }
-    
 }
 
 // news list Element 不带图片
@@ -51,10 +47,5 @@ class NewsWithoutImageTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
-    }
-    
-    func estimatedCellHeight() -> Float {
-        return 90.0;
-    }
-    
+    }    
 }

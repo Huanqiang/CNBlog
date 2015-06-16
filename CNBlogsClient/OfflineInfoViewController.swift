@@ -46,6 +46,11 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     }
     */
 
+    // MARK: - 打开菜单
+    @IBAction func showMenu(sender: AnyObject) {
+        self.frostedViewController.presentMenuViewController()
+    }
+    
     // MARK: - 获取数据操作
     @IBAction func gainOfflineNews(sender: AnyObject) {
     }
@@ -72,19 +77,20 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let news: OfflineNews = self.offlineInfoModel.offlineAtIndex(indexPath.row)
+        var cell: UITableViewCell?
+        
         if news.hasIcon {
-            var cell:InfoWithImageTableViewCell? = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithImageCell") as? InfoWithImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithImageCell") as? InfoWithImageTableViewCell
             
-            self.configurationImageCellOfIndex(cell!, news: news)
-            
-            return cell!
+            self.configurationImageCellOfIndex(cell as! InfoWithImageTableViewCell, news: news)
         }else {
-            var cell:InfoWithoutImageTableViewCell? = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithoutImageCell") as? InfoWithoutImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithoutImageCell") as? InfoWithoutImageTableViewCell
             
-            self.configurationNoImageCellOfIndex(cell!, news: news)
-            
-            return cell!
+            self.configurationNoImageCellOfIndex(cell as! InfoWithoutImageTableViewCell, news: news)
+
         }
+        
+        return cell!
     }
     
     
