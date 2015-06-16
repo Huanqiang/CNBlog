@@ -23,7 +23,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
 
         // Do any additional setup after loading the view.
         self.OfflineInfoTableView.rowHeight = UITableViewAutomaticDimension
-        self.OfflineInfoTableView.estimatedRowHeight = 100.0
+        self.OfflineInfoTableView.estimatedRowHeight = 44
     }
     
     override func viewWillAppear(animated: Bool) {
