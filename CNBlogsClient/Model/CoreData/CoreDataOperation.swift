@@ -93,6 +93,29 @@ class CoreDataOperation: NSObject {
             return true
         }
     }
+    
+    // 排序操作
+    /**
+    通过升序的方式，创建一个属性的排序操作
+    
+    :param: sortAttribute 属性名称
+    
+    :returns: 排序操作
+    */
+    func createSortDescriptorByAscend(sortAttribute: String) -> NSSortDescriptor {
+        return NSSortDescriptor(key: sortAttribute, ascending: true)
+    }
+    
+    /**
+    通过降序的方式，创建一个属性的排序操作
+    
+    :param: sortAttribute 属性名称
+    
+    :returns: 排序操作
+    */
+    func createSortDescriptorByUnAscend(sortAttribute: String) -> NSSortDescriptor {
+        return NSSortDescriptor(key: sortAttribute, ascending: false)
+    }
 }
 
 class CoreDataOperationWithNews: CoreDataOperation {
@@ -125,6 +148,7 @@ class CoreDataOperationWithNews: CoreDataOperation {
         newsEntity.newsPublishTime = newsInfo.publishTime
         newsEntity.newsSummary     = newsInfo.summary
         newsEntity.newsTitle       = newsInfo.title
+        newsEntity.newsOfflineTime = NSDate()
         
         return self.managedObjectContext.save(nil)
     }
@@ -150,7 +174,8 @@ class CoreDataOperationWithNews: CoreDataOperation {
     // ********** 获取离线数据 **********
     override func gainOfflineBaseInfos() -> [OfflineInformation] {
         var offlineNewsBaseInfo: NSEntityDescription = self.gainAppointEntityDescription("OfflineNewsBaseInfoEntity")
-        let searchResult = self.gainAppointInfo(offlineNewsBaseInfo, sortDescriptors: [], predicates: [])
+        let sortByDate = self.createSortDescriptorByUnAscend("newsOfflineTime")
+        let searchResult = self.gainAppointInfo(offlineNewsBaseInfo, sortDescriptors: [sortByDate], predicates: [])
         var offlineInfoResults:[OfflineNews] = []
         
         for offlineNewsResult in searchResult {

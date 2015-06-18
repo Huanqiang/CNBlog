@@ -41,6 +41,7 @@
 		E69303941B2052E300DE6E45 /* TopAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69303931B2052E300DE6E45 /* TopAlert.swift */; };
 		E6A5142C1B27E6B500F017A4 /* HTMLParserForInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */; };
 		E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */; };
+		E6B82E351B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B82E331B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift */; };
 		E6C4F1F51B31163400E40FB2 /* OfflineInfoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F1F41B31163400E40FB2 /* OfflineInfoDetailViewModel.swift */; };
 		E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */; };
 		E6D6E22B1B21B94F00CEB66C /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */; };
@@ -60,7 +61,6 @@
 		E6EF87251B196C15009FF4A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6EF87241B196C15009FF4A9 /* Images.xcassets */; };
 		E6EF87281B196C15009FF4A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6EF87261B196C15009FF4A9 /* LaunchScreen.xib */; };
 		E6EF87341B196C15009FF4A9 /* CNBlogsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EF87331B196C15009FF4A9 /* CNBlogsClientTests.swift */; };
-		E6F29C1B1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F29C1A1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift */; };
 		E6F29C1D1B1AE26E000264D7 /* OfflineBlogContentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F29C1C1B1AE26E000264D7 /* OfflineBlogContentEntity.swift */; };
 		E6F29C1F1B1AE26F000264D7 /* BloggerAttentionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F29C1E1B1AE26F000264D7 /* BloggerAttentionEntity.swift */; };
 		E6F29C211B1AE26F000264D7 /* OfflineNewsContentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F29C201B1AE26F000264D7 /* OfflineNewsContentEntity.swift */; };
@@ -143,6 +143,7 @@
 		E69303931B2052E300DE6E45 /* TopAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopAlert.swift; path = TopAlert/TopAlert.swift; sourceTree = "<group>"; };
 		E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParserForInformation.swift; sourceTree = "<group>"; };
 		E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderOperation.swift; sourceTree = "<group>"; };
+		E6B82E331B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineBlogBaseInfoEntity.swift; path = Model/CoreData/OfflineBlogBaseInfoEntity.swift; sourceTree = "<group>"; };
 		E6C4F1F41B31163400E40FB2 /* OfflineInfoDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoDetailViewModel.swift; sourceTree = "<group>"; };
 		E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLNode.swift; path = Function/HTMLParser/HTMLNode.swift; sourceTree = "<group>"; };
 		E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLParser.swift; path = Function/HTMLParser/HTMLParser.swift; sourceTree = "<group>"; };
@@ -166,7 +167,6 @@
 		E6EF872D1B196C15009FF4A9 /* CNBlogsClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CNBlogsClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6EF87321B196C15009FF4A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6EF87331B196C15009FF4A9 /* CNBlogsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNBlogsClientTests.swift; sourceTree = "<group>"; };
-		E6F29C1A1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineBlogBaseInfoEntity.swift; path = Model/CoreData/OfflineBlogBaseInfoEntity.swift; sourceTree = "<group>"; };
 		E6F29C1C1B1AE26E000264D7 /* OfflineBlogContentEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineBlogContentEntity.swift; path = Model/CoreData/OfflineBlogContentEntity.swift; sourceTree = "<group>"; };
 		E6F29C1E1B1AE26F000264D7 /* BloggerAttentionEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloggerAttentionEntity.swift; path = Model/CoreData/BloggerAttentionEntity.swift; sourceTree = "<group>"; };
 		E6F29C201B1AE26F000264D7 /* OfflineNewsContentEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineNewsContentEntity.swift; path = Model/CoreData/OfflineNewsContentEntity.swift; sourceTree = "<group>"; };
@@ -416,11 +416,11 @@
 		E6D6E2321B21ECD300CEB66C /* BaseDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				E6B82E331B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift */,
 				E6F29C221B1AE26F000264D7 /* OfflineNewsBaseInfoEntity.swift */,
 				E6F29C201B1AE26F000264D7 /* OfflineNewsContentEntity.swift */,
 				E6F29C1E1B1AE26F000264D7 /* BloggerAttentionEntity.swift */,
 				E6F29C1C1B1AE26E000264D7 /* OfflineBlogContentEntity.swift */,
-				E6F29C1A1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift */,
 			);
 			name = BaseDataModel;
 			sourceTree = "<group>";
@@ -830,7 +830,6 @@
 				E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */,
 				E6EF871B1B196C15009FF4A9 /* AppDelegate.swift in Sources */,
 				E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */,
-				E6F29C1B1B1AE26E000264D7 /* OfflineBlogBaseInfoEntity.swift in Sources */,
 				E61901161B1C9A1A00E583C5 /* MJRefreshFooter.m in Sources */,
 				E619011C1B1C9A1A00E583C5 /* UIScrollView+MJExtension.m in Sources */,
 				E619011D1B1C9A1A00E583C5 /* UIScrollView+MJRefresh.m in Sources */,
@@ -838,6 +837,7 @@
 				E62426EF1B1D74B5002AF56B /* NetworkOperation.swift in Sources */,
 				E61901151B1C9A1A00E583C5 /* MJRefreshConst.m in Sources */,
 				E61901171B1C9A1A00E583C5 /* MJRefreshGifFooter.m in Sources */,
+				E6B82E351B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift in Sources */,
 				E62426ED1B1D4513002AF56B /* XMLOperation.swift in Sources */,
 				E6E64D131B198A4500EF7820 /* OfflineNews.swift in Sources */,
 				E6F6B86B1B1B5A3A004BC482 /* ExtensionUIKit.swift in Sources */,

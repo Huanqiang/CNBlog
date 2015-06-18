@@ -11,6 +11,7 @@
         <attribute name="blogHasIcon" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="blogIconPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blogId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blogOfflineTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="blogPublishTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="blogSummary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blogTitle" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,6 +25,7 @@
         <attribute name="newsHasIcon" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="newsIconPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newsId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsOfflineTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="newsPublishTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="newsSummary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newsTitle" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,9 +36,9 @@
     </entity>
     <elements>
         <element name="BloggerAttentionEntity" positionX="-243" positionY="138" width="128" height="105"/>
-        <element name="OfflineBlogBaseInfoEntity" positionX="-54" positionY="207" width="128" height="150"/>
+        <element name="OfflineBlogBaseInfoEntity" positionX="-54" positionY="207" width="128" height="165"/>
         <element name="OfflineBlogContentEntity" positionX="189" positionY="234" width="128" height="75"/>
-        <element name="OfflineNewsBaseInfoEntity" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="OfflineNewsBaseInfoEntity" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="OfflineNewsContentEntity" positionX="187" positionY="27" width="128" height="75"/>
     </elements>
 </model>
