@@ -29,6 +29,7 @@ class OfflineNews: OfflineInformation {
         self.author      = offlineInfo.newsAuthor
         self.publishTime = offlineInfo.newsPublishTime
         self.iconPath    = offlineInfo.newsIconPath
+        self.hasIcon     = offlineInfo.newsHasIcon.boolValue
         
         self.coreDataOperation = CoreDataOperationWithNews()
     }

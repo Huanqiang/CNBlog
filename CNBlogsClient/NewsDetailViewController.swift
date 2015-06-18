@@ -110,6 +110,15 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
     func attributedTextContentView(attributedTextContentView: DTAttributedTextContentView!, viewForLink url: NSURL!, identifier: String!, frame: CGRect) -> UIView! {
         var linkButton: DTLinkButton = DTLinkButton(frame: frame)
         linkButton.URL = url
+        
+        // get image with normal link text
+        var normalImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.Default)
+        linkButton.setImage(normalImage, forState: UIControlState.Normal)
+        
+        // get image for highlighted link text
+        var highlightImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.DrawLinksHighlighted)
+        linkButton.setImage(highlightImage, forState: UIControlState.Highlighted)
+
         linkButton.addTarget(self, action: "linkButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         return linkButton
     }

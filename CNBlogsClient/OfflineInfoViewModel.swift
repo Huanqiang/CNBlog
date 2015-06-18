@@ -40,4 +40,10 @@ class OfflineInfoViewModel: NSObject {
     func gainNewsElementListsCount() -> Int {
         return self.newsElementLists.count
     }
+    
+    // MARK: - 界面数据传递
+    func offlineInfoDetailViewModelForIndexPath(index: Int, vc: OfflineInfoDetailViewController) -> OfflineInfoDetailViewModel {
+        return OfflineInfoDetailViewModel(offlineInfo: self.offlineAtIndex(index), vc: vc)
+    }
+    
 }

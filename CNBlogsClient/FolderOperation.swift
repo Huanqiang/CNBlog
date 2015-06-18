@@ -27,9 +27,7 @@ class FolderOperation: NSObject {
         let folderPath: String = self.gainFolderPath(folderName)
         // 这里不能加 .png 后缀，因为之前在存的时候就是直接存在url 的lastPathComponent
         let imagePath: String = folderPath.stringByAppendingString("/\(imageName)")
-//        var fileManager: NSFileManager = NSFileManager.defaultManager()
-//        let image: UIImage =
-        
+
         return UIImage(contentsOfFile: imagePath)!
     }
     
@@ -44,7 +42,7 @@ class FolderOperation: NSObject {
     */
     func saveImageToFolder(folderName: String, imageData: NSData, imageName: String) -> String{
         let folderPath: String = self.gainFolderPath(folderName)
-        let imagePath: String = folderPath.stringByAppendingString("/\(imageName).png")
+        let imagePath: String = folderPath.stringByAppendingString("/\(imageName)")
         var fileManager: NSFileManager = NSFileManager.defaultManager()
         //把刚刚图片转换的data对象保存至沙盒中
         fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil)

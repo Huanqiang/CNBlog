@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 /*
 类说明： 本类为从网上获取的资讯类（新闻或者博客），在获取列表的时候创建，在获取内容的时候添加内容即可
@@ -67,9 +66,9 @@ class OnlineInformation: NSObject {
     
     :returns: 图片的磁盘路径
     */
-    func saveImage(img: UIImage) -> String {
+    func saveImage(img: UIImage, imgName: String) -> String {
         let iconData = UIImagePNGRepresentation(img)
-        let localIconPath = folder.saveImageToFolder(NewsIconFolderName, imageData: iconData, imageName: self.id)
+        let localIconPath = folder.saveImageToFolder(NewsIconFolderName, imageData: iconData, imageName: imgName)
         return localIconPath
     }
     
@@ -79,7 +78,7 @@ class OnlineInformation: NSObject {
     func saveIconToDisk() {
         //创建文件夹
         folder.createFolderWhenNon(NewsIconFolderName)
-        self.iconPath = self.saveImage(self.iconInfo)
+        self.iconPath = self.saveImage(self.iconInfo, imgName: "\(self.id).png")
     }
     
     /**
@@ -99,7 +98,7 @@ class OnlineInformation: NSObject {
         var imgTagDic: Dictionary<String, String> = Dictionary<String, String>()
         for imgTag in imgTags {
             let img = folder.gainImageFromFolder(CacheFolderName, imageName: imgTag.lastPathComponent)
-            imgTagDic[imgTag] = self.saveImage(img)
+            imgTagDic[imgTag] = self.saveImage(img, imgName: imgTag.lastPathComponent)
         }
         return imgTagDic
     }

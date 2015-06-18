@@ -20,11 +20,45 @@ class HTMLParserForInformation: NSObject {
     */
     func replaceImaTagWithHTMLInfo(htmlInfo: String, newImgTag: Dictionary<String, String>) ->String {
         var newHtmlInfo: String = htmlInfo
+        
+        
+        // 先替换 url
         for (priImg, nowImg) in newImgTag {
             newHtmlInfo = newHtmlInfo.stringByReplacingOccurrencesOfString(priImg, withString: nowImg, options: NSStringCompareOptions.LiteralSearch, range: nil)
         }
         
+        // 再设置图片的大小
+        var error: NSError?
+        var parseInfo = HTMLParser(html: self.addHtmlBodyTag(newHtmlInfo), error: &error)
+        var bodyNode = parseInfo.body
+        if let inputNodes = bodyNode?.findChildTags("img") {
+            for node in inputNodes {
+                let imageWidth = node.getAttributeNamed("width")
+                if equal(imageWidth, "") {
+                    let imgUrl = node.getAttributeNamed("src")
+                    newHtmlInfo = newHtmlInfo.stringByReplacingOccurrencesOfString(imgUrl + "\"", withString: self.replaceImageFrame(imgUrl), options: NSStringCompareOptions.LiteralSearch, range: nil)
+                }
+            }
+        }
+        
+        
+        
         return newHtmlInfo
+    }
+    
+    // 能过获取图片原本宽高（尺寸）
+    func gainImageFrame(image: UIImage) {
+        var imageSource: CGImageRef = image.CGImage
+        var height = CGImageGetHeight(imageSource)
+        var width = CGImageGetWidth(imageSource)
+    }
+    
+    
+    
+    func replaceImageFrame(imgUrl: String) -> String {
+        let img = UIImage(contentsOfFile: imgUrl)
+        let size = img!.originalFrame()
+        return imgUrl + "\" width=\"\(size.width)\" height=\"\(size.height)\""
     }
     
     /**

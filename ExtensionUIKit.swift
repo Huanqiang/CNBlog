@@ -19,6 +19,16 @@ extension UITableView {
     }
 }
 
+
+extension UIImage {
+    
+    func originalFrame() -> CGSize {
+        let imageSouce = self.CGImage!
+        return CGSizeMake(CGFloat(CGImageGetWidth(imageSouce)), CGFloat(CGImageGetHeight(imageSouce)))
+    }
+    
+}
+
 // ***********   Foundation Extension ************
 
 extension String {

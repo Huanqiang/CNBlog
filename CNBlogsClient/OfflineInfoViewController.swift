@@ -36,15 +36,20 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let index = self.OfflineInfoTableView.indexPathForSelectedRow()!.row
+        if equal(segue.identifier!, "OfflineInfoListWithImageToDetail") || equal(segue.identifier!, "OfflineInfoListWithoutImageToDetail") {
+            var offlineDetailInfoVC = segue.destinationViewController as! OfflineInfoDetailViewController
+            offlineDetailInfoVC.offlineDetailInfoModel = self.offlineInfoModel.offlineInfoDetailViewModelForIndexPath(index, vc: offlineDetailInfoVC)
+        }
     }
-    */
+
 
     // MARK: - 打开菜单
     @IBAction func showMenu(sender: AnyObject) {
@@ -76,7 +81,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let news: OfflineNews = self.offlineInfoModel.offlineAtIndex(indexPath.row)
+        let news: OfflineInformation = self.offlineInfoModel.offlineAtIndex(indexPath.row)
         var cell: UITableViewCell?
         
         if news.hasIcon {
@@ -93,24 +98,22 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
         return cell!
     }
     
-    
     // MARK: - TableView Delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    
     // MARK: - 私有函数
-    func configurationImageCellOfIndex(cell: InfoWithImageTableViewCell, news: OfflineNews) {
+    func configurationImageCellOfIndex(cell: InfoWithImageTableViewCell, news: OfflineInformation) {
         cell.infoTitleLabel.text       = news.title
         cell.infoSummaryLabel.text     = news.summary
         cell.infoAuathorLabel.text     = news.author
         cell.infoPublishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
         
-        cell.infoImageView.image = FolderOperation().gainImageFromFolder(CacheFolderName, imageName: news.iconPath.lastPathComponent)
+        cell.infoImageView.image = FolderOperation().gainImageFromFolder(NewsIconFolderName, imageName: news.iconPath.lastPathComponent)
     }
     
-    func configurationNoImageCellOfIndex(cell: InfoWithoutImageTableViewCell, news: OfflineNews) {
+    func configurationNoImageCellOfIndex(cell: InfoWithoutImageTableViewCell, news: OfflineInformation) {
         cell.infoTitleLabel.text       = news.title
         cell.infoSummaryLabel.text     = news.summary
         cell.infoAuathorLabel.text     = news.author
