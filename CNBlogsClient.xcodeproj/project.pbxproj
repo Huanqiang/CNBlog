@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E60301201B3AA40A007E5390 /* SearchBloggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E603011F1B3AA40A007E5390 /* SearchBloggerViewModel.swift */; };
+		E6187FE51B3A5D28003F9FB7 /* SearchBloggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FE41B3A5D28003F9FB7 /* SearchBloggerViewController.swift */; };
+		E6187FE71B3A5D4A003F9FB7 /* MyAttentionerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FE61B3A5D4A003F9FB7 /* MyAttentionerViewController.swift */; };
+		E6187FEB1B3A5DF2003F9FB7 /* BlogOfBloggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FEA1B3A5DF2003F9FB7 /* BlogOfBloggerViewController.swift */; };
+		E6187FEE1B3A5EE7003F9FB7 /* MyAttentionerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FED1B3A5EE7003F9FB7 /* MyAttentionerViewModel.swift */; };
+		E6187FF01B3A5F77003F9FB7 /* BloggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FEF1B3A5F77003F9FB7 /* BloggerTableViewCell.swift */; };
 		E61900F21B1C8A2F00E583C5 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F11B1C8A2F00E583C5 /* BlogViewController.swift */; };
 		E61900F41B1C8A4D00E583C5 /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F31B1C8A4D00E583C5 /* BlogViewModel.swift */; };
 		E61900F71B1C924900E583C5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */; };
@@ -27,6 +33,7 @@
 		E62426EF1B1D74B5002AF56B /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62426EE1B1D74B5002AF56B /* NetworkOperation.swift */; };
 		E6580DDB1B1C7CCD00D98072 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */; };
 		E67AC3CC1B31138D0005E701 /* OfflineInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67AC3CB1B31138D0005E701 /* OfflineInfoDetailViewController.swift */; };
+		E67AF6651B37C66700CD3BB4 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67AF6641B37C66700CD3BB4 /* SettingTableViewController.swift */; };
 		E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */; };
 		E6908E5A1B2C18930003681D /* OfflineInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */; };
 		E6908E5D1B2C1F070003681D /* InfoWithImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */; };
@@ -42,7 +49,10 @@
 		E6A5142C1B27E6B500F017A4 /* HTMLParserForInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */; };
 		E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */; };
 		E6B82E351B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B82E331B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift */; };
+		E6C3A0721B39ABF90067B9EF /* Thanks.htm in Resources */ = {isa = PBXBuildFile; fileRef = E6C3A0711B39ABF90067B9EF /* Thanks.htm */; };
 		E6C4F1F51B31163400E40FB2 /* OfflineInfoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F1F41B31163400E40FB2 /* OfflineInfoDetailViewModel.swift */; };
+		E6D404951B3A4B3D00494808 /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D404941B3A4B3D00494808 /* OpenSourceLicenseViewController.swift */; };
+		E6D404971B3A4B5000494808 /* OpenSourceLicenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D404961B3A4B5000494808 /* OpenSourceLicenseViewModel.swift */; };
 		E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */; };
 		E6D6E22B1B21B94F00CEB66C /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */; };
 		E6D6E22D1B21B9E600CEB66C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D6E22C1B21B9E600CEB66C /* libxml2.dylib */; };
@@ -93,6 +103,12 @@
 /* Begin PBXFileReference section */
 		13BE447160303073D1406A0A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7AA2F0EFF1CDD8A96E413EA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E603011F1B3AA40A007E5390 /* SearchBloggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBloggerViewModel.swift; sourceTree = "<group>"; };
+		E6187FE41B3A5D28003F9FB7 /* SearchBloggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBloggerViewController.swift; sourceTree = "<group>"; };
+		E6187FE61B3A5D4A003F9FB7 /* MyAttentionerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAttentionerViewController.swift; sourceTree = "<group>"; };
+		E6187FEA1B3A5DF2003F9FB7 /* BlogOfBloggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogOfBloggerViewController.swift; sourceTree = "<group>"; };
+		E6187FED1B3A5EE7003F9FB7 /* MyAttentionerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAttentionerViewModel.swift; sourceTree = "<group>"; };
+		E6187FEF1B3A5F77003F9FB7 /* BloggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloggerTableViewCell.swift; sourceTree = "<group>"; };
 		E61900F11B1C8A2F00E583C5 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		E61900F31B1C8A4D00E583C5 /* BlogViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
 		E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -125,6 +141,7 @@
 		E62426EE1B1D74B5002AF56B /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		E67AC3CB1B31138D0005E701 /* OfflineInfoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoDetailViewController.swift; sourceTree = "<group>"; };
+		E67AF6641B37C66700CD3BB4 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewController.swift; sourceTree = "<group>"; };
 		E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewModel.swift; sourceTree = "<group>"; };
 		E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWithImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,7 +161,10 @@
 		E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParserForInformation.swift; sourceTree = "<group>"; };
 		E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderOperation.swift; sourceTree = "<group>"; };
 		E6B82E331B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineBlogBaseInfoEntity.swift; path = Model/CoreData/OfflineBlogBaseInfoEntity.swift; sourceTree = "<group>"; };
+		E6C3A0711B39ABF90067B9EF /* Thanks.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Thanks.htm; sourceTree = "<group>"; };
 		E6C4F1F41B31163400E40FB2 /* OfflineInfoDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoDetailViewModel.swift; sourceTree = "<group>"; };
+		E6D404941B3A4B3D00494808 /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
+		E6D404961B3A4B5000494808 /* OpenSourceLicenseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewModel.swift; sourceTree = "<group>"; };
 		E6D6E2281B21B94F00CEB66C /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLNode.swift; path = Function/HTMLParser/HTMLNode.swift; sourceTree = "<group>"; };
 		E6D6E2291B21B94F00CEB66C /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLParser.swift; path = Function/HTMLParser/HTMLParser.swift; sourceTree = "<group>"; };
 		E6D6E22C1B21B9E600CEB66C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -231,6 +251,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E6187FE81B3A5D5A003F9FB7 /* MyAttentioner View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6187FE61B3A5D4A003F9FB7 /* MyAttentionerViewController.swift */,
+				E6187FED1B3A5EE7003F9FB7 /* MyAttentionerViewModel.swift */,
+				E6187FEF1B3A5F77003F9FB7 /* BloggerTableViewCell.swift */,
+			);
+			name = "MyAttentioner View Controller";
+			sourceTree = "<group>";
+		};
+		E6187FE91B3A5D6B003F9FB7 /* SearchBlogger View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6187FE41B3A5D28003F9FB7 /* SearchBloggerViewController.swift */,
+				E603011F1B3AA40A007E5390 /* SearchBloggerViewModel.swift */,
+			);
+			name = "SearchBlogger View Controller";
+			sourceTree = "<group>";
+		};
+		E6187FEC1B3A5DFD003F9FB7 /* BlogOfBlogger View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6187FEA1B3A5DF2003F9FB7 /* BlogOfBloggerViewController.swift */,
+			);
+			name = "BlogOfBlogger View Controller";
+			sourceTree = "<group>";
+		};
 		E61900F51B1C8A5500E583C5 /* Blog View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +350,15 @@
 				E6C4F1F41B31163400E40FB2 /* OfflineInfoDetailViewModel.swift */,
 			);
 			name = "OfflineInfo Detail View Controller";
+			sourceTree = "<group>";
+		};
+		E67AF6661B37C67100CD3BB4 /* Setting View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E67AF6641B37C66700CD3BB4 /* SettingTableViewController.swift */,
+				E6D404981B3A4B5900494808 /* OpenSourceLicense */,
+			);
+			name = "Setting View Controller";
 			sourceTree = "<group>";
 		};
 		E6908E5B1B2C18A40003681D /* OfflineInfo View Controller */ = {
@@ -386,6 +442,15 @@
 				E6F6B8551B1B2E5B004BC482 /* REFrostedViewController */,
 			);
 			name = Function;
+			sourceTree = "<group>";
+		};
+		E6D404981B3A4B5900494808 /* OpenSourceLicense */ = {
+			isa = PBXGroup;
+			children = (
+				E6D404941B3A4B3D00494808 /* OpenSourceLicenseViewController.swift */,
+				E6D404961B3A4B5000494808 /* OpenSourceLicenseViewModel.swift */,
+			);
+			name = OpenSourceLicense;
 			sourceTree = "<group>";
 		};
 		E6D6E2271B21B94200CEB66C /* HTMLParser */ = {
@@ -505,6 +570,10 @@
 				E61900F51B1C8A5500E583C5 /* Blog View Controller */,
 				E6908E5B1B2C18A40003681D /* OfflineInfo View Controller */,
 				E6908E601B2C20190003681D /* Info TableView Cell */,
+				E6187FE91B3A5D6B003F9FB7 /* SearchBlogger View Controller */,
+				E6187FEC1B3A5DFD003F9FB7 /* BlogOfBlogger View Controller */,
+				E6187FE81B3A5D5A003F9FB7 /* MyAttentioner View Controller */,
+				E67AF6661B37C67100CD3BB4 /* Setting View Controller */,
 				E6EF871A1B196C15009FF4A9 /* AppDelegate.swift */,
 				E62426E91B1D3790002AF56B /* EnumOptionManage.swift */,
 				E6EF87211B196C15009FF4A9 /* Main.storyboard */,
@@ -618,6 +687,7 @@
 				E6EF87241B196C15009FF4A9 /* Images.xcassets */,
 				E6EF87261B196C15009FF4A9 /* LaunchScreen.xib */,
 				E6EF871C1B196C15009FF4A9 /* CNBlogsClient.xcdatamodeld */,
+				E6C3A0711B39ABF90067B9EF /* Thanks.htm */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -722,6 +792,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C3A0721B39ABF90067B9EF /* Thanks.htm in Resources */,
 				E6EF87231B196C15009FF4A9 /* Main.storyboard in Resources */,
 				E693038F1B20521A00DE6E45 /* FontAwesome.ttf in Resources */,
 				E6EF87281B196C15009FF4A9 /* LaunchScreen.xib in Resources */,
@@ -792,9 +863,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E67AF6651B37C66700CD3BB4 /* SettingTableViewController.swift in Sources */,
 				E619011B1B1C9A1A00E583C5 /* MJRefreshLegendHeader.m in Sources */,
 				E6F29C1D1B1AE26E000264D7 /* OfflineBlogContentEntity.swift in Sources */,
 				E61900F21B1C8A2F00E583C5 /* BlogViewController.swift in Sources */,
+				E6187FF01B3A5F77003F9FB7 /* BloggerTableViewCell.swift in Sources */,
 				E61900F71B1C924900E583C5 /* NewsTableViewCell.swift in Sources */,
 				E61901181B1C9A1A00E583C5 /* MJRefreshGifHeader.m in Sources */,
 				E6F6B8611B1B339A004BC482 /* NavigationController.swift in Sources */,
@@ -805,6 +878,7 @@
 				E6F6B85E1B1B31AD004BC482 /* NewsViewController.swift in Sources */,
 				E6F6B84F1B1B2E49004BC482 /* REFrostedContainerViewController.m in Sources */,
 				E6E64D0B1B19872300EF7820 /* OnlineBlog.swift in Sources */,
+				E6187FE71B3A5D4A003F9FB7 /* MyAttentionerViewController.swift in Sources */,
 				E6E64D031B19752900EF7820 /* Blogger.swift in Sources */,
 				E6A5142C1B27E6B500F017A4 /* HTMLParserForInformation.swift in Sources */,
 				E619011E1B1C9A1A00E583C5 /* UIView+MJExtension.m in Sources */,
@@ -816,25 +890,30 @@
 				E619011A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m in Sources */,
 				E6F29C231B1AE26F000264D7 /* OfflineNewsBaseInfoEntity.swift in Sources */,
 				E62426EA1B1D3790002AF56B /* EnumOptionManage.swift in Sources */,
+				E60301201B3AA40A007E5390 /* SearchBloggerViewModel.swift in Sources */,
 				E6F6B8531B1B2E49004BC482 /* UIViewController+REFrostedViewController.m in Sources */,
 				E6E64D071B19859500EF7820 /* OnlineInformation.swift in Sources */,
 				E6E64D0D1B19888F00EF7820 /* OfflineInformation.swift in Sources */,
 				E6F6B84E1B1B2E49004BC482 /* RECommonFunctions.m in Sources */,
+				E6187FEE1B3A5EE7003F9FB7 /* MyAttentionerViewModel.swift in Sources */,
 				E6F6B8591B1B3120004BC482 /* RootViewController.swift in Sources */,
 				E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */,
 				E6D6E2311B21C6E100CEB66C /* SwiftNotice.swift in Sources */,
 				E6F29C1F1B1AE26F000264D7 /* BloggerAttentionEntity.swift in Sources */,
 				E6D6E2351B21ED0E00CEB66C /* CoreDataOperation.swift in Sources */,
 				E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */,
+				E6187FE51B3A5D28003F9FB7 /* SearchBloggerViewController.swift in Sources */,
 				E6F29C211B1AE26F000264D7 /* OfflineNewsContentEntity.swift in Sources */,
 				E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */,
 				E6EF871B1B196C15009FF4A9 /* AppDelegate.swift in Sources */,
 				E6D6E22A1B21B94F00CEB66C /* HTMLNode.swift in Sources */,
 				E61901161B1C9A1A00E583C5 /* MJRefreshFooter.m in Sources */,
+				E6D404971B3A4B5000494808 /* OpenSourceLicenseViewModel.swift in Sources */,
 				E619011C1B1C9A1A00E583C5 /* UIScrollView+MJExtension.m in Sources */,
 				E619011D1B1C9A1A00E583C5 /* UIScrollView+MJRefresh.m in Sources */,
 				E61900F41B1C8A4D00E583C5 /* BlogViewModel.swift in Sources */,
 				E62426EF1B1D74B5002AF56B /* NetworkOperation.swift in Sources */,
+				E6187FEB1B3A5DF2003F9FB7 /* BlogOfBloggerViewController.swift in Sources */,
 				E61901151B1C9A1A00E583C5 /* MJRefreshConst.m in Sources */,
 				E61901171B1C9A1A00E583C5 /* MJRefreshGifFooter.m in Sources */,
 				E6B82E351B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift in Sources */,
@@ -851,6 +930,7 @@
 				E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */,
 				E6E64D111B198A2A00EF7820 /* OfflineBlog.swift in Sources */,
 				E6F6B8511B1B2E49004BC482 /* UIImage+REFrostedViewController.m in Sources */,
+				E6D404951B3A4B3D00494808 /* OpenSourceLicenseViewController.swift in Sources */,
 				E693038E1B20521A00DE6E45 /* FAImageView.m in Sources */,
 				E61901141B1C9A1A00E583C5 /* MJRefreshComponent.m in Sources */,
 				E6908E5D1B2C1F070003681D /* InfoWithImageTableViewCell.swift in Sources */,

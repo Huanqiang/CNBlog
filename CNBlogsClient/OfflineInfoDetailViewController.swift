@@ -89,7 +89,7 @@ class OfflineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate
     }
     
     @IBAction func linkButtonClicked(sender: DTLinkButton) {
-        UIApplication.sharedApplication().openURL(sender.URL)
+        sender.URL.absoluteString?.openURL()
     }
     
     /**

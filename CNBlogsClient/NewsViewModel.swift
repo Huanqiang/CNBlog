@@ -32,7 +32,7 @@ class NewsViewModel: NSObject {
         weak var weakSelf: NewsViewModel? = self
         networkOperation.gainInfomationFromNetwork(CNBlogAPIOption.recentNews, parameters: ["20"]) { (onlineInfo) -> Void in
             if (onlineInfo != nil) {
-                weakSelf!.newsElementLists = onlineInfo!
+                weakSelf!.newsElementLists = onlineInfo as! [OnlineInformation]
                 weakSelf!.newsVC.reloadTabeleView()
             }else {
                 weakSelf!.newsVC.gainNewsInfoFailure()

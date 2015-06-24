@@ -36,9 +36,8 @@ class NetworkOperation: NSObject {
     :param: parameters        URL参数数组
     :param: completionHandler 网络结果操作闭包
     */
-    func gainInfomationFromNetwork(menuOption: CNBlogAPIOption, parameters: [String], completionHandler: (onlineInfo : [OnlineInformation]?) -> Void) {
+    func gainInfomationFromNetwork(menuOption: CNBlogAPIOption, parameters: [String], completionHandler: (onlineInfo : [AnyObject]?) -> Void) {
         // 获取网络操作数据
-//        weak var weakSelf: NetworkOperation? = self
         // 1、Url拼凑
         var urling: String = self.gainURLString(menuOption, parameters: parameters)
         Alamofire.request(.GET, urling)
@@ -118,44 +117,74 @@ class NetworkOperationWithNewsContext: NetworkOperation {
         return urlString
     }
     
-    
     override func createXmlOpertion() -> XMLOperation {
         return NewsContentXmlOperation()
     }
 }
 
+// 获取 博客 的网络类
 class NetworkOperationWithBlog: NetworkOperation {
-    //    <#properties and methods#>
+    override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
+        var urlString = CNBlogMainUrl + "/news"
+        
+        switch menuOption {
+        case CNBlogAPIOption.recentNews:
+            urlString += "/sitehome/recent"
+        case CNBlogAPIOption.popNews:
+            urlString += "/48HoursTopViewPosts"
+        case CNBlogAPIOption.commendNews:
+            urlString += "/TenDaysTopDiggPosts"
+        default:
+            println("")
+        }
+        
+        for parameter in parameters {
+            urlString += "/\(parameter)"
+        }
+        return urlString
+    }
+    
+    override func createXmlOpertion() -> XMLOperation {
+        return BlogXmlOperation()
+    }
 }
 
-class NetworkOperationWithMyBlog: NetworkOperation {
-    //    <#properties and methods#>
+class NetworkOperationWithBlogContext: NetworkOperation {
+    override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
+        var urlString = CNBlogMainUrl + "/blog/post/body"
+        for parameter in parameters {
+            urlString += "/\(parameter)"
+        }
+        return urlString
+    }
+    
+    override func createXmlOpertion() -> XMLOperation {
+        return BlogContentXmlOperation()
+    }
 }
 
+// 获取 博主的博客操作类  blog/u/{Blogapp}/posts/1/5
+class NetworkOperationWithBlogListOfBlogger: NetworkOperation {
+    override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
+        var urlString = CNBlogMainUrl + "/blog/u" + "/{\(parameters[0])}" + "/posts" + "/{\(parameters[1])}" + "/{\(parameters[2])}"
+        return urlString
+    }
+    
+    override func createXmlOpertion() -> XMLOperation {
+        return BlogXmlOperation()
+    }
+}
+
+
+// 搜索博主 网络类
 class NetworkOperationWithSearchBlogger: NetworkOperation {
-    //    <#properties and methods#>
+    override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
+        var urlString = CNBlogMainUrl + "/blog/bloggers/search?t=\(parameters[0])"
+        return urlString
+    }
+    
+    override func createXmlOpertion() -> XMLOperation {
+        return SearchBloggerXmlOperation()
+    }
 }
-
-
-//API：/news/hot/10
-//A.	最近新闻
-//API：http://wcf.open.cnblogs.com/news/recent/10
-//B.	推荐新闻
-//API：http://wcf.open.cnblogs.com/news/recommend/paged/1/5
-////http://wcf.open.cnblogs.com/news/item/199054
-
-//API：http://wcf.open.cnblogs.com/blog/sitehome/recent/5
-//A.	两天内推荐博客
-//API：http://wcf.open.cnblogs.com/blog/48HoursTopViewPosts/5
-//B.	十天推荐排行
-//API：http://wcf.open.cnblogs.com/blog/TenDaysTopDiggPosts/5
-// http://wcf.open.cnblogs.com/blog/post/body/3535626
-
-
-//API：http://wcf.open.cnblogs.com/blog/bloggers/search?t=博主名
-//http://wcf.open.cnblogs.com/blog/u/{Blogapp}/posts/1/5
-
-
-
-
 

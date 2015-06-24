@@ -21,7 +21,7 @@ class XMLOperation: NSObject {
     
     :returns: OnlineInformation 数组
     */
-    func gainXmlInfoLists(xmlData: NSData) -> [OnlineInformation] {
+    func gainXmlInfoLists(xmlData: NSData) -> [AnyObject] {
         xmlElements = []
         
         var error: NSError?
@@ -49,9 +49,20 @@ class XMLOperation: NSObject {
     func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
         return OnlineInformation()
     }
+    
+    /**
+    获取单个的博主信息
+    
+    :param: newsList 单个XML信息组
+    
+    :returns: 单个的博主信息
+    */
+    func gainNewsElement(newsList: AEXMLElement) -> Blogger {
+        return Blogger()
+    }
 }
 
-
+// 新闻解析类
 class NewsXmlOperation: XMLOperation {
     
     override func gainXmlDoc(xmlDoc: AEXMLDocument) {
@@ -62,7 +73,7 @@ class NewsXmlOperation: XMLOperation {
     }
 
     override func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
-        var onlineInfo: OnlineInformation = OnlineNews()
+        var onlineInfo: OnlineNews = OnlineNews()
         
         onlineInfo.id      = newsList["id"].stringValue
         onlineInfo.title   = newsList["title"].stringValue
@@ -99,23 +110,68 @@ class NewsContentXmlOperation: XMLOperation {
     }
 }
 
-
+// 博客解析类
 class BlogXmlOperation: XMLOperation {
+    override func gainXmlDoc(xmlDoc: AEXMLDocument) {
+        let newsLists = xmlDoc.root["entry"].all
+        for newsList in newsLists! {
+            xmlElements.append(self.gainNewsElement(newsList))
+        }
+    }
     
+    override func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
+        var onlineInfo: OnlineBlog = OnlineBlog()
+        onlineInfo.id          = newsList["id"].stringValue
+        onlineInfo.title       = newsList["title"].stringValue
+        onlineInfo.summary     = newsList["summary"].stringValue
+        onlineInfo.diggs       = newsList["diggs"].stringValue.toInt()!
+        onlineInfo.views       = newsList["views"].stringValue.toInt()!
+        onlineInfo.authorUrl   = newsList["author"]["uri"].stringValue
+        onlineInfo.author      = newsList["author"]["name"].stringValue
+
+        let dateStr: String    = newsList["published"].stringValue
+        onlineInfo.publishTime = dateStr.stringToDateWithDateFormat(CNBlogDateFormatForApi)
+        
+        return onlineInfo
+    }
 }
 
 class BlogContentXmlOperation: XMLOperation {
-
+    override func gainXmlDoc(xmlDoc: AEXMLDocument) {
+        let newsLists = xmlDoc.root.all
+        for newsList in newsLists! {
+            xmlElements.append(self.gainNewsElement(newsList))
+        }
+    }
+    
+    override func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
+        var onlineInfo: OnlineInformation = OnlineNews()
+        onlineInfo.content = newsList.stringValue
+        return onlineInfo
+    }
 }
 
 
-
+// 搜索博主网络操作 解析类
 class SearchBloggerXmlOperation: XMLOperation {
+    override func gainXmlDoc(xmlDoc: AEXMLDocument) {
+        let newsLists = xmlDoc.root["entry"].all
+        for newsList in newsLists! {
+            xmlElements.append(self.gainNewsElement(newsList))
+        }
+    }
     
-}
+    override func gainNewsElement(newsList: AEXMLElement) -> Blogger {
+        var blogger: Blogger = Blogger()
+        blogger.bloggerId           = newsList["blogapp"].stringValue
+        blogger.bloggerIconURL      = newsList["avatar"].stringValue
+        blogger.bloggerName         = newsList["title"].stringValue
+        blogger.bloggerArticleCount = newsList["postcount"].stringValue.toInt()!
 
-class BlogOfBloggerXmlOperation: XMLOperation {
-    
+        let dateStr: String         = newsList["updated"].stringValue
+        blogger.bloggerUpdatedTime  = dateStr.stringToDateWithDateFormat(CNBlogDateFormatForApi)
+        return blogger
+    }
 }
 
 

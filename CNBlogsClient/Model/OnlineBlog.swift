@@ -8,6 +8,7 @@
 
 import UIKit
 
-class OnlineBlog: NSObject {
+class OnlineBlog: OnlineInformation {
+    var authorUrl: String   = ""  // 作者URL
    
 }

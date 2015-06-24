@@ -15,11 +15,20 @@ class Blogger: NSObject {
     var bloggerIconPath: String    = ""        // 博主头像本地路径
     var bloggerArticleCount: Int   = 0         // 博主文章数量
     var bloggerUpdatedTime: NSDate = NSDate()  // 博主最后活跃时间
+    var bloggerIconInfo: UIImage   = UIImage() // 博主头像image
+    
+    override init() {
+    }
     
     init(bId:String, bName: String) {
         super.init()
         self.bloggerId = bId;
         self.bloggerName = bName;
+    }
+    
+    
+    func saveBlogger() {
+        
     }
 }
 
@@ -28,7 +37,7 @@ class Blogger: NSObject {
 // 使用者
 class BloggerOwned: Blogger {
     var bloggerAttentionIds: [String] = []
-    var bloggerAttentions: [BloggerAttention] = []
+    var bloggerAttentions: [BloggerAttentioner] = []
     
     init(bId: String, bName: String, bAttentionsId:[String]) {
         super.init(bId: bId, bName: bName)
@@ -56,7 +65,7 @@ class BloggerOwned: Blogger {
     }
     
     /**
-    删除被关注的博主
+    删除 被关注的博主
     
     :param: bloggerId 被关注的博主的ID
     */
@@ -76,6 +85,14 @@ class BloggerOwned: Blogger {
 }
 
 // 被关注的博主类
-class BloggerAttention: Blogger {
+class BloggerAttentioner: Blogger {
+    init(bloggerEntity: BloggerAttentionEntity) {
+        super.init()
+        self.bloggerName         = bloggerEntity.bloggerName
+        self.bloggerId           = bloggerEntity.bloggerId
+        self.bloggerIconPath     = bloggerEntity.bloggerIconPath
+        self.bloggerArticleCount = bloggerEntity.bloggerArticleCount.integerValue
+    }
+    
     
 }

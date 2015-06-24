@@ -138,7 +138,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let url: NSURL = NSURL(string: news.iconURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
         cell.newsImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "tableCellDefaultImage")) {
             (image, error, SDImageCacheType, url) -> Void in
-            cell.newsImageView.image = image
+            weakCell!.newsImageView.image = image
             news.iconInfo = image
         }
     }

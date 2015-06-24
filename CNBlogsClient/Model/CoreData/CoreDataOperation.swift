@@ -17,6 +17,7 @@ class CoreDataOperation: NSObject {
         self.managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     }
     
+    // MARK: - 对于资讯信息的CoreData 操作
     /**
     保存 离线数据（新闻 和 博客）
     
@@ -50,7 +51,24 @@ class CoreDataOperation: NSObject {
     }
     
     
-    // ******** 基本数据操作 **********
+    // MARK: - 博主信息 CoreData操作
+    /**
+    保存一个 博主（关注人）
+    
+    :param: blogger 博主信息
+    
+    :returns: 保存成功与否，成功true，失败false
+    */
+    func insertAttentioners(blogger: Blogger) -> Bool { return true }
+    
+    /**
+    获取所有的关注人
+    
+    :returns: 关注人列表
+    */
+    func gainAttentioners() -> [Blogger] { return [] }
+    
+    // MARK: - ******** 基本数据操作 **********
     func gainNewEntity(entityName: String) -> AnyObject {
         return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.managedObjectContext)
     }
@@ -120,7 +138,7 @@ class CoreDataOperation: NSObject {
 
 class CoreDataOperationWithNews: CoreDataOperation {
     
-    // ******** 保存离线数据 *********
+    // MARK - ******** 保存离线数据 *********
     override func insertOfflineInfo(offlineInfo: OfflineInformation) -> Bool {
         let newsInfo: OfflineNews = offlineInfo as! OfflineNews
         let isSuccessWithInsertNewsBase = self.insertNewsBaseInfo(newsInfo)
@@ -171,7 +189,7 @@ class CoreDataOperationWithNews: CoreDataOperation {
     
     
     
-    // ********** 获取离线数据 **********
+    // MARK - ********** 获取离线数据 **********
     override func gainOfflineBaseInfos() -> [OfflineInformation] {
         var offlineNewsBaseInfo: NSEntityDescription = self.gainAppointEntityDescription("OfflineNewsBaseInfoEntity")
         let sortByDate = self.createSortDescriptorByUnAscend("newsOfflineTime")
@@ -196,6 +214,40 @@ class CoreDataOperationWithNews: CoreDataOperation {
 
 class CoreDataOperationWithBlog: CoreDataOperation {
     
+}
+
+//MARK: - 博主关注人CoreData操作类
+class CoreDataOperationWithBlogger: CoreDataOperation {
+    
+    // MARK: 保存一个博主关注人
+    override func insertAttentioners(blogger: Blogger) -> Bool {
+        if self.isExistWithInfoId(self.gainAppointEntityDescription("BloggerAttentionEntity"), infoId: blogger.bloggerId, infoType: "bloggerId") {
+            return true
+        }
+        
+        var bloggerEntity: BloggerAttentionEntity = self.gainNewEntity("BloggerAttentionEntity") as! BloggerAttentionEntity
+        
+        bloggerEntity.bloggerId           = blogger.bloggerId
+        bloggerEntity.bloggerIconPath     = blogger.bloggerIconPath
+        bloggerEntity.bloggerArticleCount = blogger.bloggerArticleCount
+        bloggerEntity.bloggerName         = blogger.bloggerName
+        
+        return self.managedObjectContext.save(nil)
+    }
+    
+    // MARK - 获取博主关注人信息列表
+    override func gainAttentioners() -> [Blogger] {
+        var bloggerED: NSEntityDescription = self.gainAppointEntityDescription("BloggerAttentionEntity")
+        let sortById = self.createSortDescriptorByUnAscend("bloggerId")
+        let searchResult = self.gainAppointInfo(bloggerED, sortDescriptors: [sortById], predicates: [])
+        var bloggers:[Blogger] = []
+        
+        for blogger in searchResult {
+            bloggers.append(BloggerAttentioner(bloggerEntity: blogger as! BloggerAttentionEntity))
+        }
+        
+        return bloggers
+    }
 }
 
 

@@ -65,7 +65,9 @@ extension String {
     在浏览器中打开链接
     */
     func openURL() {
-        UIApplication.sharedApplication().openURL(NSURL(string: self)!)
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: self)!) {
+            UIApplication.sharedApplication().openURL(NSURL(string: self)!)
+        }
     }
 
 }
@@ -74,7 +76,6 @@ let oneDayTimeInterval: NSTimeInterval = 86400
 
 extension NSDate {
 
-    
     /**
     NSDate 转换成的 字符串，返回形如 2015年6月4日的格式，同时如果是昨天，今天就返回昨天，今天
     

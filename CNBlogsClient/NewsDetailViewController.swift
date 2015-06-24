@@ -163,9 +163,11 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
             var button: DTLinkButton = gesture.view as! DTLinkButton
             button.highlighted = false
             
-            if UIApplication.sharedApplication().canOpenURL(button.URL.absoluteURL!) {
-                UIApplication.sharedApplication().openURL(button.URL.absoluteURL!)
-            }
+            button.URL.absoluteString?.openURL()
+          
+//            if UIApplication.sharedApplication().canOpenURL(button.URL.absoluteURL!) {
+//                UIApplication.sharedApplication().openURL(button.URL.absoluteURL!)
+//            }
         }
     }
     

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CNBlogsClient/Model/CoreData/OfflineNewsBaseInfoEntity.swift">
-   </FileRef>
-   <FileRef
-      location = "group:CNBlogsClient/Model/CoreData/OfflineBlogBaseInfoEntity.swift">
-   </FileRef>
-   <FileRef
       location = "group:CNBlogsClient.xcodeproj">
    </FileRef>
    <FileRef
