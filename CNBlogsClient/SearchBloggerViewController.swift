@@ -8,8 +8,9 @@
 
 import UIKit
 
-class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    @IBOutlet weak var bloggerSearchBar: UISearchBar!
     @IBOutlet weak var bloggerTableView: UITableView!
     var searchBloggerVM: SearchBloggerViewModel!
 
@@ -17,6 +18,7 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        bloggerSearchBar.becomeFirstResponder() 
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,18 +72,35 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
         
         var alertView: UIAlertController = UIAlertController(title: "", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
         var sureAction: UIAlertAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
-            blogger.saveBlogger()
+            if blogger.saveBlogger() {
+                self.setBloggersSuccess()
+            }
         }
         alertView.addAction(sureAction)
-        var cancelAction: UIAlertAction = UIAlertAction(title: "", style: UIAlertActionStyle.Default, handler: nil)
+        var cancelAction: UIAlertAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler: nil)
         alertView.addAction(cancelAction)
         
         self.presentViewController(alertView, animated: true, completion: nil)
     }
     
+    
+    // MARK: - SearchDelegate 操作
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.waitBloggersContent()
+        searchBar.resignFirstResponder()
+        self.searchBlogger(searchBar.text)
+    }
+    
+    
+    
+    
+    func searchBlogger(bloggerName: String) {
+        self.searchBloggerVM.gainBloggerFromNetwork(bloggerName)
+    }
+    
     // MARK: - 私有函数
     func configurationCellOfIndex(cell: BloggerTableViewCell, index: Int) {
-        let blogger: Blogger = searchBloggerVM.gainBloggerAtIndex(index)
+        var blogger: Blogger = searchBloggerVM.gainBloggerAtIndex(index)
         
         cell.bloggerArticleCountLabel.text = "\(blogger.bloggerArticleCount)"
         cell.bloggerNameLabel.text = blogger.bloggerName
@@ -90,8 +109,11 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
         weak var weakCell = cell
         let url: NSURL = NSURL(string: blogger.bloggerIconURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
         cell.bloggerIconImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "userIcon")) { (image, error, SDImageCacheType, url) -> Void in
-            weakCell!.bloggerIconImageView.image = image
-            blogger.bloggerIconInfo = image
+            if (image != nil) {
+                weakCell!.bloggerIconImageView.image = image
+                blogger.bloggerIconInfo = image
+            }
+            
         }
     }
     
@@ -100,6 +122,31 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
     */
     func gainBloggersFailure() {
         TopAlert().createFailureTopAlert("搜索失败", parentView: self.view)
+    }
+    
+    /**
+    设置博主为自己或者关注人成功，弹出的topAlert指示
+    */
+    func setBloggersSuccess() {
+        TopAlert().createSuccessTopAlert("设置成功", parentView: self.view)
+//        TopAlert().createBaseTopAlertWithBlock(MozAlertTypeSuccess, alertInfo: "设置成功", parentView: self.view) { () -> Void in
+//            self.navigationController?.popViewControllerAnimated(true)
+//        }
+    }
+    
+    // MARK: - 网络操作的界面操作
+    /**
+    开始 等待网络数据时的 指示器
+    */
+    func waitBloggersContent() {
+        self.pleaseWait()
+    }
+    
+    /**
+    结束 等待网络数据时的 指示器
+    */
+    func endWaitBloggersContent() {
+        self.clearAllNotice()
     }
 
 }

@@ -25,12 +25,10 @@ class SearchBloggerViewModel: NSObject {
     func gainBloggerFromNetwork(bloggerKey: String) {
         weak var weakSelf = self
         networkOPeration.gainInfomationFromNetwork(CNBlogAPIOption.searchOption, parameters: [bloggerKey]) { (onlineInfo) -> Void in
+            weakSelf!.searchBloggerVC.endWaitBloggersContent()
             if (onlineInfo != nil) {
-                if weakSelf!.isBloggerSelf {
-                    weakSelf!.bloggerSearchResult = onlineInfo as! [BloggerOwned]
-                }else {
-                    weakSelf!.bloggerSearchResult = onlineInfo as! [BloggerAttentioner]
-                }
+                weakSelf!.bloggerSearchResult = []
+                self.setBloggersType(weakSelf!, bloggers: onlineInfo as! [Blogger])
                 
                 weakSelf!.searchBloggerVC.reloadBloggerTableView()
             }else {
@@ -40,9 +38,22 @@ class SearchBloggerViewModel: NSObject {
         }
     }
     
+    
+    func setBloggersType(weakSelf: SearchBloggerViewModel, bloggers: [Blogger]) {
+        if weakSelf.isBloggerSelf {
+            for blogger in bloggers {
+                weakSelf.bloggerSearchResult.append(BloggerOwned(blogger: blogger))
+            }
+        }else {
+            for blogger in bloggers {
+                weakSelf.bloggerSearchResult.append(BloggerAttentioner(blogger: blogger))
+            }
+        }
+    }
+    
     // MARK: - table数据操作
     func gainBloggerSearchResultCount() ->Int {
-        return bloggerSearchResult.count
+        return bloggerSearchResult.isEmpty ? 0 : bloggerSearchResult.count
     }
     
     func gainBloggerAtIndex(index: Int) -> Blogger {

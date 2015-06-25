@@ -27,15 +27,18 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if equal(segue.identifier!, "ChangeBloggerAttentioner") {
+            let searchVC: SearchBloggerViewController = segue.destinationViewController as! SearchBloggerViewController
+            searchVC.searchBloggerVM = myAttentionerVM.newsSearchBloggerViewModel(searchVC)
+        }
     }
-    */
 
     
     // MARK: - TableView

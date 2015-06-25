@@ -5,6 +5,7 @@
         <attribute name="bloggerIconPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bloggerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bloggerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bloggerUpdatedTime" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="OfflineBlogBaseInfoEntity" representedClassName="OfflineBlogBaseInfoEntity" syncable="YES">
         <attribute name="blogAuthor" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,7 +36,7 @@
         <attribute name="newsId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BloggerAttentionEntity" positionX="-243" positionY="138" width="128" height="105"/>
+        <element name="BloggerAttentionEntity" positionX="-243" positionY="138" width="128" height="120"/>
         <element name="OfflineBlogBaseInfoEntity" positionX="-54" positionY="207" width="128" height="165"/>
         <element name="OfflineBlogContentEntity" positionX="189" positionY="234" width="128" height="75"/>
         <element name="OfflineNewsBaseInfoEntity" positionX="-54" positionY="-9" width="128" height="165"/>

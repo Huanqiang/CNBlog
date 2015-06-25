@@ -221,7 +221,7 @@ class CoreDataOperationWithBlogger: CoreDataOperation {
     
     // MARK: 保存一个博主关注人
     override func insertAttentioners(blogger: Blogger) -> Bool {
-        if self.isExistWithInfoId(self.gainAppointEntityDescription("BloggerAttentionEntity"), infoId: blogger.bloggerId, infoType: "bloggerId") {
+        if self.isExistWithInfoId(self.gainAppointEntityDescription("BloggerAttentionEntity"), infoId: blogger.bloggerId, infoType: "blogger") {
             return true
         }
         
@@ -231,6 +231,7 @@ class CoreDataOperationWithBlogger: CoreDataOperation {
         bloggerEntity.bloggerIconPath     = blogger.bloggerIconPath
         bloggerEntity.bloggerArticleCount = blogger.bloggerArticleCount
         bloggerEntity.bloggerName         = blogger.bloggerName
+        bloggerEntity.bloggerUpdatedTime  = blogger.bloggerUpdatedTime
         
         return self.managedObjectContext.save(nil)
     }

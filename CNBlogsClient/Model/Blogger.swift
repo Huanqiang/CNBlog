@@ -8,6 +8,8 @@
 
 import UIKit
 
+let BloggerIconFolderName = "BloggerIcon"
+
 class Blogger: NSObject {
     var bloggerId: String          = ""        // 博主Id
     var bloggerName: String        = ""        // 博主名称
@@ -16,6 +18,8 @@ class Blogger: NSObject {
     var bloggerArticleCount: Int   = 0         // 博主文章数量
     var bloggerUpdatedTime: NSDate = NSDate()  // 博主最后活跃时间
     var bloggerIconInfo: UIImage   = UIImage() // 博主头像image
+    
+    let folder: FolderOperation = FolderOperation()
     
     override init() {
     }
@@ -26,62 +30,147 @@ class Blogger: NSObject {
         self.bloggerName = bName;
     }
     
-    
-    func saveBlogger() {
-        
+    init(blogger: Blogger) {
+        self.bloggerName         = blogger.bloggerName
+        self.bloggerId           = blogger.bloggerId
+        self.bloggerIconURL      = blogger.bloggerIconURL
+        self.bloggerArticleCount = blogger.bloggerArticleCount
+        self.bloggerUpdatedTime  = blogger.bloggerUpdatedTime
     }
+    
+    /**
+    将图片存储至磁盘
+    
+    :param: img 图片
+    
+    :returns: 图片的磁盘路径
+    */
+    func saveImage(img: UIImage, imgName: String) -> String {
+        let iconData = UIImagePNGRepresentation(img)
+        let localIconPath = folder.saveImageToFolder(BloggerIconFolderName, imageData: iconData, imageName: imgName)
+        return localIconPath
+    }
+    
+    /**
+    保存标题图片
+    */
+    func saveIconToDisk() {
+        //创建文件夹
+        folder.createFolderWhenNon(BloggerIconFolderName)
+        self.bloggerIconPath = self.saveImage(self.bloggerIconInfo, imgName: "\(self.bloggerId).png")
+    }
+    
+    /**
+    保存博主状态
+    */
+    func saveBlogger() ->Bool { return true }
+    
+
+    /**
+    获取博主自己的信息
+    
+    :returns: 博主自己的信息
+    */
+    func gainBloggerSelf() -> Blogger {
+        return Blogger()
+    }
+    
+    /**
+    获取所有的博主的关注人
+    
+    :returns: 博主的关注人数组
+    */
+    func gainBloggerAttentioners() -> [Blogger] {
+        return []
+    }
+    
 }
 
 
 
 // 使用者
 class BloggerOwned: Blogger {
-    var bloggerAttentionIds: [String] = []
-    var bloggerAttentions: [BloggerAttentioner] = []
+    let loginTool: LogInToolClass = LogInToolClass.shareInstance() as! LogInToolClass
     
-    init(bId: String, bName: String, bAttentionsId:[String]) {
-        super.init(bId: bId, bName: bName)
-        self.bloggerAttentionIds = bAttentionsId
+    override init() {
+        super.init()
     }
     
-    // MARK: - 被关注博主的操作
-    /**
-    获取被关注博主的信息
-    */
-    func gainBloggerAttentions() {
-        // 通过循环 bloggerAttentionIds 在数据库里获取 被关注博主
+    override init(blogger: Blogger) {
+        super.init(blogger: blogger)
     }
     
-    /**
-    添加被关注的博主
-    
-    :param: bloggerId 被关注的博主的ID
-    */
-    func addBloggerAttentionIds(bloggerId: String) {
-        bloggerAttentionIds.append(bloggerId)
+    override func saveBlogger() -> Bool {
+        // 将博主信息保存至配置文件
+        self.saveBloggerID()
+        self.saveBloggerName()
+        self.saveBloggerIconPath()
+        self.saveBloggerArticleCount()
+        self.saveBloggerUpdatedTime()
+        self.saveLoginCookie()
         
-        // 进行数据库的添加
-        
+        return true
     }
     
-    /**
-    删除 被关注的博主
-    
-    :param: bloggerId 被关注的博主的ID
-    */
-    func removeBloggerAttentionIds(bloggerId: String) {
-        for var index = 0; index < bloggerAttentionIds.count; index++ {
-            if bloggerId == bloggerAttentionIds[index] {
-                bloggerAttentionIds.removeAtIndex(index)
-                break;
-            }
-        }
+    override func gainBloggerSelf() -> Blogger {
+        var bloggerSelf: BloggerOwned   = BloggerOwned()
+        bloggerSelf.bloggerArticleCount = self.gainBloggerArticleCount()
+        bloggerSelf.bloggerIconPath     = self.gainBloggerIconPath()
+        bloggerSelf.bloggerId           = self.gainBloggerID()
+        bloggerSelf.bloggerName         = self.gainBloggerName()
+        bloggerSelf.bloggerUpdatedTime  = self.gainBloggerUpdatedTime()
         
-        // 进行 数据库的删除
-        
-        //
+        return bloggerSelf
     }
     
+    
+    // MARK: - 博主数据基础操作
+    // 保存
+    func saveBloggerID() {
+        loginTool.saveUserInfo(self.bloggerId, andInfoType: "bloggerId")
+    }
+    
+    func saveBloggerName() {
+        loginTool.saveUserInfo(self.bloggerName, andInfoType: "bloggerName")
+    }
+    
+    func saveBloggerIconPath() {
+        loginTool.saveUserInfo(self.bloggerIconPath, andInfoType: "bloggerIconPath")
+    }
+    
+    func saveBloggerArticleCount() {
+        loginTool.saveUserInfo("\(self.bloggerArticleCount)", andInfoType: "bloggerArticleCount")
+    }
+    
+    func saveBloggerUpdatedTime() {
+        loginTool.saveUserInfo(self.bloggerUpdatedTime.dateToStringWithDateFormat(CNBlogDateFormatForApi), andInfoType: "bloggerUpdatedTime")
+    }
+    
+    func saveLoginCookie() {
+        loginTool.saveCookie(true)
+    }
+    
+    
+    // 获取
+    func gainBloggerID() -> String {
+        return loginTool.getUserInfo("bloggerId")
+    }
+    
+    func gainBloggerName() -> String {
+        return loginTool.getUserInfo("bloggerName")
+    }
+    
+    func gainBloggerIconPath() -> String {
+        return loginTool.getUserInfo("bloggerIconPath")
+    }
+    
+    func gainBloggerArticleCount() -> Int {
+        return (loginTool.getUserInfo("bloggerArticleCount") as String).toInt()!
+    }
+    
+    func gainBloggerUpdatedTime() -> NSDate {
+        return loginTool.getUserInfo("bloggerUpdatedTime").stringToDateWithDateFormat(CNBlogDateFormatForApi)
+    }
 }
 
 // 被关注的博主类
@@ -92,7 +181,26 @@ class BloggerAttentioner: Blogger {
         self.bloggerId           = bloggerEntity.bloggerId
         self.bloggerIconPath     = bloggerEntity.bloggerIconPath
         self.bloggerArticleCount = bloggerEntity.bloggerArticleCount.integerValue
+        self.bloggerUpdatedTime  = bloggerEntity.bloggerUpdatedTime
     }
     
+    override init(blogger: Blogger) {
+        super.init(blogger: blogger)
+    }
+
+    // MARK:- 关注人操作
+    override func saveBlogger() -> Bool {
+        // 存储照片
+        self.saveIconToDisk()
+        
+        // 存到 CoreData 之中
+        var coreDataOperation: CoreDataOperation = CoreDataOperationWithBlogger()
+        return coreDataOperation.insertAttentioners(self)
+    }
+    
+    override func gainBloggerAttentioners() -> [Blogger] {
+        var coreDataOperation: CoreDataOperation = CoreDataOperationWithBlogger()
+        return coreDataOperation.gainAttentioners()
+    }
     
 }

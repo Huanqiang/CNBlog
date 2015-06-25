@@ -19,6 +19,8 @@ class InfoWithImageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        infoImageView.layer.masksToBounds = true
+        infoImageView.layer.cornerRadius = 10
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

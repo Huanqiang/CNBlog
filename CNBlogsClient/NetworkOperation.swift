@@ -39,8 +39,8 @@ class NetworkOperation: NSObject {
     func gainInfomationFromNetwork(menuOption: CNBlogAPIOption, parameters: [String], completionHandler: (onlineInfo : [AnyObject]?) -> Void) {
         // 获取网络操作数据
         // 1、Url拼凑
-        var urling: String = self.gainURLString(menuOption, parameters: parameters)
-        Alamofire.request(.GET, urling)
+        var urlString: String = self.gainURLString(menuOption, parameters: parameters)
+        Alamofire.request(.GET, urlString)
             .responseString { (_, _, string, _) in
                 // 解析XML
                 var xmlInfoData = string?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
@@ -180,7 +180,7 @@ class NetworkOperationWithBlogListOfBlogger: NetworkOperation {
 class NetworkOperationWithSearchBlogger: NetworkOperation {
     override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
         var urlString = CNBlogMainUrl + "/blog/bloggers/search?t=\(parameters[0])"
-        return urlString
+        return urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
     }
     
     override func createXmlOpertion() -> XMLOperation {

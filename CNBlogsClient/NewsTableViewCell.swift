@@ -20,6 +20,8 @@ class NewsWithImageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        newsImageView.layer.masksToBounds = true
+        newsImageView.layer.cornerRadius = 10
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

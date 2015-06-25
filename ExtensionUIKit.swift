@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// ***********   UIKit Extension ************
+// MARK: - ***********   UIKit Extension ************
 
 extension UITableView {
     func clearTableFooterView() {
@@ -29,7 +29,7 @@ extension UIImage {
     
 }
 
-// ***********   Foundation Extension ************
+// MARK: - ***********   Foundation Extension ************
 
 extension String {
     func stringToDateWithDateFormat(dateFormatStrring: String) -> NSDate {

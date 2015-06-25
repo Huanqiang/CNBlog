@@ -19,6 +19,9 @@ class BloggerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        bloggerIconImageView.layer.masksToBounds = true
+        bloggerIconImageView.layer.cornerRadius = 10
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

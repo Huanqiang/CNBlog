@@ -41,7 +41,7 @@ class MenuViewModel: NSObject {
         
         var myBlogItem      = MenuItem(imageName: "menuMyBlog", title: "我的博客")
         var myAttentionItem = MenuItem(imageName: "menuMyAttention", title: "我的关注人")
-        blogItem.menuNextVC = self.gainVCInStoryBoard("MyAttentionerViewController") as! MyAttentionerViewController
+        myAttentionItem.menuNextVC = self.gainVCInStoryBoard("MyAttentionerViewController") as! MyAttentionerViewController
         
         var myOfflineInfo   = MenuItem(imageName: "menuMyOffline", title: "我的离线")
         myOfflineInfo.menuNextVC = self.gainVCInStoryBoard("OfflineInfoViewController") as! OfflineInfoViewController

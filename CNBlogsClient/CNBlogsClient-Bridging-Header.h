@@ -24,4 +24,7 @@
 #import <libxml/HTMLtree.h>
 #import <libxml/xpath.h>
 
+// 登录操作
+#import "LogInToolClass.h"
+
 #endif

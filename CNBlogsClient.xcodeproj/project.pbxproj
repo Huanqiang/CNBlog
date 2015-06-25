@@ -58,6 +58,7 @@
 		E6D6E22D1B21B9E600CEB66C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D6E22C1B21B9E600CEB66C /* libxml2.dylib */; };
 		E6D6E2311B21C6E100CEB66C /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2301B21C6E100CEB66C /* SwiftNotice.swift */; };
 		E6D6E2351B21ED0E00CEB66C /* CoreDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E2341B21ED0E00CEB66C /* CoreDataOperation.swift */; };
+		E6DD73501B3B870A00A06839 /* LogInToolClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DD734F1B3B870A00A06839 /* LogInToolClass.m */; };
 		E6E64D031B19752900EF7820 /* Blogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D021B19752900EF7820 /* Blogger.swift */; };
 		E6E64D071B19859500EF7820 /* OnlineInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D061B19859500EF7820 /* OnlineInformation.swift */; };
 		E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E64D081B1986DC00EF7820 /* OnlineNews.swift */; };
@@ -170,6 +171,8 @@
 		E6D6E22C1B21B9E600CEB66C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		E6D6E2301B21C6E100CEB66C /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotice.swift; path = Function/Notice/SwiftNotice.swift; sourceTree = "<group>"; };
 		E6D6E2341B21ED0E00CEB66C /* CoreDataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataOperation.swift; path = Model/CoreData/CoreDataOperation.swift; sourceTree = "<group>"; };
+		E6DD734E1B3B870A00A06839 /* LogInToolClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogInToolClass.h; path = Function/LoginTool/LogInToolClass.h; sourceTree = "<group>"; };
+		E6DD734F1B3B870A00A06839 /* LogInToolClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogInToolClass.m; path = Function/LoginTool/LogInToolClass.m; sourceTree = "<group>"; };
 		E6E64D021B19752900EF7820 /* Blogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blogger.swift; path = Model/Blogger.swift; sourceTree = "<group>"; };
 		E6E64D061B19859500EF7820 /* OnlineInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineInformation.swift; path = Model/OnlineInformation.swift; sourceTree = "<group>"; };
 		E6E64D081B1986DC00EF7820 /* OnlineNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineNews.swift; path = Model/OnlineNews.swift; sourceTree = "<group>"; };
@@ -434,6 +437,7 @@
 		E6B5020B1B1B12810018689C /* Function */ = {
 			isa = PBXGroup;
 			children = (
+				E6DD73511B3B871500A06839 /* LogInToolClass */,
 				E6D6E22F1B21C6A800CEB66C /* AlertIndicator-Notice */,
 				E6D6E2271B21B94200CEB66C /* HTMLParser */,
 				E69303811B2051E900DE6E45 /* TopAlertView */,
@@ -496,6 +500,15 @@
 				E6D6E2341B21ED0E00CEB66C /* CoreDataOperation.swift */,
 			);
 			name = "CoreData Operation";
+			sourceTree = "<group>";
+		};
+		E6DD73511B3B871500A06839 /* LogInToolClass */ = {
+			isa = PBXGroup;
+			children = (
+				E6DD734E1B3B870A00A06839 /* LogInToolClass.h */,
+				E6DD734F1B3B870A00A06839 /* LogInToolClass.m */,
+			);
+			name = LogInToolClass;
 			sourceTree = "<group>";
 		};
 		E6E64D041B19850200EF7820 /* OnlineInformation */ = {
@@ -925,6 +938,7 @@
 				E69303911B20521A00DE6E45 /* UIFont+FontAwesome.m in Sources */,
 				E6908E5A1B2C18930003681D /* OfflineInfoViewModel.swift in Sources */,
 				E6C4F1F51B31163400E40FB2 /* OfflineInfoDetailViewModel.swift in Sources */,
+				E6DD73501B3B870A00A06839 /* LogInToolClass.m in Sources */,
 				E67AC3CC1B31138D0005E701 /* OfflineInfoDetailViewController.swift in Sources */,
 				E69303941B2052E300DE6E45 /* TopAlert.swift in Sources */,
 				E6E64D091B1986DC00EF7820 /* OnlineNews.swift in Sources */,

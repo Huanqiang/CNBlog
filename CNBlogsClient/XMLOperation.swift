@@ -12,7 +12,7 @@ import AEXML
 let CNBlogDateFormatForApi = "yyyy-MM-dd'T'HH:mm:sszzz"
 
 class XMLOperation: NSObject {
-    var xmlElements: [OnlineInformation] = []
+    var xmlElements: [AnyObject] = []
     
     /**
     解析完整 API的 XML 信息（处理 XML 入口）
@@ -57,7 +57,7 @@ class XMLOperation: NSObject {
     
     :returns: 单个的博主信息
     */
-    func gainNewsElement(newsList: AEXMLElement) -> Blogger {
+    func gainBloggerElement(newsList: AEXMLElement) -> Blogger {
         return Blogger()
     }
 }
@@ -157,11 +157,11 @@ class SearchBloggerXmlOperation: XMLOperation {
     override func gainXmlDoc(xmlDoc: AEXMLDocument) {
         let newsLists = xmlDoc.root["entry"].all
         for newsList in newsLists! {
-            xmlElements.append(self.gainNewsElement(newsList))
+            xmlElements.append(self.gainBloggerElement(newsList))
         }
     }
     
-    override func gainNewsElement(newsList: AEXMLElement) -> Blogger {
+    override func gainBloggerElement(newsList: AEXMLElement) -> Blogger {
         var blogger: Blogger = Blogger()
         blogger.bloggerId           = newsList["blogapp"].stringValue
         blogger.bloggerIconURL      = newsList["avatar"].stringValue
@@ -173,22 +173,3 @@ class SearchBloggerXmlOperation: XMLOperation {
         return blogger
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

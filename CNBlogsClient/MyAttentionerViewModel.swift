@@ -42,4 +42,10 @@ class MyAttentionerViewModel: NSObject {
         return attentioners[index]
     }
     
+    
+    // MARK: - 界面数据传递
+    func newsSearchBloggerViewModel(vc: SearchBloggerViewController) -> SearchBloggerViewModel {
+        return SearchBloggerViewModel(isBloggerSelf: false, searchBloggerVC: vc)
+    }
+    
 }
