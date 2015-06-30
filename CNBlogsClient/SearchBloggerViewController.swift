@@ -129,9 +129,6 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
     */
     func setBloggersSuccess() {
         TopAlert().createSuccessTopAlert("设置成功", parentView: self.view)
-//        TopAlert().createBaseTopAlertWithBlock(MozAlertTypeSuccess, alertInfo: "设置成功", parentView: self.view) { () -> Void in
-//            self.navigationController?.popViewControllerAnimated(true)
-//        }
     }
     
     // MARK: - 网络操作的界面操作

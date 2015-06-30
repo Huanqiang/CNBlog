@@ -21,8 +21,8 @@ class NewsViewModel: NSObject {
     }
     
     init(newsVC: NewsViewController) {
-        self.newsVC = newsVC
         super.init()
+        self.newsVC = newsVC
     }
     
     // MARK: - 网络操作

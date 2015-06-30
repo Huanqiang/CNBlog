@@ -166,7 +166,7 @@ class NetworkOperationWithBlogContext: NetworkOperation {
 // 获取 博主的博客操作类  blog/u/{Blogapp}/posts/1/5
 class NetworkOperationWithBlogListOfBlogger: NetworkOperation {
     override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
-        var urlString = CNBlogMainUrl + "/blog/u" + "/{\(parameters[0])}" + "/posts" + "/{\(parameters[1])}" + "/{\(parameters[2])}"
+        var urlString = CNBlogMainUrl + "/blog/u" + "/\(parameters[0])" + "/posts" + "/\(parameters[1])" + "/\(parameters[2])"
         return urlString
     }
     

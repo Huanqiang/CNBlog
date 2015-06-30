@@ -67,8 +67,7 @@ class OnlineInformation: NSObject {
     :returns: 图片的磁盘路径
     */
     func saveImage(img: UIImage, imgName: String) -> String {
-        let iconData = UIImagePNGRepresentation(img)
-        let localIconPath = folder.saveImageToFolder(NewsIconFolderName, imageData: iconData, imageName: imgName)
+        let localIconPath = folder.saveImageToFolder(NewsIconFolderName, image: img, imageName: imgName)
         return localIconPath
     }
     

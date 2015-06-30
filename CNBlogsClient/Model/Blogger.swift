@@ -43,21 +43,29 @@ class Blogger: NSObject {
     
     :param: img 图片
     
-    :returns: 图片的磁盘路径
+    :returns: 图片的名称
     */
     func saveImage(img: UIImage, imgName: String) -> String {
-        let iconData = UIImagePNGRepresentation(img)
-        let localIconPath = folder.saveImageToFolder(BloggerIconFolderName, imageData: iconData, imageName: imgName)
-        return localIconPath
+        let localIconPath = folder.saveImageToFolder(BloggerIconFolderName, image: img, imageName: imgName)
+        return imgName
     }
     
     /**
-    保存标题图片
+    保存当前博主的头像
     */
     func saveIconToDisk() {
         //创建文件夹
         folder.createFolderWhenNon(BloggerIconFolderName)
         self.bloggerIconPath = self.saveImage(self.bloggerIconInfo, imgName: "\(self.bloggerId).png")
+    }
+    
+    /**
+    从磁盘获取当前博主的头像
+    
+    :returns: 当前博主的头像
+    */
+    func gainIconFromDick() -> UIImage {
+        return folder.gainImageFromFolder(BloggerIconFolderName, imageName: self.bloggerIconPath)
     }
     
     /**
@@ -175,6 +183,11 @@ class BloggerOwned: Blogger {
 
 // 被关注的博主类
 class BloggerAttentioner: Blogger {
+    
+    override init() {
+        super.init()
+    }
+    
     init(bloggerEntity: BloggerAttentionEntity) {
         super.init()
         self.bloggerName         = bloggerEntity.bloggerName

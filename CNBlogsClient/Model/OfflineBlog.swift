@@ -22,7 +22,6 @@ class OfflineBlog: OfflineInformation {
         self.summary     = offlineInfo.newsSummary
         self.author      = offlineInfo.newsAuthor
         self.publishTime = offlineInfo.newsPublishTime
-        self.iconPath    = offlineInfo.newsIconPath
         
         self.coreDataOperation = CoreDataOperationWithBlog()
     }

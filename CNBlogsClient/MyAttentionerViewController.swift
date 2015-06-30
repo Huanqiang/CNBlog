@@ -18,7 +18,11 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        myAttentionerVM = MyAttentionerViewModel()
+        myAttentionerVM = MyAttentionerViewModel(myAttentionerVC: self)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.myAttentionerVM.gainAttentioners()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,11 +39,53 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
         // Pass the selected object to the new view controller.
         
         if equal(segue.identifier!, "ChangeBloggerAttentioner") {
+            // 跳转 搜索关注人 界面
             let searchVC: SearchBloggerViewController = segue.destinationViewController as! SearchBloggerViewController
             searchVC.searchBloggerVM = myAttentionerVM.newsSearchBloggerViewModel(searchVC)
+        }else if equal(segue.identifier!, "AttentionerToHisBlog") {
+            // 跳转 博主关注人/博主 博客列表
+            let indexPath = self.myAttentionerTableView.indexPathForSelectedRow()
+            let attentionerBlogg: BlogOfBloggerViewController = segue.destinationViewController as! BlogOfBloggerViewController
+            attentionerBlogg.blogVM = myAttentionerVM.newBlogOfAttentionerViewModel(indexPath!.row, vc: attentionerBlogg)
         }
     }
-
+    
+    // MARK: - 打开菜单
+    @IBAction func showMenu(sender: AnyObject) {
+        self.frostedViewController.presentMenuViewController()
+    }
+    
+    
+    // MARK: - 下拉刷新
+    func setTableRefreshing() {
+        // 添加传统的下拉刷新
+        // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+        self.myAttentionerTableView.addLegendHeaderWithRefreshingBlock { () -> Void in
+            self.loadNewNews()
+        }
+        
+        self.beginTableRefreshing()
+    }
+    
+    // 开始刷新
+    func beginTableRefreshing() {
+        self.myAttentionerTableView.legendHeader.beginRefreshing()
+    }
+    
+    // 刷新完成后需要结束刷新状态 : 一般在 加载数据完之后使用
+    func endTableRefreshing() {
+        // 拿到当前的下拉刷新控件，结束刷新状态
+        self.myAttentionerTableView.header.endRefreshing()
+    }
+    
+    // 加载新数据
+    func loadNewNews() {
+//        myAttentionerVM.gainNewsListFromNetwork()
+    }
+    
+    func reloadTabeleView() {
+        self.myAttentionerTableView.reloadData()
+    }
     
     // MARK: - TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,6 +109,6 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
         cell.bloggerArticleCountLabel.text = "\(blogger.bloggerArticleCount)"
         cell.bloggerNameLabel.text = blogger.bloggerName
         cell.bloggerUpdateTimeLabel.text = blogger.bloggerUpdatedTime.dateToStringByBaseFormat()
-        cell.bloggerIconImageView.image = UIImage(contentsOfFile: blogger.bloggerIconPath)        
+        cell.bloggerIconImageView.image = blogger.gainIconFromDick()
     }
 }

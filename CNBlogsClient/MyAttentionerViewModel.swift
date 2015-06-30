@@ -11,14 +11,20 @@ import UIKit
 class MyAttentionerViewModel: NSObject {
     
     var attentioners: [Blogger] = []
+    var myAttentionerVC: MyAttentionerViewController!
    
-    override init() {
-        
+    init(myAttentionerVC: MyAttentionerViewController) {
+        self.myAttentionerVC = myAttentionerVC
     }
     
-    
+    /**
+    获取关注人数组
+    */
     func gainAttentioners() {
-        
+        attentioners = BloggerAttentioner().gainBloggerAttentioners()
+        if !attentioners.isEmpty {
+            self.myAttentionerVC.reloadTabeleView()
+        }
     }
     
     // MARK: - 数据操作
@@ -46,6 +52,10 @@ class MyAttentionerViewModel: NSObject {
     // MARK: - 界面数据传递
     func newsSearchBloggerViewModel(vc: SearchBloggerViewController) -> SearchBloggerViewModel {
         return SearchBloggerViewModel(isBloggerSelf: false, searchBloggerVC: vc)
+    }
+    
+    func newBlogOfAttentionerViewModel(index: Int,vc: BlogOfBloggerViewController) ->BlogOfBloggerViewModel {
+        return BlogOfBloggerViewModel(attentioner: self.gainTheAttentionerAtIndex(index), blogVC: vc)
     }
     
 }

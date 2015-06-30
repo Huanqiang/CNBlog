@@ -40,9 +40,13 @@ class FolderOperation: NSObject {
     
     :returns: 图片路径
     */
-    func saveImageToFolder(folderName: String, imageData: NSData, imageName: String) -> String{
+    func saveImageToFolder(folderName: String, image: UIImage, imageName: String) -> String{
+        // 将图片转化成data
+        let imageData = UIImagePNGRepresentation(image)
+        // 设置目录
         let folderPath: String = self.gainFolderPath(folderName)
         let imagePath: String = folderPath.stringByAppendingString("/\(imageName)")
+        // 创建图片操作器
         var fileManager: NSFileManager = NSFileManager.defaultManager()
         //把刚刚图片转换的data对象保存至沙盒中
         fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil)
