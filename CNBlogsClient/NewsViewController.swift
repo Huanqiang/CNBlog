@@ -106,13 +106,13 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var cell: UITableViewCell?
         
         if news.hasIcon {
-            cell = tableView.dequeueReusableCellWithIdentifier("NewsCellWithImage") as? NewsWithImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("NewsCellWithImage") as? OnlineInfoWithImageTableViewCell
             
-            self.configurationImageCellOfIndex(cell as! NewsWithImageTableViewCell, news: news)
+            self.configurationImageCellOfIndex(cell as! OnlineInfoWithImageTableViewCell, news: news)
         }else {
-            cell = tableView.dequeueReusableCellWithIdentifier("NewsCellWithoutImage") as? NewsWithoutImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("NewsCellWithoutImage") as? OnlineInfoWithoutImageTableViewCell
             
-            self.configurationNoImageCellOfIndex(cell as! NewsWithoutImageTableViewCell, news: news)
+            self.configurationNoImageCellOfIndex(cell as! OnlineInfoWithoutImageTableViewCell, news: news)
         }
         
         return cell!
@@ -127,27 +127,27 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //MARK: - 私有方法
     // 设置内容
-    func configurationImageCellOfIndex(cell: NewsWithImageTableViewCell, news: OnlineNews) {
-        cell.newsTitleLabel.text       = news.title
-        cell.newsSummaryLabel.text     = news.summary
-        cell.newsAuathorLabel.text     = news.author
-        cell.newsPublishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
+    func configurationImageCellOfIndex(cell: OnlineInfoWithImageTableViewCell, news: OnlineNews) {
+        cell.titleLabel.text       = news.title
+        cell.summaryLabel.text     = news.summary
+        cell.authorLabel.text     = news.author
+        cell.publishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
         
         // 获取标题图片
         weak var weakCell = cell
         let url: NSURL = NSURL(string: news.iconURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
-        cell.newsImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "tableCellDefaultImage")) {
+        cell.onlineImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "tableCellDefaultImage")) {
             (image, error, SDImageCacheType, url) -> Void in
-            weakCell!.newsImageView.image = image
+            weakCell!.onlineImageView.image = image
             news.iconInfo = image
         }
     }
     
-    func configurationNoImageCellOfIndex(cell: NewsWithoutImageTableViewCell, news: OnlineNews) {
-        cell.newsTitleLabel.text       = news.title
-        cell.newsSummaryLabel.text     = news.summary
-        cell.newsPublishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
-        cell.newsAuathorLabel.text     = news.author
+    func configurationNoImageCellOfIndex(cell: OnlineInfoWithoutImageTableViewCell, news: OnlineNews) {
+        cell.titleLabel.text       = news.title
+        cell.summaryLabel.text     = news.summary
+        cell.authorLabel.text     = news.author
+        cell.publishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
     }
     
     /**

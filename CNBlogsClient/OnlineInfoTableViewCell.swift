@@ -1,27 +1,27 @@
 //
-//  NewsTableViewCell.swift
+//  OnlineInfoTableViewCell.swift
 //  CNBlogsClient
 //
-//  Created by 王焕强 on 15/6/1.
+//  Created by 王焕强 on 15/6/30.
 //  Copyright (c) 2015年 &#29579;&#28949;&#24378;. All rights reserved.
 //
 
 import UIKit
 
 // news list Element 带图片
-class NewsWithImageTableViewCell: UITableViewCell {
+class OnlineInfoWithImageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var newsImageView: UIImageView!
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsSummaryLabel: UILabel!
-    @IBOutlet weak var newsAuathorLabel: UILabel!
-    @IBOutlet weak var newsPublishTimeLabel: UILabel!
+    @IBOutlet weak var onlineImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var publishTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        newsImageView.layer.masksToBounds = true
-        newsImageView.layer.cornerRadius = 10
+        onlineImageView.layer.masksToBounds = true
+        onlineImageView.layer.cornerRadius = 10
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -33,12 +33,12 @@ class NewsWithImageTableViewCell: UITableViewCell {
 }
 
 // news list Element 不带图片
-class NewsWithoutImageTableViewCell: UITableViewCell {
+class OnlineInfoWithoutImageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsSummaryLabel: UILabel!
-    @IBOutlet weak var newsAuathorLabel: UILabel!
-    @IBOutlet weak var newsPublishTimeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var publishTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,5 +49,5 @@ class NewsWithoutImageTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
-    }    
+    }
 }

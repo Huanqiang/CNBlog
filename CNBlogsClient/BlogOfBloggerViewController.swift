@@ -17,8 +17,12 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.title = self.blogVM.gainVCName()
         self.setTableHeadRefreshing()
+        
+        //添加这行代码
+        self.blogTableView.rowHeight = UITableViewAutomaticDimension
+        self.blogTableView.estimatedRowHeight = 44
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,12 +110,12 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: NewsWithoutImageTableViewCell = tableView.dequeueReusableCellWithIdentifier("NewsWithoutImageTableViewCell") as! NewsWithoutImageTableViewCell
+        var cell: OnlineInfoWithoutImageTableViewCell = tableView.dequeueReusableCellWithIdentifier("BlogOfBloggerTableViewCell") as! OnlineInfoWithoutImageTableViewCell
         
         let blog: OnlineInformation = self.blogVM.gainBlogAtIndex(indexPath.row)
         self.configurationNoImageCellOfIndex(cell, onlineInfo: blog)
         
-        return UITableViewCell()
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -121,11 +125,10 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
     
     
     // MARK: - 私有函数
-    func configurationNoImageCellOfIndex(cell: NewsWithoutImageTableViewCell, onlineInfo: OnlineInformation) {
-        cell.newsTitleLabel.text       = onlineInfo.title
-        cell.newsSummaryLabel.text     = onlineInfo.summary
-        cell.newsPublishTimeLabel.text = onlineInfo.publishTime.dateToStringByBaseFormat()
-        cell.newsAuathorLabel.text     = onlineInfo.author
+    func configurationNoImageCellOfIndex(cell: OnlineInfoWithoutImageTableViewCell, onlineInfo: OnlineInformation) {
+        cell.titleLabel.text       = onlineInfo.title
+        cell.summaryLabel.text     = onlineInfo.summary
+        cell.publishTimeLabel.text = onlineInfo.publishTime.dateToStringByBaseFormat()
     }
     
     /**

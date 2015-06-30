@@ -80,7 +80,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellWithImage" rowHeight="100" id="hhQ-qg-eQ1" customClass="NewsWithImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellWithImage" rowHeight="100" id="hhQ-qg-eQ1" customClass="OnlineInfoWithImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hhQ-qg-eQ1" id="882-me-0FN">
@@ -232,15 +232,15 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="newsAuathorLabel" destination="GUB-U7-piz" id="vAl-2e-Ypu"/>
-                                            <outlet property="newsImageView" destination="brA-8f-rDR" id="Ufe-fO-zLz"/>
-                                            <outlet property="newsPublishTimeLabel" destination="y0O-9m-b1M" id="trG-nn-54l"/>
-                                            <outlet property="newsSummaryLabel" destination="2BQ-vX-O1J" id="jYe-a3-feU"/>
-                                            <outlet property="newsTitleLabel" destination="0Ex-9s-b4c" id="5Dt-Si-1G5"/>
+                                            <outlet property="authorLabel" destination="GUB-U7-piz" id="ssm-jL-cZ7"/>
+                                            <outlet property="onlineImageView" destination="brA-8f-rDR" id="6Zm-g3-mIu"/>
+                                            <outlet property="publishTimeLabel" destination="y0O-9m-b1M" id="qEB-1i-woD"/>
+                                            <outlet property="summaryLabel" destination="2BQ-vX-O1J" id="goO-ru-SLH"/>
+                                            <outlet property="titleLabel" destination="0Ex-9s-b4c" id="jyq-kO-zvv"/>
                                             <segue destination="XvI-6G-Jes" kind="show" identifier="NewsListWithImageToDetail" id="077-nq-dLx"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellWithoutImage" rowHeight="82" id="1qj-ia-hAN" customClass="NewsWithoutImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellWithoutImage" rowHeight="82" id="1qj-ia-hAN" customClass="OnlineInfoWithoutImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1qj-ia-hAN" id="nJC-MV-1QP">
@@ -354,10 +354,10 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="newsAuathorLabel" destination="oJ2-BI-KqZ" id="IEu-pD-kbQ"/>
-                                            <outlet property="newsPublishTimeLabel" destination="9qq-8t-gUd" id="2HK-Eg-ZoF"/>
-                                            <outlet property="newsSummaryLabel" destination="skO-ur-aCu" id="GVD-EZ-ITG"/>
-                                            <outlet property="newsTitleLabel" destination="aWy-tn-UuF" id="doc-b8-RZj"/>
+                                            <outlet property="authorLabel" destination="oJ2-BI-KqZ" id="3an-LS-IjR"/>
+                                            <outlet property="publishTimeLabel" destination="9qq-8t-gUd" id="AWm-af-zkq"/>
+                                            <outlet property="summaryLabel" destination="skO-ur-aCu" id="DYn-ea-Ki5"/>
+                                            <outlet property="titleLabel" destination="aWy-tn-UuF" id="46Q-xy-qjj"/>
                                             <segue destination="XvI-6G-Jes" kind="show" identifier="NewsListWithoutImageToDetail" id="8Ys-69-CNh"/>
                                         </connections>
                                     </tableViewCell>
@@ -938,7 +938,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfflineInfoWithImageCell" rowHeight="100" id="fJG-RU-rSZ" customClass="InfoWithImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfflineInfoWithImageCell" rowHeight="100" id="fJG-RU-rSZ" customClass="OfflineInfoWithImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJG-RU-rSZ" id="rC4-5F-l6h">
@@ -1092,7 +1092,7 @@
                                             <segue destination="NOC-Ap-lvd" kind="show" identifier="OfflineInfoListWithImageToDetail" id="RSy-i8-A6Q"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfflineInfoWithoutImageCell" rowHeight="80" id="39V-Je-cVa" customClass="InfoWithoutImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfflineInfoWithoutImageCell" rowHeight="80" id="39V-Je-cVa" customClass="OfflineInfoWithoutImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="39V-Je-cVa" id="zHd-0u-l8y">
@@ -1341,7 +1341,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BloggerAttentionerCell" rowHeight="70" id="cKG-V5-RHQ" customClass="BloggerTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BloggerAttentionerCell" rowHeight="70" id="cKG-V5-RHQ" customClass="BloggerTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cKG-V5-RHQ" id="B7A-Px-lXO">
@@ -1798,7 +1798,7 @@
             </objects>
             <point key="canvasLocation" x="2545.5" y="1672.5"/>
         </scene>
-        <!--子叶的博客-->
+        <!--博客-->
         <scene sceneID="oHo-vA-eTT">
             <objects>
                 <viewController storyboardIdentifier="BlogOfBloggerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HsQ-zh-PdM" customClass="BlogOfBloggerViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -1810,14 +1810,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Jn-KT-082">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Jn-KT-082">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsWithoutImageTableViewCell" rowHeight="84" id="Sxs-JP-dcv" customClass="NewsWithoutImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogOfBloggerTableViewCell" rowHeight="80" id="Sxs-JP-dcv" customClass="OnlineInfoWithoutImageTableViewCell" customModule="CNBlogsClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sxs-JP-dcv" id="2OU-3X-ilj">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" tableViewCell="Sxs-JP-dcv" id="2OU-3X-ilj">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX7-6B-ATX">
@@ -1825,35 +1825,29 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="8" width="304" height="20"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzL-sy-1sk">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="31" width="304" height="16"/>
-                                                    </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6tW-fL-PYc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IncoPublishTime" translatesAutoresizingMaskIntoConstraints="NO" id="6tW-fL-PYc">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="GVH-tQ-C0f"/>
-                                                        <constraint firstAttribute="width" secondItem="6tW-fL-PYc" secondAttribute="height" multiplier="1:1" id="t1b-mR-ngl"/>
+                                                        <constraint firstAttribute="width" constant="20" id="d4p-0p-el6"/>
+                                                        <constraint firstAttribute="width" secondItem="6tW-fL-PYc" secondAttribute="height" multiplier="1:1" id="k47-fw-Fjt"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="GVH-tQ-C0f"/>
-                                                            <exclude reference="t1b-mR-ngl"/>
+                                                            <exclude reference="d4p-0p-el6"/>
+                                                            <exclude reference="k47-fw-Fjt"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="GVH-tQ-C0f"/>
-                                                            <include reference="t1b-mR-ngl"/>
+                                                            <include reference="d4p-0p-el6"/>
+                                                            <include reference="k47-fw-Fjt"/>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
@@ -1865,22 +1859,18 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mX7-6B-ATX" firstAttribute="top" secondItem="2OU-3X-ilj" secondAttribute="top" constant="8" id="5YT-r0-x0X"/>
-                                                <constraint firstItem="aYd-rZ-ImF" firstAttribute="leading" secondItem="6tW-fL-PYc" secondAttribute="trailing" constant="8" id="EtP-ae-lin"/>
-                                                <constraint firstItem="aYd-rZ-ImF" firstAttribute="centerY" secondItem="6tW-fL-PYc" secondAttribute="centerY" constant="-0.5" id="GFI-di-IBG"/>
-                                                <constraint firstAttribute="bottom" secondItem="6tW-fL-PYc" secondAttribute="bottom" constant="8" id="L2G-2c-dY1"/>
-                                                <constraint firstItem="6tW-fL-PYc" firstAttribute="top" secondItem="TzL-sy-1sk" secondAttribute="bottom" constant="3" id="Luj-gb-a26">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
-                                                </constraint>
-                                                <constraint firstItem="TzL-sy-1sk" firstAttribute="trailing" secondItem="mX7-6B-ATX" secondAttribute="trailing" id="XZm-51-Cic"/>
-                                                <constraint firstItem="TzL-sy-1sk" firstAttribute="top" secondItem="mX7-6B-ATX" secondAttribute="bottom" id="YSP-5e-gg0">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="3"/>
-                                                </constraint>
-                                                <constraint firstItem="TzL-sy-1sk" firstAttribute="leading" secondItem="6tW-fL-PYc" secondAttribute="leading" id="a8t-UO-wbR"/>
-                                                <constraint firstItem="mX7-6B-ATX" firstAttribute="leading" secondItem="2OU-3X-ilj" secondAttribute="leading" constant="8" id="iJs-du-Tfc"/>
+                                                <constraint firstItem="TzL-sy-1sk" firstAttribute="top" secondItem="mX7-6B-ATX" secondAttribute="bottom" constant="3" id="7Uy-p9-8bK"/>
+                                                <constraint firstItem="mX7-6B-ATX" firstAttribute="leading" secondItem="TzL-sy-1sk" secondAttribute="leading" id="8hN-VZ-gYd"/>
+                                                <constraint firstAttribute="bottom" secondItem="6tW-fL-PYc" secondAttribute="bottom" constant="7" id="OXe-Ma-Slb"/>
+                                                <constraint firstItem="mX7-6B-ATX" firstAttribute="leading" secondItem="2OU-3X-ilj" secondAttribute="leading" constant="8" id="OmS-zN-4G5"/>
+                                                <constraint firstItem="aYd-rZ-ImF" firstAttribute="leading" secondItem="6tW-fL-PYc" secondAttribute="trailing" constant="8" id="Sse-Wf-f2J"/>
+                                                <constraint firstAttribute="trailing" secondItem="mX7-6B-ATX" secondAttribute="trailing" constant="8" id="UYu-I8-sZ2"/>
+                                                <constraint firstItem="aYd-rZ-ImF" firstAttribute="centerY" secondItem="6tW-fL-PYc" secondAttribute="centerY" constant="1.5" id="eIt-Da-nMs"/>
+                                                <constraint firstItem="mX7-6B-ATX" firstAttribute="trailing" secondItem="TzL-sy-1sk" secondAttribute="trailing" id="h5b-5Q-PFg"/>
+                                                <constraint firstItem="6tW-fL-PYc" firstAttribute="leading" secondItem="TzL-sy-1sk" secondAttribute="leading" id="rok-jW-DuV"/>
                                                 <constraint firstItem="aYd-rZ-ImF" firstAttribute="top" secondItem="TzL-sy-1sk" secondAttribute="bottom" constant="5" id="ry3-eV-dpj"/>
-                                                <constraint firstItem="TzL-sy-1sk" firstAttribute="leading" secondItem="mX7-6B-ATX" secondAttribute="leading" id="sM8-S6-xSe"/>
-                                                <constraint firstAttribute="trailing" secondItem="mX7-6B-ATX" secondAttribute="trailing" constant="8" id="tcC-Xq-ZJj"/>
+                                                <constraint firstItem="6tW-fL-PYc" firstAttribute="top" secondItem="TzL-sy-1sk" secondAttribute="bottom" constant="5" id="uLw-yo-7Ws"/>
+                                                <constraint firstItem="mX7-6B-ATX" firstAttribute="top" secondItem="2OU-3X-ilj" secondAttribute="top" constant="8" id="zSH-Fh-vp9"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -1890,18 +1880,18 @@
                                                     <exclude reference="aYd-rZ-ImF"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="XZm-51-Cic"/>
-                                                    <exclude reference="YSP-5e-gg0"/>
-                                                    <exclude reference="a8t-UO-wbR"/>
-                                                    <exclude reference="sM8-S6-xSe"/>
-                                                    <exclude reference="EtP-ae-lin"/>
-                                                    <exclude reference="GFI-di-IBG"/>
+                                                    <exclude reference="8hN-VZ-gYd"/>
+                                                    <exclude reference="OmS-zN-4G5"/>
+                                                    <exclude reference="UYu-I8-sZ2"/>
+                                                    <exclude reference="h5b-5Q-PFg"/>
+                                                    <exclude reference="zSH-Fh-vp9"/>
+                                                    <exclude reference="7Uy-p9-8bK"/>
+                                                    <exclude reference="OXe-Ma-Slb"/>
+                                                    <exclude reference="rok-jW-DuV"/>
+                                                    <exclude reference="uLw-yo-7Ws"/>
+                                                    <exclude reference="Sse-Wf-f2J"/>
+                                                    <exclude reference="eIt-Da-nMs"/>
                                                     <exclude reference="ry3-eV-dpj"/>
-                                                    <exclude reference="5YT-r0-x0X"/>
-                                                    <exclude reference="iJs-du-Tfc"/>
-                                                    <exclude reference="tcC-Xq-ZJj"/>
-                                                    <exclude reference="L2G-2c-dY1"/>
-                                                    <exclude reference="Luj-gb-a26"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -1912,25 +1902,25 @@
                                                     <include reference="aYd-rZ-ImF"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="XZm-51-Cic"/>
-                                                    <include reference="YSP-5e-gg0"/>
-                                                    <include reference="a8t-UO-wbR"/>
-                                                    <include reference="sM8-S6-xSe"/>
-                                                    <include reference="EtP-ae-lin"/>
-                                                    <include reference="GFI-di-IBG"/>
+                                                    <include reference="8hN-VZ-gYd"/>
+                                                    <include reference="OmS-zN-4G5"/>
+                                                    <include reference="UYu-I8-sZ2"/>
+                                                    <include reference="h5b-5Q-PFg"/>
+                                                    <include reference="zSH-Fh-vp9"/>
+                                                    <include reference="7Uy-p9-8bK"/>
+                                                    <include reference="OXe-Ma-Slb"/>
+                                                    <include reference="rok-jW-DuV"/>
+                                                    <include reference="uLw-yo-7Ws"/>
+                                                    <include reference="Sse-Wf-f2J"/>
+                                                    <include reference="eIt-Da-nMs"/>
                                                     <exclude reference="ry3-eV-dpj"/>
-                                                    <include reference="5YT-r0-x0X"/>
-                                                    <include reference="iJs-du-Tfc"/>
-                                                    <include reference="tcC-Xq-ZJj"/>
-                                                    <include reference="L2G-2c-dY1"/>
-                                                    <include reference="Luj-gb-a26"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="newsPublishTimeLabel" destination="aYd-rZ-ImF" id="xN4-II-MO9"/>
-                                            <outlet property="newsSummaryLabel" destination="TzL-sy-1sk" id="XRl-a5-MM7"/>
-                                            <outlet property="newsTitleLabel" destination="mX7-6B-ATX" id="cRM-kA-Pau"/>
+                                            <outlet property="publishTimeLabel" destination="aYd-rZ-ImF" id="g3M-Tu-4ZF"/>
+                                            <outlet property="summaryLabel" destination="TzL-sy-1sk" id="Krv-eX-4XE"/>
+                                            <outlet property="titleLabel" destination="mX7-6B-ATX" id="HAH-4D-5ME"/>
                                             <segue destination="XvI-6G-Jes" kind="show" identifier="BloggerInfoListWithoutImageToDetail" id="2Fd-N8-pcb"/>
                                         </connections>
                                     </tableViewCell>
@@ -1943,20 +1933,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RWq-uT-15U" firstAttribute="top" secondItem="3Jn-KT-082" secondAttribute="bottom" id="0Jo-ou-2fM"/>
-                            <constraint firstItem="3Jn-KT-082" firstAttribute="leading" secondItem="DIH-9N-Xu7" secondAttribute="leading" id="2TO-hZ-wuc"/>
-                            <constraint firstAttribute="trailing" secondItem="3Jn-KT-082" secondAttribute="trailing" id="L7h-Wv-uTp"/>
-                            <constraint firstItem="3Jn-KT-082" firstAttribute="top" secondItem="DIH-9N-Xu7" secondAttribute="top" id="YDK-A4-tqs"/>
+                            <constraint firstItem="3Jn-KT-082" firstAttribute="top" secondItem="DIH-9N-Xu7" secondAttribute="top" id="PH0-Ee-OcD">
+                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                            </constraint>
+                            <constraint firstItem="3Jn-KT-082" firstAttribute="leading" secondItem="DIH-9N-Xu7" secondAttribute="leading" id="R2D-7q-hbx"/>
+                            <constraint firstAttribute="trailing" secondItem="3Jn-KT-082" secondAttribute="trailing" id="bh4-UO-L9c"/>
+                            <constraint firstItem="RWq-uT-15U" firstAttribute="top" secondItem="3Jn-KT-082" secondAttribute="bottom" id="nWV-tE-0oU"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="3Jn-KT-082"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0Jo-ou-2fM"/>
-                                <exclude reference="2TO-hZ-wuc"/>
-                                <exclude reference="L7h-Wv-uTp"/>
-                                <exclude reference="YDK-A4-tqs"/>
+                                <exclude reference="PH0-Ee-OcD"/>
+                                <exclude reference="R2D-7q-hbx"/>
+                                <exclude reference="bh4-UO-L9c"/>
+                                <exclude reference="nWV-tE-0oU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1964,14 +1956,14 @@
                                 <include reference="3Jn-KT-082"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0Jo-ou-2fM"/>
-                                <include reference="2TO-hZ-wuc"/>
-                                <include reference="L7h-Wv-uTp"/>
-                                <include reference="YDK-A4-tqs"/>
+                                <include reference="PH0-Ee-OcD"/>
+                                <include reference="R2D-7q-hbx"/>
+                                <include reference="bh4-UO-L9c"/>
+                                <include reference="nWV-tE-0oU"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="子叶的博客" id="gah-ao-W2z"/>
+                    <navigationItem key="navigationItem" title="博客" id="eh2-kZ-yK0"/>
                     <connections>
                         <outlet property="blogTableView" destination="3Jn-KT-082" id="DEZ-ya-Niv"/>
                     </connections>
@@ -2311,6 +2303,7 @@
     <resources>
         <image name="BloggerEssayCount" width="30" height="30"/>
         <image name="BloggerUpdateTime" width="30" height="30"/>
+        <image name="IncoPublishTime" width="30" height="30"/>
         <image name="Search" width="28" height="28"/>
         <image name="menuBgImage" width="640" height="1520"/>
         <image name="menuBtn" width="30" height="30"/>
@@ -2318,7 +2311,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RSy-i8-A6Q"/>
-        <segue reference="XYM-uq-boN"/>
+        <segue reference="SPB-qc-1gD"/>
         <segue reference="2Fd-N8-pcb"/>
     </inferredMetricsTieBreakers>
 </document>

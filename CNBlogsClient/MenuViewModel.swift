@@ -24,11 +24,13 @@ class MenuViewModel: NSObject {
     var menuKeys = ["推荐阅读", "我的资讯", "设置"]
     var menuItems:Dictionary<String, [MenuItem]>!
     
+    var bloggerSelf: Blogger?
     
     override init() {
         super.init()
         
         self.setMenuItem()
+        self.bloggerSelf = self.gainBloggerInfo()
     }
     
     // 设置菜单项
@@ -58,4 +60,17 @@ class MenuViewModel: NSObject {
     func gainVCInStoryBoard(vcId: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(vcId) as! UIViewController
     }
+    
+    // 获取博主数据
+    func gainBloggerInfo() ->Blogger {
+        var blogger: Blogger = BloggerOwned()
+        if blogger.isLoginSelf() {
+            blogger = blogger.gainBloggerSelfInfo()
+        }
+        return blogger
+    }
+    
+    // 获取博主名称
+    
+    // 获取博主头像
 }

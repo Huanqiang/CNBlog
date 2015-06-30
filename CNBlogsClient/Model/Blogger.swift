@@ -79,8 +79,17 @@ class Blogger: NSObject {
     
     :returns: 博主自己的信息
     */
-    func gainBloggerSelf() -> Blogger {
+    func gainBloggerSelfInfo() -> Blogger {
         return Blogger()
+    }
+    
+    /**
+    判断博主自己是否登录
+    
+    :returns: 登录返回True，否则返回False
+    */
+    func isLoginSelf() ->Bool {
+        return true
     }
     
     /**
@@ -120,7 +129,7 @@ class BloggerOwned: Blogger {
         return true
     }
     
-    override func gainBloggerSelf() -> Blogger {
+    override func gainBloggerSelfInfo() -> Blogger {
         var bloggerSelf: BloggerOwned   = BloggerOwned()
         bloggerSelf.bloggerArticleCount = self.gainBloggerArticleCount()
         bloggerSelf.bloggerIconPath     = self.gainBloggerIconPath()
@@ -178,6 +187,10 @@ class BloggerOwned: Blogger {
     
     func gainBloggerUpdatedTime() -> NSDate {
         return loginTool.getUserInfo("bloggerUpdatedTime").stringToDateWithDateFormat(CNBlogDateFormatForApi)
+    }
+    
+    override func isLoginSelf() ->Bool {
+        return loginTool.isCookie()
     }
 }
 

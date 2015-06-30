@@ -85,13 +85,13 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
         var cell: UITableViewCell?
         
         if news.hasIcon {
-            cell = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithImageCell") as? InfoWithImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithImageCell") as? OfflineInfoWithImageTableViewCell
             
-            self.configurationImageCellOfIndex(cell as! InfoWithImageTableViewCell, news: news)
+            self.configurationImageCellOfIndex(cell as! OfflineInfoWithImageTableViewCell, news: news)
         }else {
-            cell = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithoutImageCell") as? InfoWithoutImageTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithoutImageCell") as? OfflineInfoWithoutImageTableViewCell
             
-            self.configurationNoImageCellOfIndex(cell as! InfoWithoutImageTableViewCell, news: news)
+            self.configurationNoImageCellOfIndex(cell as! OfflineInfoWithoutImageTableViewCell, news: news)
 
         }
         
@@ -104,7 +104,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     // MARK: - 私有函数
-    func configurationImageCellOfIndex(cell: InfoWithImageTableViewCell, news: OfflineInformation) {
+    func configurationImageCellOfIndex(cell: OfflineInfoWithImageTableViewCell, news: OfflineInformation) {
         cell.infoTitleLabel.text       = news.title
         cell.infoSummaryLabel.text     = news.summary
         cell.infoAuathorLabel.text     = news.author
@@ -113,7 +113,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
         cell.infoImageView.image = FolderOperation().gainImageFromFolder(NewsIconFolderName, imageName: news.iconPath.lastPathComponent)
     }
     
-    func configurationNoImageCellOfIndex(cell: InfoWithoutImageTableViewCell, news: OfflineInformation) {
+    func configurationNoImageCellOfIndex(cell: OfflineInfoWithoutImageTableViewCell, news: OfflineInformation) {
         cell.infoTitleLabel.text       = news.title
         cell.infoSummaryLabel.text     = news.summary
         cell.infoAuathorLabel.text     = news.author

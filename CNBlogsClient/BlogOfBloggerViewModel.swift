@@ -45,6 +45,9 @@ class BlogOfBloggerViewModel: NSObject {
         self.blogVC  = blogVC
     }
     
+    
+    // MARK: - ************  操作 *************
+    
     // 网络操作网络操作获取数据
     func gainBlogFormNetWork() {
         var networkOperation: NetworkOperation = NetworkOperationWithBlogListOfBlogger()
@@ -91,6 +94,15 @@ class BlogOfBloggerViewModel: NSObject {
     
     
     // Mark: - 数据操作
+    /**
+    获取根据博主的名称设置的VC的名称
+    
+    :returns: VC的名称
+    */
+    func gainVCName() ->String {
+        return "\(self.blogger.bloggerName)的博客"
+    }
+    
     func gainBlogListsCount() -> Int {
         return self.blogLists.count
     }

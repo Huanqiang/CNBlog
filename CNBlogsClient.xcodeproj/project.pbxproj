@@ -15,7 +15,6 @@
 		E6187FF01B3A5F77003F9FB7 /* BloggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FEF1B3A5F77003F9FB7 /* BloggerTableViewCell.swift */; };
 		E61900F21B1C8A2F00E583C5 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F11B1C8A2F00E583C5 /* BlogViewController.swift */; };
 		E61900F41B1C8A4D00E583C5 /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F31B1C8A4D00E583C5 /* BlogViewModel.swift */; };
-		E61900F71B1C924900E583C5 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */; };
 		E61901131B1C9A1A00E583C5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E61900FB1B1C9A1A00E583C5 /* MJRefresh.bundle */; };
 		E61901141B1C9A1A00E583C5 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E61900FE1B1C9A1A00E583C5 /* MJRefreshComponent.m */; };
 		E61901151B1C9A1A00E583C5 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E61901001B1C9A1A00E583C5 /* MJRefreshConst.m */; };
@@ -36,8 +35,6 @@
 		E67AF6651B37C66700CD3BB4 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67AF6641B37C66700CD3BB4 /* SettingTableViewController.swift */; };
 		E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */; };
 		E6908E5A1B2C18930003681D /* OfflineInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */; };
-		E6908E5D1B2C1F070003681D /* InfoWithImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */; };
-		E6908E5F1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E5E1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift */; };
 		E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */; };
 		E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */; };
 		E69303861B20520400DE6E45 /* MozTopAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69303841B20520400DE6E45 /* MozTopAlertView.m */; };
@@ -50,6 +47,8 @@
 		E6B05F061B3CC4CC00AAD113 /* BlogOfBloggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B05F051B3CC4CC00AAD113 /* BlogOfBloggerViewModel.swift */; };
 		E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */; };
 		E6B82E351B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B82E331B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift */; };
+		E6C0B6181B428AF100BFDA79 /* OnlineInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C0B6171B428AF100BFDA79 /* OnlineInfoTableViewCell.swift */; };
+		E6C0B61D1B428CE200BFDA79 /* OfflineInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C0B61C1B428CE200BFDA79 /* OfflineInfoTableViewCell.swift */; };
 		E6C3A0721B39ABF90067B9EF /* Thanks.htm in Resources */ = {isa = PBXBuildFile; fileRef = E6C3A0711B39ABF90067B9EF /* Thanks.htm */; };
 		E6C4F1F51B31163400E40FB2 /* OfflineInfoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F1F41B31163400E40FB2 /* OfflineInfoDetailViewModel.swift */; };
 		E6D404951B3A4B3D00494808 /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D404941B3A4B3D00494808 /* OpenSourceLicenseViewController.swift */; };
@@ -113,7 +112,6 @@
 		E6187FEF1B3A5F77003F9FB7 /* BloggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloggerTableViewCell.swift; sourceTree = "<group>"; };
 		E61900F11B1C8A2F00E583C5 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		E61900F31B1C8A4D00E583C5 /* BlogViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
-		E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		E61900FB1B1C9A1A00E583C5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = Function/MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
 		E61900FC1B1C9A1A00E583C5 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = Function/MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		E61900FD1B1C9A1A00E583C5 /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = Function/MJRefresh/MJRefreshComponent.h; sourceTree = "<group>"; };
@@ -146,8 +144,6 @@
 		E67AF6641B37C66700CD3BB4 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewController.swift; sourceTree = "<group>"; };
 		E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewModel.swift; sourceTree = "<group>"; };
-		E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWithImageTableViewCell.swift; sourceTree = "<group>"; };
-		E6908E5E1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWithoutImageTableViewCell.swift; sourceTree = "<group>"; };
 		E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
 		E69303831B20520400DE6E45 /* MozTopAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MozTopAlertView.h; path = Function/TopAlertView/MozTopAlertView.h; sourceTree = "<group>"; };
@@ -164,6 +160,8 @@
 		E6B05F051B3CC4CC00AAD113 /* BlogOfBloggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogOfBloggerViewModel.swift; sourceTree = "<group>"; };
 		E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderOperation.swift; sourceTree = "<group>"; };
 		E6B82E331B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineBlogBaseInfoEntity.swift; path = Model/CoreData/OfflineBlogBaseInfoEntity.swift; sourceTree = "<group>"; };
+		E6C0B6171B428AF100BFDA79 /* OnlineInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineInfoTableViewCell.swift; sourceTree = "<group>"; };
+		E6C0B61C1B428CE200BFDA79 /* OfflineInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoTableViewCell.swift; sourceTree = "<group>"; };
 		E6C3A0711B39ABF90067B9EF /* Thanks.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Thanks.htm; sourceTree = "<group>"; };
 		E6C4F1F41B31163400E40FB2 /* OfflineInfoDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoDetailViewModel.swift; sourceTree = "<group>"; };
 		E6D404941B3A4B3D00494808 /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 			children = (
 				E6187FE61B3A5D4A003F9FB7 /* MyAttentionerViewController.swift */,
 				E6187FED1B3A5EE7003F9FB7 /* MyAttentionerViewModel.swift */,
-				E6187FEF1B3A5F77003F9FB7 /* BloggerTableViewCell.swift */,
 			);
 			name = "MyAttentioner View Controller";
 			sourceTree = "<group>";
@@ -380,8 +377,7 @@
 		E6908E601B2C20190003681D /* Info TableView Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E6908E5C1B2C1F070003681D /* InfoWithImageTableViewCell.swift */,
-				E6908E5E1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift */,
+				E6C0B61C1B428CE200BFDA79 /* OfflineInfoTableViewCell.swift */,
 			);
 			name = "Info TableView Cell";
 			sourceTree = "<group>";
@@ -391,7 +387,6 @@
 			children = (
 				E6F6B85D1B1B31AD004BC482 /* NewsViewController.swift */,
 				E6580DDA1B1C7CCD00D98072 /* NewsViewModel.swift */,
-				E61900F61B1C924900E583C5 /* NewsTableViewCell.swift */,
 			);
 			name = "NewsList View Controller";
 			sourceTree = "<group>";
@@ -449,6 +444,32 @@
 				E6F6B8551B1B2E5B004BC482 /* REFrostedViewController */,
 			);
 			name = Function;
+			sourceTree = "<group>";
+		};
+		E6C0B6191B428B6C00BFDA79 /* OnlineInfo TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6C0B6171B428AF100BFDA79 /* OnlineInfoTableViewCell.swift */,
+			);
+			name = "OnlineInfo TableViewCell";
+			sourceTree = "<group>";
+		};
+		E6C0B61A1B428C2B00BFDA79 /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E6C0B6191B428B6C00BFDA79 /* OnlineInfo TableViewCell */,
+				E6908E601B2C20190003681D /* Info TableView Cell */,
+				E6C0B61B1B428C7200BFDA79 /* Blogger TableViewCell */,
+			);
+			name = "Table View Cell";
+			sourceTree = "<group>";
+		};
+		E6C0B61B1B428C7200BFDA79 /* Blogger TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6187FEF1B3A5F77003F9FB7 /* BloggerTableViewCell.swift */,
+			);
+			name = "Blogger TableViewCell";
 			sourceTree = "<group>";
 		};
 		E6D404981B3A4B5900494808 /* OpenSourceLicense */ = {
@@ -585,11 +606,11 @@
 				E6580DDD1B1C7CE900D98072 /* News View Controller */,
 				E61900F51B1C8A5500E583C5 /* Blog View Controller */,
 				E6908E5B1B2C18A40003681D /* OfflineInfo View Controller */,
-				E6908E601B2C20190003681D /* Info TableView Cell */,
 				E6187FE91B3A5D6B003F9FB7 /* SearchBlogger View Controller */,
 				E6187FEC1B3A5DFD003F9FB7 /* BlogOfBlogger View Controller */,
 				E6187FE81B3A5D5A003F9FB7 /* MyAttentioner View Controller */,
 				E67AF6661B37C67100CD3BB4 /* Setting View Controller */,
+				E6C0B61A1B428C2B00BFDA79 /* Table View Cell */,
 				E6EF871A1B196C15009FF4A9 /* AppDelegate.swift */,
 				E62426E91B1D3790002AF56B /* EnumOptionManage.swift */,
 				E6EF87211B196C15009FF4A9 /* Main.storyboard */,
@@ -884,7 +905,6 @@
 				E6F29C1D1B1AE26E000264D7 /* OfflineBlogContentEntity.swift in Sources */,
 				E61900F21B1C8A2F00E583C5 /* BlogViewController.swift in Sources */,
 				E6187FF01B3A5F77003F9FB7 /* BloggerTableViewCell.swift in Sources */,
-				E61900F71B1C924900E583C5 /* NewsTableViewCell.swift in Sources */,
 				E61901181B1C9A1A00E583C5 /* MJRefreshGifHeader.m in Sources */,
 				E6F6B8611B1B339A004BC482 /* NavigationController.swift in Sources */,
 				E6F6B8501B1B2E49004BC482 /* REFrostedViewController.m in Sources */,
@@ -903,7 +923,7 @@
 				E6F6B8521B1B2E49004BC482 /* UIView+REFrostedViewController.m in Sources */,
 				E6580DDB1B1C7CCD00D98072 /* NewsViewModel.swift in Sources */,
 				E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */,
-				E6908E5F1B2C1F1A0003681D /* InfoWithoutImageTableViewCell.swift in Sources */,
+				E6C0B61D1B428CE200BFDA79 /* OfflineInfoTableViewCell.swift in Sources */,
 				E619011A1B1C9A1A00E583C5 /* MJRefreshLegendFooter.m in Sources */,
 				E6F29C231B1AE26F000264D7 /* OfflineNewsBaseInfoEntity.swift in Sources */,
 				E62426EA1B1D3790002AF56B /* EnumOptionManage.swift in Sources */,
@@ -916,6 +936,7 @@
 				E6F6B8591B1B3120004BC482 /* RootViewController.swift in Sources */,
 				E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */,
 				E6D6E2311B21C6E100CEB66C /* SwiftNotice.swift in Sources */,
+				E6C0B6181B428AF100BFDA79 /* OnlineInfoTableViewCell.swift in Sources */,
 				E6F29C1F1B1AE26F000264D7 /* BloggerAttentionEntity.swift in Sources */,
 				E6D6E2351B21ED0E00CEB66C /* CoreDataOperation.swift in Sources */,
 				E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */,
@@ -951,7 +972,6 @@
 				E6D404951B3A4B3D00494808 /* OpenSourceLicenseViewController.swift in Sources */,
 				E693038E1B20521A00DE6E45 /* FAImageView.m in Sources */,
 				E61901141B1C9A1A00E583C5 /* MJRefreshComponent.m in Sources */,
-				E6908E5D1B2C1F070003681D /* InfoWithImageTableViewCell.swift in Sources */,
 				E69303861B20520400DE6E45 /* MozTopAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

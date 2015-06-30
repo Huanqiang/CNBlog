@@ -156,8 +156,10 @@ class BlogContentXmlOperation: XMLOperation {
 class SearchBloggerXmlOperation: XMLOperation {
     override func gainXmlDoc(xmlDoc: AEXMLDocument) {
         let newsLists = xmlDoc.root["entry"].all
-        for newsList in newsLists! {
-            xmlElements.append(self.gainBloggerElement(newsList))
+        if (newsLists != nil) {
+            for newsList in newsLists! {
+                xmlElements.append(self.gainBloggerElement(newsList))
+            }
         }
     }
     
