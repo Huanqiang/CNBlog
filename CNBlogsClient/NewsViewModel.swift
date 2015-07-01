@@ -14,7 +14,11 @@ class NewsViewModel: NSObject {
     var newsVC: NewsViewController!
     
     // 数据型 变量
-    var newsElementLists: [OnlineInformation] = []
+    /// newsElementLists 是专门给TableView使用的，其他三个再加载后要将数据传给 newsElementLists
+    var newsElementLists: [OnlineInformation]        = []
+    var recentNewsElementLists: [OnlineInformation]  = []
+    var popNewsElementLists: [OnlineInformation]     = []
+    var commendNewsElementLists: [OnlineInformation] = []
     
     override init() {
         super.init()
@@ -30,7 +34,7 @@ class NewsViewModel: NSObject {
         networkOperation = NetworkOperationWithNews()
         // 防止 闭包循环， 使用weak
         weak var weakSelf: NewsViewModel? = self
-        networkOperation.gainInfomationFromNetwork(CNBlogAPIOption.recentNews, parameters: ["20"]) { (onlineInfo) -> Void in
+        networkOperation.gainInfomationFromNetwork(CNBlogAPIOption.recentNews, parameters: ["15"]) { (onlineInfo) -> Void in
             if (onlineInfo != nil) {
                 weakSelf!.newsElementLists = onlineInfo as! [OnlineInformation]
                 weakSelf!.newsVC.reloadTabeleView()
@@ -41,6 +45,10 @@ class NewsViewModel: NSObject {
             weakSelf!.newsVC.endTableRefreshing()
         }
     }
+    
+    
+    
+    
     
     // MARK: - 数据传递
     func gainOnlineNewsAtIndexPath(index: Int) -> OnlineNews {

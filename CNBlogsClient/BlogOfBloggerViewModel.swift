@@ -15,10 +15,12 @@ class BlogOfBloggerViewModel: NSObject {
     var blogPage: Int = 1
     var blogger: Blogger!
     var isHeadRefresh: Bool = true
+    var isBloggerSelf: Bool = true
+    var isBlogerSelfLogin: Bool = true
     
     
     override init() {
-        
+        self.isBloggerSelf = true
     }
     
     /**
@@ -29,7 +31,21 @@ class BlogOfBloggerViewModel: NSObject {
     :returns: 一个博主自己的博客VM
     */
     init(blogVC: BlogOfBloggerViewController) {
-        self.blogVC = blogVC
+        super.init()
+        self.blogVC        = blogVC
+        self.isBloggerSelf = true
+        // 获取博主信息
+        self.gainBloggerSelfInfo()
+    }
+    
+    func gainBloggerSelfInfo() {
+        var bloggerSelf: Blogger = BloggerOwned()
+        if bloggerSelf.isLoginSelf() {
+            bloggerSelf = bloggerSelf.gainBloggerSelfInfo()
+        }else {
+            isBlogerSelfLogin = false
+        }
+        blogger = bloggerSelf
     }
     
     /**
@@ -41,8 +57,9 @@ class BlogOfBloggerViewModel: NSObject {
     :returns: 一个关注人的博客VM
     */
     init(attentioner: Blogger, blogVC: BlogOfBloggerViewController) {
-        self.blogger = attentioner
-        self.blogVC  = blogVC
+        self.blogger       = attentioner
+        self.blogVC        = blogVC
+        self.isBloggerSelf = false
     }
     
     
@@ -100,6 +117,9 @@ class BlogOfBloggerViewModel: NSObject {
     :returns: VC的名称
     */
     func gainVCName() ->String {
+        if self.isBloggerSelf {
+            return "我的博客"
+        }
         return "\(self.blogger.bloggerName)的博客"
     }
     

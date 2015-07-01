@@ -24,6 +24,10 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
         // Do any additional setup after loading the view.
         self.OfflineInfoTableView.rowHeight = UITableViewAutomaticDimension
         self.OfflineInfoTableView.estimatedRowHeight = 44
+        
+        // 设置提示线
+        self.OfflineBlogBtnView.hidden = true
+        self.OfflineNewsBtnView.hidden = false
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -58,10 +62,18 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - 获取数据操作
     @IBAction func gainOfflineNews(sender: AnyObject) {
+        self.offlineInfoModel.gainNewsElementLists()
+        // 设置提示线
+        self.OfflineBlogBtnView.hidden = true
+        self.OfflineNewsBtnView.hidden = false
     }
     
     
     @IBAction func gainOfflineBlog(sender: AnyObject) {
+        self.offlineInfoModel.gainBlogElementLists()
+        // 设置提示线
+        self.OfflineBlogBtnView.hidden = false
+        self.OfflineNewsBtnView.hidden = true
     }
     
     
@@ -77,7 +89,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.offlineInfoModel.gainNewsElementListsCount()
+        return self.offlineInfoModel.gainOfflineInfoElementListsCount()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -92,7 +104,6 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
             cell = tableView.dequeueReusableCellWithIdentifier("OfflineInfoWithoutImageCell") as? OfflineInfoWithoutImageTableViewCell
             
             self.configurationNoImageCellOfIndex(cell as! OfflineInfoWithoutImageTableViewCell, news: news)
-
         }
         
         return cell!

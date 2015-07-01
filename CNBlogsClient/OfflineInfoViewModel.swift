@@ -13,7 +13,7 @@ class OfflineInfoViewModel: NSObject {
     var offlineVC: OfflineInfoViewController!
     
     // 数据型 变量
-    var newsElementLists: [OfflineInformation] = []
+    var offlineInfoElementLists: [OfflineInformation] = []
     
     override init() {
         super.init()
@@ -22,23 +22,34 @@ class OfflineInfoViewModel: NSObject {
     init(offlineVC: OfflineInfoViewController) {
         super.init()
         self.offlineVC = offlineVC
-        self.newsElementLists = OfflineNews().gainOfflineBaseInfo()
-        
+        self.gainNewsElementLists()
+    }
+    
+    // MARK: - 获取数据
+    func gainNewsElementLists() {
+        self.offlineInfoElementLists = OfflineNews().gainOfflineBaseInfo()
         // 在获取数据后刷新操作
         self.reloadTabeleView()
     }
     
+    func gainBlogElementLists() {
+        self.offlineInfoElementLists = OfflineBlog().gainOfflineBaseInfo()
+        // 在获取数据后刷新操作
+        self.reloadTabeleView()
+    }    
     
+    
+    // MARK: - 界面数据
     func reloadTabeleView() {
         self.offlineVC.reloadTabeleView()
     }
     
-    func offlineAtIndex(index: Int) -> OfflineNews{
-        return self.newsElementLists[index] as! OfflineNews
+    func offlineAtIndex(index: Int) -> OfflineInformation {
+        return self.offlineInfoElementLists[index]
     }
     
-    func gainNewsElementListsCount() -> Int {
-        return self.newsElementLists.count
+    func gainOfflineInfoElementListsCount() -> Int {
+        return self.offlineInfoElementLists.count
     }
     
     // MARK: - 界面数据传递

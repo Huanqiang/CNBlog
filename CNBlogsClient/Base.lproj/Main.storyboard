@@ -748,7 +748,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Aim-3J-t7T" kind="show" id="j2N-yg-bqF"/>
+                                            <segue destination="Aim-3J-t7T" kind="show" identifier="GainToOpenSourceLicense" id="j2N-yg-bqF"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1063,18 +1063,12 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="8" width="304" height="21"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVw-4M-4vL">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="32" width="304" height="16"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布于" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rF6-Pa-brh">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -1103,7 +1097,9 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="3"/>
                                                 </constraint>
                                                 <constraint firstItem="IVw-4M-4vL" firstAttribute="leading" secondItem="wbA-qe-KfF" secondAttribute="leading" id="RTb-PC-dMQ"/>
-                                                <constraint firstItem="Q2H-mD-huI" firstAttribute="leading" secondItem="zHd-0u-l8y" secondAttribute="leading" constant="8" id="XMX-mA-Nj8"/>
+                                                <constraint firstItem="Q2H-mD-huI" firstAttribute="leading" secondItem="zHd-0u-l8y" secondAttribute="leading" constant="8" id="XMX-mA-Nj8">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                                </constraint>
                                                 <constraint firstItem="wbA-qe-KfF" firstAttribute="top" secondItem="IVw-4M-4vL" secondAttribute="bottom" constant="8" id="Zf4-vp-hra">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                                 </constraint>
@@ -1761,7 +1757,7 @@
         <!--博客-->
         <scene sceneID="oHo-vA-eTT">
             <objects>
-                <viewController storyboardIdentifier="BlogOfBloggerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HsQ-zh-PdM" customClass="BlogOfBloggerViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlogOfBloggerViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HsQ-zh-PdM" customClass="BlogOfBloggerViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a0K-cw-yXZ"/>
                         <viewControllerLayoutGuide type="bottom" id="RWq-uT-15U"/>
@@ -1785,12 +1781,18 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="304" height="20"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzL-sy-1sk">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="31" width="304" height="16"/>
+                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IncoPublishTime" translatesAutoresizingMaskIntoConstraints="NO" id="6tW-fL-PYc">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1893,22 +1895,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3Jn-KT-082" firstAttribute="top" secondItem="DIH-9N-Xu7" secondAttribute="top" id="PH0-Ee-OcD">
+                            <constraint firstItem="RWq-uT-15U" firstAttribute="top" secondItem="3Jn-KT-082" secondAttribute="bottom" id="3g6-FQ-3TB"/>
+                            <constraint firstAttribute="trailing" secondItem="3Jn-KT-082" secondAttribute="trailing" id="JEc-KO-wV4"/>
+                            <constraint firstItem="3Jn-KT-082" firstAttribute="top" secondItem="DIH-9N-Xu7" secondAttribute="top" id="rTi-A7-NPo">
                                 <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                             </constraint>
-                            <constraint firstItem="3Jn-KT-082" firstAttribute="leading" secondItem="DIH-9N-Xu7" secondAttribute="leading" id="R2D-7q-hbx"/>
-                            <constraint firstAttribute="trailing" secondItem="3Jn-KT-082" secondAttribute="trailing" id="bh4-UO-L9c"/>
-                            <constraint firstItem="RWq-uT-15U" firstAttribute="top" secondItem="3Jn-KT-082" secondAttribute="bottom" id="nWV-tE-0oU"/>
+                            <constraint firstItem="3Jn-KT-082" firstAttribute="leading" secondItem="DIH-9N-Xu7" secondAttribute="leading" id="tRF-kV-mt8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="3Jn-KT-082"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="nWV-tE-0oU"/>
-                                <exclude reference="PH0-Ee-OcD"/>
-                                <exclude reference="R2D-7q-hbx"/>
-                                <exclude reference="bh4-UO-L9c"/>
+                                <exclude reference="JEc-KO-wV4"/>
+                                <exclude reference="rTi-A7-NPo"/>
+                                <exclude reference="tRF-kV-mt8"/>
+                                <exclude reference="3g6-FQ-3TB"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1916,10 +1918,10 @@
                                 <include reference="3Jn-KT-082"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="nWV-tE-0oU"/>
-                                <include reference="PH0-Ee-OcD"/>
-                                <include reference="R2D-7q-hbx"/>
-                                <include reference="bh4-UO-L9c"/>
+                                <include reference="JEc-KO-wV4"/>
+                                <include reference="rTi-A7-NPo"/>
+                                <include reference="tRF-kV-mt8"/>
+                                <include reference="3g6-FQ-3TB"/>
                             </mask>
                         </variation>
                     </view>
@@ -2255,6 +2257,7 @@
                         <segue destination="tnf-qs-rKK" kind="show" id="6Ug-tc-Hy0"/>
                         <segue destination="pks-W0-nGQ" kind="show" id="4pb-BU-w0O"/>
                         <segue destination="b5h-Vr-nMU" kind="show" id="iXo-RB-ZnZ"/>
+                        <segue destination="HsQ-zh-PdM" kind="show" id="6bq-Lr-IiL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5d4-Jn-ViL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2272,8 +2275,9 @@
         <image name="userIcon" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RSy-i8-A6Q"/>
-        <segue reference="SPB-qc-1gD"/>
+        <segue reference="6bq-Lr-IiL"/>
+        <segue reference="XYM-uq-boN"/>
         <segue reference="2Fd-N8-pcb"/>
+        <segue reference="RSy-i8-A6Q"/>
     </inferredMetricsTieBreakers>
 </document>

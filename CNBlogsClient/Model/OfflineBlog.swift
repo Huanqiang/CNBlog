@@ -9,6 +9,12 @@
 import UIKit
 
 class OfflineBlog: OfflineInformation {
+    override init() {
+        super.init()
+        
+        self.coreDataOperation = CoreDataOperationWithBlog()
+    }
+    
     override init(onlineInfo: OnlineInformation) {
         super.init(onlineInfo: onlineInfo)
         
