@@ -93,7 +93,7 @@ class BlogOfBloggerViewModel: NSObject {
         if self.isHeadRefresh {
             return [self.blogger.bloggerId, "1", "10"]
         }else {
-            return [self.blogger.bloggerId, "\(blogPage++)", "10"]
+            return [self.blogger.bloggerId, "\(++blogPage)", "10"]
         }
     }
     
@@ -134,6 +134,4 @@ class BlogOfBloggerViewModel: NSObject {
     func newBlogDetailVM(index: Int, vc: OnlineInfoDetailViewController) -> OnlineInfoDetailViewModel {
         return OnlineInfoDetailViewModel(onlineInfo: self.gainBlogAtIndex(index), onlineDetailVC: vc)
     }
-    
-    
 }

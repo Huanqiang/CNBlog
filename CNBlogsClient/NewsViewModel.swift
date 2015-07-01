@@ -44,9 +44,7 @@ class NewsViewModel: NSObject {
             // 结束刷新
             weakSelf!.newsVC.endTableRefreshing()
         }
-    }
-    
-    
+    }    
     
     
     

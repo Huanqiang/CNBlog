@@ -25,6 +25,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         newsModel = NewsViewModel(newsVC: self)
         // 加载下拉刷新
         self.setTableRefreshing()
+        self.switchNewTypeWithBtnView(1)
         
         //添加这行代码
         self.newsListTableView.rowHeight = UITableViewAutomaticDimension
@@ -52,7 +53,33 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             newsDetailVC.onlineInfoDetailVM = self.newsModel.newsDetailViewModelForIndexPath(indexPath.row, vc: newsDetailVC)
         }
     }
-
+    
+    // 切换新闻列表按钮 操作
+    @IBAction func gainRecentNews(sender: AnyObject) {
+        self.switchNewTypeWithBtnView(1)
+    }
+    
+    @IBAction func gainPopNews(sender: AnyObject) {
+        self.switchNewTypeWithBtnView(2)
+    }
+    
+    @IBAction func gainCommendNews(sender: AnyObject) {
+        self.switchNewTypeWithBtnView(3)
+    }
+    
+    // 切换三个按钮的指示图
+    func switchNewTypeWithBtnView(btnIndex: Int) {
+        self.recentNewsBtnStateView.hidden  = true
+        self.popNewsBtnStateView.hidden     = true
+        self.commendNewsBtnStateView.hidden = true
+        
+        switch btnIndex {
+        case 1: self.recentNewsBtnStateView.hidden  = false
+        case 2: self.popNewsBtnStateView.hidden     = false
+        case 3: self.commendNewsBtnStateView.hidden = false
+        default: println("")
+        }
+    }
 
     // MARK: - 打开菜单
     @IBAction func showMenu(sender: AnyObject) {

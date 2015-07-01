@@ -21,6 +21,7 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         self.title = self.blogVM.gainVCName()
 
         self.setTableHeadRefreshing()
+        self.setTableFooterRefreshing()
         
         //添加这行代码
         self.blogTableView.rowHeight = UITableViewAutomaticDimension
@@ -35,18 +36,22 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         // 如果是博主，重新获取博主数据
-        blogVM = BlogOfBloggerViewModel(blogVC: self)
+        self.blogVM.gainBloggerSelfInfo()
         // 判断一下 没有登录则提醒登录
         if !self.blogVM.isBlogerSelfLogin {
             self.alertLoginInfo()
         }else {
-            self.beginTableHeadRefreshing()
+            // 当 列表没有数据 的时候加载
+            if self.blogVM.gainBlogListsCount() == 0 {
+                self.beginTableHeadRefreshing()
+            }
         }
         
     }
     
     func setNavBtn() {
         if self.blogVM.isBloggerSelf {
+            blogVM = BlogOfBloggerViewModel(blogVC: self)
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menuBtn"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
         }        
     }
