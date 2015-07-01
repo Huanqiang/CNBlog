@@ -25,8 +25,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.bloggerName.text = self.menuViewModel.gainBloggerName()
-        self.bloggerIcon.image = self.menuViewModel.gainBloggerIcon()
+        self.menuViewModel.bloggerSelf = self.menuViewModel.gainBloggerInfo()
+        self.bloggerName.text          = self.menuViewModel.gainBloggerName()
+        self.bloggerIcon.image         = self.menuViewModel.gainBloggerIcon()
     }
 
     override func didReceiveMemoryWarning() {

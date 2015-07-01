@@ -28,7 +28,7 @@ class OnlineInfoDetailViewModel: NSObject {
         weak var weakSelf: OnlineInfoDetailViewModel? = self
         self.onlineInfo.gainOnlineInfoContentFromNetwork { (onlineInfo) -> Void in
             self.onlineDetailVC.endWaitOfflineOnlineInfoContent()
-            
+            // 数据处理
             if (onlineInfo != nil && onlineInfo?.count != 0) {
                 weakSelf!.onlineInfo.content = (onlineInfo![0] as! OnlineInformation).content
                 weakSelf!.onlineDetailVC.gainOnlineInfoInfoSuccess()

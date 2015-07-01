@@ -341,7 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				E693037B1B203FE500DE6E45 /* NewsList View Controller */,
-				E693037C1B203FFA00DE6E45 /* OnlineInfo Detail View Controller */,
 			);
 			name = "News View Controller";
 			sourceTree = "<group>";
@@ -604,6 +603,7 @@
 				E6EF873D1B196C1F009FF4A9 /* Model */,
 				E6F6B85C1B1B3177004BC482 /* Menu View Controller */,
 				E6580DDD1B1C7CE900D98072 /* News View Controller */,
+				E693037C1B203FFA00DE6E45 /* OnlineInfo Detail View Controller */,
 				E61900F51B1C8A5500E583C5 /* Blog View Controller */,
 				E6908E5B1B2C18A40003681D /* OfflineInfo View Controller */,
 				E6187FE91B3A5D6B003F9FB7 /* SearchBlogger View Controller */,

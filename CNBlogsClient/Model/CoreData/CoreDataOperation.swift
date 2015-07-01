@@ -25,7 +25,34 @@ class CoreDataOperation: NSObject {
     
     :returns: 离线成功返回true， 否则返回false
     */
-    func insertOfflineInfo(offlineInfo: OfflineInformation) -> Bool { return true }
+    func insertOfflineInfo(offlineInfo: OfflineInformation) -> Bool {
+        let isSuccessWithInsertNewsBase = self.insertOnlineBaseInfo(offlineInfo)
+        let isSuccessWithInsertNewsContent = self.insertOnlineInfoContent(offlineInfo)
+        
+        if isSuccessWithInsertNewsBase && isSuccessWithInsertNewsContent {
+            return true
+        }else {
+            return false
+        }
+    }
+    
+    /**
+    保存 离线信息的 基本信息
+    
+    :param: offlineInfo 需要被离线的数据
+    
+    :returns: 离线成功返回true， 否则返回false
+    */
+    func insertOnlineBaseInfo(offlineInfo: OfflineInformation) -> Bool { return true }
+    
+    /**
+    保存 离线信息的 主内容
+    
+    :param: offlineInfo 需要被离线的数据
+    
+    :returns: 离线成功返回true， 否则返回false
+    */
+    func insertOnlineInfoContent(offlineInfo: OfflineInformation) -> Bool { return true }
     
     /**
     删除离线数据
@@ -139,47 +166,35 @@ class CoreDataOperation: NSObject {
 class CoreDataOperationWithNews: CoreDataOperation {
     
     // MARK - ******** 保存离线数据 *********
-    override func insertOfflineInfo(offlineInfo: OfflineInformation) -> Bool {
-        let newsInfo: OfflineNews = offlineInfo as! OfflineNews
-        let isSuccessWithInsertNewsBase = self.insertNewsBaseInfo(newsInfo)
-        let isSuccessWithInsertNewsContent = self.insertNewsContent(newsInfo)
-        
-        if isSuccessWithInsertNewsBase && isSuccessWithInsertNewsContent {
-            return true
-        }else {
-            return false
-        }
-    }
-    
-    func insertNewsBaseInfo(newsInfo: OfflineNews) -> Bool {
+    override func insertOnlineBaseInfo(offlineInfo: OfflineInformation) -> Bool {
         // 先判断数据库里有没有这条数据，有的话直接返回真
-        if self.isExistWithInfoId(self.gainAppointEntityDescription("OfflineNewsBaseInfoEntity"), infoId: newsInfo.id, infoType: "news") {
+        if self.isExistWithInfoId(self.gainAppointEntityDescription("OfflineNewsBaseInfoEntity"), infoId: offlineInfo.id, infoType: "news") {
             return true
         }
         
         var newsEntity: OfflineNewsBaseInfoEntity = self.gainNewEntity("OfflineNewsBaseInfoEntity") as! OfflineNewsBaseInfoEntity
         
-        newsEntity.newsAuthor      = newsInfo.author
-        newsEntity.newsHasIcon     = newsInfo.hasIcon
-        newsEntity.newsIconPath    = newsInfo.iconPath
-        newsEntity.newsId          = newsInfo.id
-        newsEntity.newsPublishTime = newsInfo.publishTime
-        newsEntity.newsSummary     = newsInfo.summary
-        newsEntity.newsTitle       = newsInfo.title
+        newsEntity.newsAuthor      = offlineInfo.author
+        newsEntity.newsHasIcon     = offlineInfo.hasIcon
+        newsEntity.newsIconPath    = offlineInfo.iconPath
+        newsEntity.newsId          = offlineInfo.id
+        newsEntity.newsPublishTime = offlineInfo.publishTime
+        newsEntity.newsSummary     = offlineInfo.summary
+        newsEntity.newsTitle       = offlineInfo.title
         newsEntity.newsOfflineTime = NSDate()
         
         return self.managedObjectContext.save(nil)
     }
     
-    func insertNewsContent(newsInfo: OfflineNews) -> Bool {
-        if self.isExistWithInfoId(self.gainAppointEntityDescription("OfflineNewsContentEntity"), infoId: newsInfo.id, infoType: "news") {
+    override func insertOnlineInfoContent(offlineInfo: OfflineInformation) -> Bool {
+        if self.isExistWithInfoId(self.gainAppointEntityDescription("OfflineNewsContentEntity"), infoId: offlineInfo.id, infoType: "news") {
             return true
         }
         
         var newsEntity: OfflineNewsContentEntity = self.gainNewEntity("OfflineNewsContentEntity") as! OfflineNewsContentEntity
         
-        newsEntity.newsId      = newsInfo.id
-        newsEntity.newsContent = newsInfo.content
+        newsEntity.newsId      = offlineInfo.id
+        newsEntity.newsContent = offlineInfo.content
         
         return self.managedObjectContext.save(nil)
     }
@@ -213,7 +228,64 @@ class CoreDataOperationWithNews: CoreDataOperation {
 }
 
 class CoreDataOperationWithBlog: CoreDataOperation {
+    // MARK - ******** 保存离线数据 *********
+    override func insertOnlineBaseInfo(offlineInfo: OfflineInformation) -> Bool {
+        // 先判断数据库里有没有这条数据，有的话直接返回真
+        if self.isExistWithInfoId(self.gainAppointEntityDescription("OfflineBlogBaseInfoEntity"), infoId: offlineInfo.id, infoType: "blog") {
+            return true
+        }
+        
+        var blogEntity: OfflineBlogBaseInfoEntity = self.gainNewEntity("OfflineBlogBaseInfoEntity") as! OfflineBlogBaseInfoEntity
+        
+        blogEntity.blogAuthor      = offlineInfo.author
+        blogEntity.blogIconPath    = offlineInfo.iconPath
+        blogEntity.blogId          = offlineInfo.id
+        blogEntity.blogPublishTime = offlineInfo.publishTime
+        blogEntity.blogSummary     = offlineInfo.summary
+        blogEntity.blogTitle       = offlineInfo.title
+        blogEntity.blogOfflineTime = NSDate()
+        
+        return self.managedObjectContext.save(nil)
+    }
     
+    override func insertOnlineInfoContent(offlineInfo: OfflineInformation) -> Bool {
+        if self.isExistWithInfoId(self.gainAppointEntityDescription("OfflineBlogContentEntity"), infoId: offlineInfo.id, infoType: "blog") {
+            return true
+        }
+        
+        var blogEntity: OfflineBlogContentEntity = self.gainNewEntity("OfflineBlogContentEntity") as! OfflineBlogContentEntity
+        
+        blogEntity.blogId      = offlineInfo.id
+        blogEntity.blogContent = offlineInfo.content
+        
+        return self.managedObjectContext.save(nil)
+    }
+    // ********** 删除离线数据 **********
+    
+    
+    
+    
+    // MARK - ********** 获取离线数据 **********
+    override func gainOfflineBaseInfos() -> [OfflineInformation] {
+        var offlineNewsBaseInfo: NSEntityDescription = self.gainAppointEntityDescription("OfflineBlogBaseInfoEntity")
+        let sortByDate = self.createSortDescriptorByUnAscend("blogOfflineTime")
+        let searchResult = self.gainAppointInfo(offlineNewsBaseInfo, sortDescriptors: [sortByDate], predicates: [])
+        var offlineInfoResults:[OfflineBlog] = []
+        
+        for offlineNewsResult in searchResult {
+            offlineInfoResults.append(OfflineBlog(offlineInfo: offlineNewsResult as! OfflineBlogBaseInfoEntity))
+        }
+        
+        return offlineInfoResults
+    }
+    
+    override func gainOfflineContentInfo(newsId: String) -> OfflineInformation {
+        var offlineNewsContent: NSEntityDescription = self.gainAppointEntityDescription("OfflineBlogContentEntity")
+        let predicateWithID: NSPredicate = NSPredicate(format: "blogId = %@", newsId)
+        let searchResult = self.gainAppointInfo(offlineNewsContent, sortDescriptors: [], predicates: [predicateWithID])
+        
+        return OfflineBlog(offlineContent: searchResult[0] as! OfflineBlogContentEntity)
+    }
 }
 
 //MARK: - 博主关注人CoreData操作类

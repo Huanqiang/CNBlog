@@ -38,7 +38,9 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if equal(segue.identifier!, "BloggerInfoListWithoutImageToDetail") {
-            
+            let indexPath = self.blogTableView.indexPathForSelectedRow()
+            var blogDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
+            blogDetailVC.onlineInfoDetailVM = self.blogVM.newBlogDetailVM(indexPath!.row, vc: blogDetailVC)
         }
     }
 

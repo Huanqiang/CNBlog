@@ -15,20 +15,20 @@ class OfflineBlog: OfflineInformation {
         self.coreDataOperation = CoreDataOperationWithBlog()
     }
     
-    init(offlineInfo: OfflineNewsBaseInfoEntity) {
+    init(offlineInfo: OfflineBlogBaseInfoEntity) {
         super.init()
-        self.id          = offlineInfo.newsId
-        self.title       = offlineInfo.newsTitle
-        self.summary     = offlineInfo.newsSummary
-        self.author      = offlineInfo.newsAuthor
-        self.publishTime = offlineInfo.newsPublishTime
+        self.id          = offlineInfo.blogId
+        self.title       = offlineInfo.blogTitle
+        self.summary     = offlineInfo.blogSummary
+        self.author      = offlineInfo.blogAuthor
+        self.publishTime = offlineInfo.blogPublishTime
         
         self.coreDataOperation = CoreDataOperationWithBlog()
     }
     
-    init(offlineContent: OfflineNewsContentEntity) {
+    init(offlineContent: OfflineBlogContentEntity) {
         super.init()
-        self.content = offlineContent.newsContent
+        self.content = offlineContent.blogContent
         
         self.coreDataOperation = CoreDataOperationWithBlog()
     }

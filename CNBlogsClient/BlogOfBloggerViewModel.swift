@@ -111,7 +111,9 @@ class BlogOfBloggerViewModel: NSObject {
         return self.blogLists[index]
     }
     
-    
+    func newBlogDetailVM(index: Int, vc: OnlineInfoDetailViewController) -> OnlineInfoDetailViewModel {
+        return OnlineInfoDetailViewModel(onlineInfo: self.gainBlogAtIndex(index), onlineDetailVC: vc)
+    }
     
     
 }
