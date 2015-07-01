@@ -35,8 +35,8 @@
 		E67AF6651B37C66700CD3BB4 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67AF6641B37C66700CD3BB4 /* SettingTableViewController.swift */; };
 		E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */; };
 		E6908E5A1B2C18930003681D /* OfflineInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */; };
-		E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */; };
-		E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */; };
+		E693037E1B20402400DE6E45 /* OnlineInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037D1B20402400DE6E45 /* OnlineInfoDetailViewController.swift */; };
+		E69303801B20404C00DE6E45 /* OnlineInfoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693037F1B20404C00DE6E45 /* OnlineInfoDetailViewModel.swift */; };
 		E69303861B20520400DE6E45 /* MozTopAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69303841B20520400DE6E45 /* MozTopAlertView.m */; };
 		E693038E1B20521A00DE6E45 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69303881B20521A00DE6E45 /* FAImageView.m */; };
 		E693038F1B20521A00DE6E45 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E69303891B20521A00DE6E45 /* FontAwesome.ttf */; };
@@ -144,8 +144,8 @@
 		E67AF6641B37C66700CD3BB4 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		E6908E571B2C184C0003681D /* OfflineInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewController.swift; sourceTree = "<group>"; };
 		E6908E591B2C18930003681D /* OfflineInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineInfoViewModel.swift; sourceTree = "<group>"; };
-		E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
-		E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
+		E693037D1B20402400DE6E45 /* OnlineInfoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineInfoDetailViewController.swift; sourceTree = "<group>"; };
+		E693037F1B20404C00DE6E45 /* OnlineInfoDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineInfoDetailViewModel.swift; sourceTree = "<group>"; };
 		E69303831B20520400DE6E45 /* MozTopAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MozTopAlertView.h; path = Function/TopAlertView/MozTopAlertView.h; sourceTree = "<group>"; };
 		E69303841B20520400DE6E45 /* MozTopAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MozTopAlertView.m; path = Function/TopAlertView/MozTopAlertView.m; sourceTree = "<group>"; };
 		E69303871B20521A00DE6E45 /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FAImageView.h; path = Function/TopAlertView/fontawesome/FAImageView.h; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				E693037B1B203FE500DE6E45 /* NewsList View Controller */,
-				E693037C1B203FFA00DE6E45 /* NewsDetail View Controller */,
+				E693037C1B203FFA00DE6E45 /* OnlineInfo Detail View Controller */,
 			);
 			name = "News View Controller";
 			sourceTree = "<group>";
@@ -391,13 +391,13 @@
 			name = "NewsList View Controller";
 			sourceTree = "<group>";
 		};
-		E693037C1B203FFA00DE6E45 /* NewsDetail View Controller */ = {
+		E693037C1B203FFA00DE6E45 /* OnlineInfo Detail View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E693037D1B20402400DE6E45 /* NewsDetailViewController.swift */,
-				E693037F1B20404C00DE6E45 /* NewsDetailViewModel.swift */,
+				E693037D1B20402400DE6E45 /* OnlineInfoDetailViewController.swift */,
+				E693037F1B20404C00DE6E45 /* OnlineInfoDetailViewModel.swift */,
 			);
-			name = "NewsDetail View Controller";
+			name = "OnlineInfo Detail View Controller";
 			sourceTree = "<group>";
 		};
 		E69303811B2051E900DE6E45 /* TopAlertView */ = {
@@ -934,12 +934,12 @@
 				E6F6B84E1B1B2E49004BC482 /* RECommonFunctions.m in Sources */,
 				E6187FEE1B3A5EE7003F9FB7 /* MyAttentionerViewModel.swift in Sources */,
 				E6F6B8591B1B3120004BC482 /* RootViewController.swift in Sources */,
-				E693037E1B20402400DE6E45 /* NewsDetailViewController.swift in Sources */,
+				E693037E1B20402400DE6E45 /* OnlineInfoDetailViewController.swift in Sources */,
 				E6D6E2311B21C6E100CEB66C /* SwiftNotice.swift in Sources */,
 				E6C0B6181B428AF100BFDA79 /* OnlineInfoTableViewCell.swift in Sources */,
 				E6F29C1F1B1AE26F000264D7 /* BloggerAttentionEntity.swift in Sources */,
 				E6D6E2351B21ED0E00CEB66C /* CoreDataOperation.swift in Sources */,
-				E69303801B20404C00DE6E45 /* NewsDetailViewModel.swift in Sources */,
+				E69303801B20404C00DE6E45 /* OnlineInfoDetailViewModel.swift in Sources */,
 				E6187FE51B3A5D28003F9FB7 /* SearchBloggerViewController.swift in Sources */,
 				E6F29C211B1AE26F000264D7 /* OfflineNewsContentEntity.swift in Sources */,
 				E6908E581B2C184C0003681D /* OfflineInfoViewController.swift in Sources */,

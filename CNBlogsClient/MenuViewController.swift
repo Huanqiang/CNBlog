@@ -10,6 +10,8 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var MenuTableView: UITableView!
+    @IBOutlet weak var bloggerIcon: UIImageView!
+    @IBOutlet weak var bloggerName: UILabel!
     
     var menuViewModel: MenuViewModel = MenuViewModel()
 
@@ -17,8 +19,14 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.bloggerIcon.layer.masksToBounds = true
+        self.bloggerIcon.layer.cornerRadius = self.bloggerIcon.frame.width / 4.5
         self.MenuTableView.clearTableFooterView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.bloggerName.text = self.menuViewModel.gainBloggerName()
+        self.bloggerIcon.image = self.menuViewModel.gainBloggerIcon()
     }
 
     override func didReceiveMemoryWarning() {

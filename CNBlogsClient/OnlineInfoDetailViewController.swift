@@ -1,5 +1,5 @@
 //
-//  NewsDetailViewController.swift
+//  OnlineInfoDetailViewController.swift
 //  CNBlogsClient
 //
 //  Created by 王焕强 on 15/6/4.
@@ -9,19 +9,17 @@
 import UIKit
 import DTCoreText
 
-class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAttributedTextContentViewDelegate {
+class OnlineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAttributedTextContentViewDelegate {
     
     //数据变量
-    var newsDetailModel: NewsDetailViewModel = NewsDetailViewModel()
+    var onlineInfoDetailVM: OnlineInfoDetailViewModel = OnlineInfoDetailViewModel()
 
     // 控件变量
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsAuthorLabel: UILabel!
-    @IBOutlet weak var newsPublishTimeLabel: UILabel!
-    @IBOutlet weak var newsContextTextView: UITextView!
-    @IBOutlet weak var newsOfflineBarBtn: UIBarButtonItem!
-    @IBOutlet weak var newsContentWebView: UIWebView!
-    @IBOutlet weak var newsContextATextView: DTAttributedTextView!
+    @IBOutlet weak var onlineInfoTitleLabel: UILabel!
+    @IBOutlet weak var onlineInfoAuthorLabel: UILabel!
+    @IBOutlet weak var onlineInfoPublishTimeLabel: UILabel!
+    @IBOutlet weak var onlineInfoOfflineBarBtn: UIBarButtonItem!
+    @IBOutlet weak var onlineInfoContextATextView: DTAttributedTextView!
     
     
     override func viewDidLoad() {
@@ -29,15 +27,15 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
 
         // Do any additional setup after loading the view.
         //  设置标题、作者、发表时间
-        newsTitleLabel.text       = newsDetailModel.newsInfo.title
-        newsAuthorLabel.text      = newsDetailModel.newsInfo.author
-        newsPublishTimeLabel.text = newsDetailModel.newsInfo.publishTime.dateToStringByBaseFormat()
+        onlineInfoTitleLabel.text       = onlineInfoDetailVM.onlineInfo.title
+        onlineInfoAuthorLabel.text      = onlineInfoDetailVM.onlineInfo.author
+        onlineInfoPublishTimeLabel.text = onlineInfoDetailVM.onlineInfo.publishTime.dateToStringByBaseFormat()
         
-        self.newsDetailModel.gainNewsListFromNetwork()
+        self.onlineInfoDetailVM.gainOnlineInfoListFromNetwork()
     }
     
     override func viewDidDisappear(animated: Bool) {
-        self.endWaitOfflineNewsContent()
+        self.endWaitOfflineOnlineInfoContent()
         super.viewDidDisappear(animated)
     }
 
@@ -50,30 +48,30 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
     /**
     开始 等待网络数据时的 指示器
     */
-    func waitOfflineNewsContent() {
+    func waitOfflineOnlineInfoContent() {
         self.pleaseWait()
     }
     
     /**
     结束 等待网络数据时的 指示器
     */
-    func endWaitOfflineNewsContent() {
+    func endWaitOfflineOnlineInfoContent() {
         self.clearAllNotice()
     }
     
     /**
     网络操作成功时的操作
     */
-    func gainNewsInfoSuccess() {
-//        self.newsContentWebView.loadHTMLString(self.newsDetailModel.newsInfo.content, baseURL: nil)
-        let htmlData:NSData = self.newsDetailModel.newsInfo.content.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!
+    func gainOnlineInfoInfoSuccess() {
+//        self.OnlineInfoContentWebView.loadHTMLString(self.onlineInfoDetailVM.OnlineInfoInfo.content, baseURL: nil)
+        let htmlData:NSData = self.onlineInfoDetailVM.onlineInfo.content.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!
         var attributedString: NSAttributedString = NSAttributedString(HTMLData: htmlData, options: self.setAttributedOption() as [NSObject : AnyObject], documentAttributes: nil)
         
-        self.newsContextATextView.attributedString = attributedString;
-        self.newsContextATextView.textDelegate = self
-        self.newsContextATextView.shouldDrawImages = false
-        self.newsContextATextView.shouldDrawLinks = false
-        self.newsContextATextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        self.onlineInfoContextATextView.attributedString = attributedString;
+        self.onlineInfoContextATextView.textDelegate = self
+        self.onlineInfoContextATextView.shouldDrawImages = false
+        self.onlineInfoContextATextView.shouldDrawLinks = false
+        self.onlineInfoContextATextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10);
     }
     
     // 主要用于设置 图片的最大尺寸
@@ -87,19 +85,19 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
     /**
     网络操作失败时，弹出topAlert指示
     */
-    func showGainNewsInfoFailure() {
+    func showGainOnlineInfoInfoFailure() {
         TopAlert().createFailureTopAlert("获取新闻失败", parentView: self.view)
     }
 
     // MARK: - 数据离线
-    @IBAction func newsOffline(sender: AnyObject) {
-        self.newsDetailModel.newsOffline()
+    @IBAction func OnlineInfoOffline(sender: AnyObject) {
+        self.onlineInfoDetailVM.infoOffline()
     }
     
     /**
     新闻离线成功时的提示
     */
-    func showOfflineNewsSuccess() {
+    func showOfflineOnlineInfoSuccess() {
         TopAlert().createBaseTopAlert(MozAlertTypeSuccess, alertInfo: "离线成功", parentView: self.view)
     }
     
@@ -178,7 +176,7 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
         let pred: NSPredicate! = NSPredicate(format: "contentURL == %@", url)
         
         var didUpdate: Bool = false
-        let textAttachmentsWithPredicates = self.newsContextATextView.attributedTextContentView.layoutFrame.textAttachmentsWithPredicate(pred) as! [DTTextAttachment]
+        let textAttachmentsWithPredicates = self.onlineInfoContextATextView.attributedTextContentView.layoutFrame.textAttachmentsWithPredicate(pred) as! [DTTextAttachment]
         
         // update all attachments that matchin this URL (possibly multiple images with same size)
         for oneAttachment: DTTextAttachment in textAttachmentsWithPredicates {
@@ -191,7 +189,7 @@ class NewsDetailViewController: UIViewController, DTLazyImageViewDelegate, DTAtt
         
         if didUpdate {
             // layout might have changed due to image sizes
-            self.newsContextATextView.relayoutText()
+            self.onlineInfoContextATextView.relayoutText()
         }
     }
 }

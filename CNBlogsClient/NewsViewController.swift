@@ -48,8 +48,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var indexPath:NSIndexPath = newsListTableView.indexPathForSelectedRow()!
 
         if equal(segue.identifier!, "NewsListWithImageToDetail") || equal(segue.identifier!, "NewsListWithoutImageToDetail") {
-            var newsDetailVC: NewsDetailViewController = segue.destinationViewController as! NewsDetailViewController
-            newsDetailVC.newsDetailModel = self.newsModel.newsDetailViewModelForIndexPath(indexPath.row, vc: newsDetailVC)
+            var newsDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
+            newsDetailVC.onlineInfoDetailVM = self.newsModel.newsDetailViewModelForIndexPath(indexPath.row, vc: newsDetailVC)
         }
     }
 

@@ -24,7 +24,7 @@ class MenuViewModel: NSObject {
     var menuKeys = ["推荐阅读", "我的资讯", "设置"]
     var menuItems:Dictionary<String, [MenuItem]>!
     
-    var bloggerSelf: Blogger?
+    var bloggerSelf: Blogger = Blogger()
     
     override init() {
         super.init()
@@ -70,7 +70,21 @@ class MenuViewModel: NSObject {
         return blogger
     }
     
-    // 获取博主名称
-    
     // 获取博主头像
+    func gainBloggerIcon() ->UIImage {
+        var img = UIImage(named: "userIcon")
+        if bloggerSelf.isLoginSelf() {
+            img = bloggerSelf.gainIconFromDick()
+        }
+        return img!
+    }
+    
+    // 获取博主名称
+    func gainBloggerName() ->String {
+        if bloggerSelf.isLoginSelf() {
+            return bloggerSelf.bloggerName
+        }else {
+            return "尚未设置博主"
+        }
+    }
 }

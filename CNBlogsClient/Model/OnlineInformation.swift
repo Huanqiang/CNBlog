@@ -31,6 +31,7 @@ class OnlineInformation: NSObject {
     
     let folder: FolderOperation = FolderOperation()
     
+    // MARK: - 初始化
     override init() {
         super.init()
     }
@@ -55,10 +56,33 @@ class OnlineInformation: NSObject {
     :param: oContent 资讯内容
     */
     func setContent(let oContent: String) {
-        self.content = oContent;
+        self.content = oContent
     }
     
+    // MARK: - 网络操作获取资讯内容
+    func gainOnlineInfoContentFromNetwork(completionHandler: (onlineInfo : [AnyObject]?) -> Void) {
+        var networkOperation = self.gainContentNetworkOperation()
+        // 防止 闭包循环， 使用weak
+        networkOperation.gainInfomationFromNetwork(self.gainCNBlogAPIOption(), parameters: [self.id]) { (onlineInfo) -> Void in
+            completionHandler(onlineInfo: onlineInfo)
+        }
+    }
+    
+    func gainContentNetworkOperation() ->NetworkOperation {
+        return NetworkOperation()
+    }
+    
+    func gainCNBlogAPIOption() ->CNBlogAPIOption {
+        return CNBlogAPIOption.newsContext
+    }
+    
+    
     // MARK: - 数据离线操作
+    func offlineInfo() ->Bool {
+        return false
+    }
+    
+    
     /**
     将图片存储至磁盘
     
@@ -85,7 +109,7 @@ class OnlineInformation: NSObject {
     
     :returns: 返回一个图片的网页链接和磁盘链接组成的字典<网页链接, 磁盘链接>
     */
-    func saveContentImage() ->Dictionary<String, String> {
+    func saveContentImageToDisk() ->Dictionary<String, String> {
         //创建文件夹
         folder.createFolderWhenNon(NewsIconFolderName)
         // 获取缓存文件
@@ -108,6 +132,6 @@ class OnlineInformation: NSObject {
     func replaceContentImageUrl() {
         var htmlParse: HTMLParserForInformation = HTMLParserForInformation()
         // 修改信息（新闻、博客）中的所有的图片链接, 并存储
-        self.setContent(htmlParse.replaceImaTagWithHTMLInfo(self.content, newImgTag: self.saveContentImage()))
+        self.setContent(htmlParse.replaceImaTagWithHTMLInfo(self.content, newImgTag: self.saveContentImageToDisk()))
     }
 }

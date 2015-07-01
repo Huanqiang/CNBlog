@@ -14,7 +14,7 @@ class Blogger: NSObject {
     var bloggerId: String          = ""        // 博主Id
     var bloggerName: String        = ""        // 博主名称
     var bloggerIconURL: String     = ""        // 博主头像网络URL
-    var bloggerIconPath: String    = ""        // 博主头像本地路径
+    var bloggerIconPath: String    = ""        // 博主头像本地路径:使用了自动生成的Doc路径 + 文件名（IconPath中的）
     var bloggerArticleCount: Int   = 0         // 博主文章数量
     var bloggerUpdatedTime: NSDate = NSDate()  // 博主最后活跃时间
     var bloggerIconInfo: UIImage   = UIImage() // 博主头像image
@@ -118,6 +118,7 @@ class BloggerOwned: Blogger {
     }
     
     override func saveBlogger() -> Bool {
+        self.saveIconToDisk()
         // 将博主信息保存至配置文件
         self.saveBloggerID()
         self.saveBloggerName()

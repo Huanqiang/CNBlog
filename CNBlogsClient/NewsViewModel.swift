@@ -48,8 +48,8 @@ class NewsViewModel: NSObject {
     }
     
     // MARK: - 界面数据传递
-    func newsDetailViewModelForIndexPath(index: Int, vc: NewsDetailViewController) -> NewsDetailViewModel {
-        return NewsDetailViewModel(newsInfo: self.gainOnlineNewsAtIndexPath(index), newsDetailVC: vc)
+    func newsDetailViewModelForIndexPath(index: Int, vc: OnlineInfoDetailViewController) -> OnlineInfoDetailViewModel {
+        return OnlineInfoDetailViewModel(onlineInfo: self.gainOnlineNewsAtIndexPath(index), onlineDetailVC: vc)
     }
     
 }
