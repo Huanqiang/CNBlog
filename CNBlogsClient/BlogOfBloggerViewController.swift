@@ -46,7 +46,6 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
                 self.beginTableHeadRefreshing()
             }
         }
-        
     }
     
     func setNavBtn() {
@@ -104,7 +103,7 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         // 添加传统的下拉刷新
         // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
         self.blogTableView.addLegendHeaderWithRefreshingBlock { () -> Void in
-            self.blogVM.isHeadRefresh = true
+            self.blogVM.setHeadRefresh(true)
             self.loadNewNews()
         }
     }
@@ -112,7 +111,7 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
     // 设置上拉刷新
     func setTableFooterRefreshing() {
         self.blogTableView.addLegendFooterWithRefreshingBlock { () -> Void in
-            self.blogVM.isHeadRefresh = false
+            self.blogVM.setHeadRefresh(false)
             self.loadNewNews()
         }
     }

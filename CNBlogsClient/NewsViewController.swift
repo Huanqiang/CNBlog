@@ -24,7 +24,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         newsModel = NewsViewModel(newsVC: self)
         // 加载下拉刷新
-        self.setTableRefreshing()
+        self.setTableHeadRefreshing()
+        self.beginTableHeadRefreshing()
+        
         self.switchNewTypeWithBtnView(1)
         
         //添加这行代码
@@ -56,15 +58,18 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // 切换新闻列表按钮 操作
     @IBAction func gainRecentNews(sender: AnyObject) {
-        self.switchNewTypeWithBtnView(1)
+        self.switchNewTypeWithBtnView(2)
+        self.newsModel.gainRecentNews()
     }
     
     @IBAction func gainPopNews(sender: AnyObject) {
-        self.switchNewTypeWithBtnView(2)
+        self.switchNewTypeWithBtnView(1)
+        self.newsModel.gainPopNews()
     }
     
     @IBAction func gainCommendNews(sender: AnyObject) {
         self.switchNewTypeWithBtnView(3)
+        self.newsModel.gainCommendNews()
     }
     
     // 切换三个按钮的指示图
@@ -74,8 +79,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.commendNewsBtnStateView.hidden = true
         
         switch btnIndex {
-        case 1: self.recentNewsBtnStateView.hidden  = false
-        case 2: self.popNewsBtnStateView.hidden     = false
+        case 1: self.popNewsBtnStateView.hidden     = false
+        case 2: self.recentNewsBtnStateView.hidden  = false
         case 3: self.commendNewsBtnStateView.hidden = false
         default: println("")
         }
@@ -88,28 +93,69 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     // MARK: - 下拉刷新
-    func setTableRefreshing() {
+    /**
+    设置下拉刷新
+    */
+    func setTableHeadRefreshing() {
         // 添加传统的下拉刷新
         // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
         self.newsListTableView.addLegendHeaderWithRefreshingBlock { () -> Void in
+            self.newsModel.setHeadRefresh(true)
             self.loadNewNews()
         }
-        
-        self.beginTableRefreshing()
     }
 
-    // 开始刷新
-    func beginTableRefreshing() {
+    /**
+    开始下拉刷新
+    */
+    func beginTableHeadRefreshing() {
         self.newsListTableView.legendHeader.beginRefreshing()
     }
     
-    // 刷新完成后需要结束刷新状态 : 一般在 加载数据完之后使用
-    func endTableRefreshing() {
+    /**
+    刷新完成后需要结束下拉刷新状态 : 一般在 加载数据完之后使用
+    */
+    func endTableHeadRefreshing() {
         // 拿到当前的下拉刷新控件，结束刷新状态
         self.newsListTableView.header.endRefreshing()
     }
     
-    // 加载新数据
+    /**
+    添加上拉刷新
+    */
+    func setTableFooterRefreshing() {
+        // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+        self.newsListTableView.addLegendFooterWithRefreshingBlock{ () -> Void in
+            self.newsModel.setHeadRefresh(false)
+            self.loadNewNews()
+        }
+    }
+    
+    /**
+    开始上拉刷新
+    */
+    func beginTableFooterRefreshing() {
+        self.newsListTableView.legendFooter.beginRefreshing()
+    }
+    
+    /**
+    结束上拉刷新
+    */
+    func endTableFooterRefreshing() {
+        // 拿到当前的下拉刷新控件，结束刷新状态
+        self.newsListTableView.footer.endRefreshing()
+    }
+    
+    /**
+    移除上拉刷新
+    */
+    func removeFooterRefreshing() {
+        self.newsListTableView.removeFooter()
+    }
+    
+    /**
+    加载新数据
+    */
     func loadNewNews() {
         newsModel.gainNewsListFromNetwork()
     }
@@ -125,7 +171,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsModel.newsElementLists.count
+        return self.newsModel.gainOnlineNewsCount()
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -157,7 +203,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func configurationImageCellOfIndex(cell: OnlineInfoWithImageTableViewCell, news: OnlineNews) {
         cell.titleLabel.text       = news.title
         cell.summaryLabel.text     = news.summary
-        cell.authorLabel.text     = news.author
+        cell.authorLabel.text      = news.author
         cell.publishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
         
         // 获取标题图片
@@ -173,7 +219,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func configurationNoImageCellOfIndex(cell: OnlineInfoWithoutImageTableViewCell, news: OnlineNews) {
         cell.titleLabel.text       = news.title
         cell.summaryLabel.text     = news.summary
-        cell.authorLabel.text     = news.author
+        cell.authorLabel.text      = news.author
         cell.publishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
     }
     

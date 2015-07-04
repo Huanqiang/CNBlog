@@ -108,6 +108,15 @@ class BlogOfBloggerViewModel: NSObject {
         }
     }
     
+    /**
+    设置当前刷新是上拉刷新还是下拉属性，默认下拉
+    
+    :param: isHeadRefresh 刷新的类型，true为下拉刷新，false为上拉刷新
+    */
+    func setHeadRefresh(isHeadRefresh: Bool) {
+        self.isHeadRefresh = isHeadRefresh
+    }
+    
     
     
     // Mark: - 数据操作

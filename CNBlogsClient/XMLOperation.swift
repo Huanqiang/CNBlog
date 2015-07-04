@@ -46,7 +46,7 @@ class XMLOperation: NSObject {
     
     :returns: 单个 OnlineInformation 的信息
     */
-    func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
+    func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
         return OnlineInformation()
     }
     
@@ -68,27 +68,27 @@ class NewsXmlOperation: XMLOperation {
     override func gainXmlDoc(xmlDoc: AEXMLDocument) {
         let newsLists = xmlDoc.root["entry"].all
         for newsList in newsLists! {
-            xmlElements.append(self.gainNewsElement(newsList))
+            xmlElements.append(self.gainOnlineInfoElement(newsList))
         }
     }
 
-    override func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
+    override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
         var onlineInfo: OnlineNews = OnlineNews()
         
-        onlineInfo.id      = newsList["id"].stringValue
-        onlineInfo.title   = newsList["title"].stringValue
-        onlineInfo.summary = newsList["summary"].stringValue
-        onlineInfo.diggs   = newsList["diggs"].stringValue.toInt()!
-        onlineInfo.views   = newsList["views"].stringValue.toInt()!
-        if equal(newsList["topicIcon"].stringValue, "") {
+        onlineInfo.id      = infoList["id"].stringValue
+        onlineInfo.title   = infoList["title"].stringValue
+        onlineInfo.summary = infoList["summary"].stringValue
+        onlineInfo.diggs   = infoList["diggs"].stringValue.toInt()!
+        onlineInfo.views   = infoList["views"].stringValue.toInt()!
+        if equal(infoList["topicIcon"].stringValue, "") {
             onlineInfo.hasIcon = false
         }else {
             onlineInfo.hasIcon = true
-            onlineInfo.iconURL = newsList["topicIcon"].stringValue
+            onlineInfo.iconURL = infoList["topicIcon"].stringValue
         }
-        onlineInfo.author  = newsList["sourceName"].stringValue
+        onlineInfo.author  = infoList["sourceName"].stringValue
         
-        let dateStr: String = newsList["published"].stringValue
+        let dateStr: String = infoList["published"].stringValue
         onlineInfo.publishTime =  dateStr.stringToDateWithDateFormat(CNBlogDateFormatForApi)
 
         return onlineInfo
@@ -99,13 +99,13 @@ class NewsContentXmlOperation: XMLOperation {
     override func gainXmlDoc(xmlDoc: AEXMLDocument) {
         let newsLists = xmlDoc.root["Content"].all
         for newsList in newsLists! {
-            xmlElements.append(self.gainNewsElement(newsList))
+            xmlElements.append(self.gainOnlineInfoElement(newsList))
         }
     }
     
-    override func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
+    override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
         var onlineInfo: OnlineInformation = OnlineNews()
-        onlineInfo.content = newsList.stringValue
+        onlineInfo.content = infoList.stringValue
         return onlineInfo
     }
 }
@@ -113,23 +113,23 @@ class NewsContentXmlOperation: XMLOperation {
 // 博客解析类
 class BlogXmlOperation: XMLOperation {
     override func gainXmlDoc(xmlDoc: AEXMLDocument) {
-        let newsLists = xmlDoc.root["entry"].all
-        for newsList in newsLists! {
-            xmlElements.append(self.gainNewsElement(newsList))
+        let blogLists = xmlDoc.root["entry"].all
+        for blogList in blogLists! {
+            xmlElements.append(self.gainOnlineInfoElement(blogList))
         }
     }
     
-    override func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
+    override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
         var onlineInfo: OnlineBlog = OnlineBlog()
-        onlineInfo.id          = newsList["id"].stringValue
-        onlineInfo.title       = newsList["title"].stringValue
-        onlineInfo.summary     = newsList["summary"].stringValue
-        onlineInfo.diggs       = newsList["diggs"].stringValue.toInt()!
-        onlineInfo.views       = newsList["views"].stringValue.toInt()!
-        onlineInfo.authorUrl   = newsList["author"]["uri"].stringValue
-        onlineInfo.author      = newsList["author"]["name"].stringValue
+        onlineInfo.id          = infoList["id"].stringValue
+        onlineInfo.title       = infoList["title"].stringValue
+        onlineInfo.summary     = infoList["summary"].stringValue
+        onlineInfo.diggs       = infoList["diggs"].stringValue.toInt()!
+        onlineInfo.views       = infoList["views"].stringValue.toInt()!
+        onlineInfo.authorUrl   = infoList["author"]["uri"].stringValue
+        onlineInfo.author      = infoList["author"]["name"].stringValue
 
-        let dateStr: String    = newsList["published"].stringValue
+        let dateStr: String    = infoList["published"].stringValue
         onlineInfo.publishTime = dateStr.stringToDateWithDateFormat(CNBlogDateFormatForApi)
         
         return onlineInfo
@@ -138,15 +138,15 @@ class BlogXmlOperation: XMLOperation {
 
 class BlogContentXmlOperation: XMLOperation {
     override func gainXmlDoc(xmlDoc: AEXMLDocument) {
-        let newsLists = xmlDoc.root.all
-        for newsList in newsLists! {
-            xmlElements.append(self.gainNewsElement(newsList))
+        let blogLists = xmlDoc.root.all
+        for blogList in blogLists! {
+            xmlElements.append(self.gainOnlineInfoElement(blogList))
         }
     }
     
-    override func gainNewsElement(newsList: AEXMLElement) -> OnlineInformation {
+    override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
         var onlineInfo: OnlineInformation = OnlineNews()
-        onlineInfo.content = newsList.stringValue
+        onlineInfo.content = infoList.stringValue
         return onlineInfo
     }
 }

@@ -17,8 +17,8 @@ enum CNBlogAPIOption {
     case newsContext
     
     case homePageBlog
-    case twoDaysPopBlog
-    case tenDaysPopBlog
+//    case commandBlog
+    case twoDayTopViewPosts
     case blogsContext
     
     case myBlogOption
@@ -86,7 +86,7 @@ class NetworkOperationWithNews: NetworkOperation {
         
         switch menuOption {
         case CNBlogAPIOption.recentNews:
-            urlString += "/recent"
+            urlString += "/recent/paged"
         case CNBlogAPIOption.popNews:
             urlString += "/hot"
         case CNBlogAPIOption.commendNews:
@@ -125,17 +125,12 @@ class NetworkOperationWithNewsContext: NetworkOperation {
 // 获取 博客 的网络类
 class NetworkOperationWithBlog: NetworkOperation {
     override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
-        var urlString = CNBlogMainUrl + "/news"
+        var urlString = CNBlogMainUrl + "/blog"
         
         switch menuOption {
-        case CNBlogAPIOption.recentNews:
-            urlString += "/sitehome/recent"
-        case CNBlogAPIOption.popNews:
-            urlString += "/48HoursTopViewPosts"
-        case CNBlogAPIOption.commendNews:
-            urlString += "/TenDaysTopDiggPosts"
-        default:
-            println("")
+        case CNBlogAPIOption.homePageBlog: urlString       += "/sitehome/paged"
+        case CNBlogAPIOption.twoDayTopViewPosts: urlString += "/48HoursTopViewPosts"
+        default: println("")
         }
         
         for parameter in parameters {

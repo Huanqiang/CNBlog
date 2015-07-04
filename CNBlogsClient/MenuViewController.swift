@@ -20,7 +20,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // Do any additional setup after loading the view.
         self.bloggerIcon.layer.masksToBounds = true
-        self.bloggerIcon.layer.cornerRadius = self.bloggerIcon.frame.width / 4.5
+        self.bloggerIcon.layer.cornerRadius = 15
         self.MenuTableView.clearTableFooterView()
     }
     
