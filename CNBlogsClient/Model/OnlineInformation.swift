@@ -30,6 +30,7 @@ class OnlineInformation: NSObject {
     var hasIcon: Bool       = false     // 是否有标题图片
     
     let folder: FolderOperation = FolderOperation()
+    let saveImgOperation: SaveImageToDisk = SaveImageToDisk(imgFolderName: NewsIconFolderName)
     
     // MARK: - 初始化
     override init() {
@@ -82,26 +83,12 @@ class OnlineInformation: NSObject {
         return false
     }
     
-    
-    /**
-    将图片存储至磁盘
-    
-    :param: img 图片
-    
-    :returns: 图片的磁盘路径
-    */
-    func saveImage(img: UIImage, imgName: String) -> String {
-        let localIconPath = folder.saveImageToFolder(NewsIconFolderName, image: img, imageName: imgName)
-        return localIconPath
-    }
-    
     /**
     保存标题图片
     */
     func saveIconToDisk() {
         //创建文件夹
-        folder.createFolderWhenNon(NewsIconFolderName)
-        self.iconPath = self.saveImage(self.iconInfo, imgName: "\(self.id).png")
+        self.iconPath = saveImgOperation.saveIamgeToDisk(self.iconInfo, imgName: "\(self.id).png")
     }
     
     /**
@@ -121,7 +108,7 @@ class OnlineInformation: NSObject {
         var imgTagDic: Dictionary<String, String> = Dictionary<String, String>()
         for imgTag in imgTags {
             let img = folder.gainImageFromFolder(CacheFolderName, imageName: imgTag.lastPathComponent)
-            imgTagDic[imgTag] = self.saveImage(img, imgName: imgTag.lastPathComponent)
+            imgTagDic[imgTag] = self.saveImgOperation.saveIamgeToDisk(img, imgName: imgTag.lastPathComponent)
         }
         return imgTagDic
     }

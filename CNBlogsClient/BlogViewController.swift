@@ -180,7 +180,7 @@ class BlogViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
+    
     //MARK: - 私有方法
     // 设置内容
     

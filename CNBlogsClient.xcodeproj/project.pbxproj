@@ -42,6 +42,7 @@
 		E69303901B20521A00DE6E45 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E693038B1B20521A00DE6E45 /* NSString+FontAwesome.m */; };
 		E69303911B20521A00DE6E45 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = E693038D1B20521A00DE6E45 /* UIFont+FontAwesome.m */; };
 		E69303941B2052E300DE6E45 /* TopAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69303931B2052E300DE6E45 /* TopAlert.swift */; };
+		E69C8D2A1B575B8B00B52E50 /* SaveImageToDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69C8D291B575B8B00B52E50 /* SaveImageToDisk.swift */; };
 		E6A5142C1B27E6B500F017A4 /* HTMLParserForInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */; };
 		E6B05F061B3CC4CC00AAD113 /* BlogOfBloggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B05F051B3CC4CC00AAD113 /* BlogOfBloggerViewModel.swift */; };
 		E6B0FF251B211D9800FD5F80 /* FolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */; };
@@ -154,6 +155,7 @@
 		E693038C1B20521A00DE6E45 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+FontAwesome.h"; path = "Function/TopAlertView/fontawesome/UIFont+FontAwesome.h"; sourceTree = "<group>"; };
 		E693038D1B20521A00DE6E45 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+FontAwesome.m"; path = "Function/TopAlertView/fontawesome/UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		E69303931B2052E300DE6E45 /* TopAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopAlert.swift; path = TopAlert/TopAlert.swift; sourceTree = "<group>"; };
+		E69C8D291B575B8B00B52E50 /* SaveImageToDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageToDisk.swift; sourceTree = "<group>"; };
 		E6A5142B1B27E6B500F017A4 /* HTMLParserForInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParserForInformation.swift; sourceTree = "<group>"; };
 		E6B05F051B3CC4CC00AAD113 /* BlogOfBloggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogOfBloggerViewModel.swift; sourceTree = "<group>"; };
 		E6B0FF241B211D9800FD5F80 /* FolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderOperation.swift; sourceTree = "<group>"; };
@@ -412,6 +414,14 @@
 			name = "Top Alert";
 			sourceTree = "<group>";
 		};
+		E69C8D281B575B5E00B52E50 /* SaveImageToDisk */ = {
+			isa = PBXGroup;
+			children = (
+				E69C8D291B575B8B00B52E50 /* SaveImageToDisk.swift */,
+			);
+			name = SaveImageToDisk;
+			sourceTree = "<group>";
+		};
 		E6B0FF231B211D5400FD5F80 /* Folder Operation */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +600,7 @@
 				E61900FA1B1C944B00E583C5 /* Network */,
 				E6F6B8621B1B33BC004BC482 /* 左划框架配置 */,
 				E6EF873D1B196C1F009FF4A9 /* Model */,
+				E69C8D281B575B5E00B52E50 /* SaveImageToDisk */,
 				E6F6B85C1B1B3177004BC482 /* Menu View Controller */,
 				E6580DDD1B1C7CE900D98072 /* News View Controller */,
 				E61900F51B1C8A5500E583C5 /* Blog View Controller */,
@@ -941,6 +952,7 @@
 				E62426EF1B1D74B5002AF56B /* NetworkOperation.swift in Sources */,
 				E6187FEB1B3A5DF2003F9FB7 /* BlogOfBloggerViewController.swift in Sources */,
 				E61901151B1C9A1A00E583C5 /* MJRefreshConst.m in Sources */,
+				E69C8D2A1B575B8B00B52E50 /* SaveImageToDisk.swift in Sources */,
 				E61901171B1C9A1A00E583C5 /* MJRefreshGifFooter.m in Sources */,
 				E6B82E351B3284270097DD63 /* OfflineBlogBaseInfoEntity.swift in Sources */,
 				E62426ED1B1D4513002AF56B /* XMLOperation.swift in Sources */,

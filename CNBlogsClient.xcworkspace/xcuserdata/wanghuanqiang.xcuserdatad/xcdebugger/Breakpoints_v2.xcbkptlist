@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CNBlogsClient/Model/Blogger.swift"
-            timestampString = "457717202.510006"
+            timestampString = "458710818.425295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "saveBlogger()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CNBlogsClient/XMLOperation.swift"
+            timestampString = "458710780.531741"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "gainXmlDoc(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

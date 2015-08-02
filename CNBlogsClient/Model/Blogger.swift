@@ -20,6 +20,7 @@ class Blogger: NSObject {
     var bloggerIconInfo: UIImage   = UIImage() // 博主头像image
     
     let folder: FolderOperation = FolderOperation()
+    let saveImgOperation: SaveImageToDisk = SaveImageToDisk(imgFolderName: BloggerIconFolderName)
     
     override init() {
     }
@@ -39,24 +40,10 @@ class Blogger: NSObject {
     }
     
     /**
-    将图片存储至磁盘
-    
-    :param: img 图片
-    
-    :returns: 图片的名称
-    */
-    func saveImage(img: UIImage, imgName: String) -> String {
-        let localIconPath = folder.saveImageToFolder(BloggerIconFolderName, image: img, imageName: imgName)
-        return imgName
-    }
-    
-    /**
     保存当前博主的头像
     */
     func saveIconToDisk() {
-        //创建文件夹
-        folder.createFolderWhenNon(BloggerIconFolderName)
-        self.bloggerIconPath = self.saveImage(self.bloggerIconInfo, imgName: "\(self.bloggerId).png")
+        self.bloggerIconPath = self.saveImgOperation.saveIamgeToDisk(self.bloggerIconInfo, imgName: "\(self.bloggerId).png")
     }
     
     /**
