@@ -143,4 +143,19 @@ class BlogOfBloggerViewModel: NSObject {
     func newBlogDetailVM(index: Int, vc: OnlineInfoDetailViewController) -> OnlineInfoDetailViewModel {
         return OnlineInfoDetailViewModel(onlineInfo: self.gainBlogAtIndex(index), onlineDetailVC: vc)
     }
+    
+    // 设置关注人页面的空白页
+    func setEmptyViewInfo() {
+        // 设置 空白页信息
+//        self.blogVC.EmptyViewInfo.setEmptyViewDescription("")
+        self.blogVC.EmptyViewInfo.setEmptyViewImg("noSetSelf")
+        self.blogVC.EmptyViewInfo.setEmptyViewTitle("Who Am I?")
+        self.blogVC.EmptyViewInfo.setEmptyBtn("点击设置自己博客") {
+            // 跳转搜索界面
+            var searchVC: SearchBloggerViewController = self.blogVC.storyboard?.instantiateViewControllerWithIdentifier("SearchBloggerViewController") as! SearchBloggerViewController
+            searchVC.searchBloggerVM = SearchBloggerViewModel(isBloggerSelf: true, searchBloggerVC: searchVC)
+            self.blogVC.navigationController?.pushViewController(searchVC, animated: true)
+
+        }
+    }
 }

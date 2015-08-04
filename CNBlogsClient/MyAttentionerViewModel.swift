@@ -58,4 +58,11 @@ class MyAttentionerViewModel: NSObject {
         return BlogOfBloggerViewModel(attentioner: self.gainTheAttentionerAtIndex(index), blogVC: vc)
     }
     
+    // 设置关注人页面的空白页
+    func setEmptyViewInfo() {
+        // 设置 空白页信息
+        self.myAttentionerVC.EmptyViewInfo.setEmptyViewDescription("没有关注的博主怎么能提高自己！！赶紧点击左上角的搜索按钮，来搜索你的关注博主吧！")
+        self.myAttentionerVC.EmptyViewInfo.setEmptyViewImg("noAttentioner")
+        self.myAttentionerVC.EmptyViewInfo.setEmptyViewTitle("居然还没有关注的博主")
+    }
 }

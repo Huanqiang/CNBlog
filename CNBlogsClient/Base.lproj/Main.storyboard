@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oqK-ON-Qs7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F19a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oqK-ON-Qs7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -836,19 +836,19 @@
                                                     <exclude reference="rf8-7C-Jyq"/>
                                                     <exclude reference="uOf-g7-zYt"/>
                                                     <exclude reference="YLJ-hd-Cig"/>
+                                                    <exclude reference="fN4-aY-lgL"/>
+                                                    <exclude reference="rjA-kq-eWp"/>
+                                                    <exclude reference="MN1-jG-bj0"/>
+                                                    <exclude reference="cKL-jf-HU3"/>
+                                                    <exclude reference="iTI-BN-iCS"/>
                                                     <exclude reference="2fR-n5-0OJ"/>
                                                     <exclude reference="2o0-ne-b9Z"/>
                                                     <exclude reference="7bV-8n-83J"/>
-                                                    <exclude reference="fN4-aY-lgL"/>
-                                                    <exclude reference="rjA-kq-eWp"/>
                                                     <exclude reference="ExZ-cc-VvT"/>
                                                     <exclude reference="F2f-41-QzB"/>
                                                     <exclude reference="JIb-Lf-gJa"/>
                                                     <exclude reference="Pcs-B6-wHV"/>
                                                     <exclude reference="cjJ-vs-8Xo"/>
-                                                    <exclude reference="MN1-jG-bj0"/>
-                                                    <exclude reference="cKL-jf-HU3"/>
-                                                    <exclude reference="iTI-BN-iCS"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -867,19 +867,19 @@
                                                     <include reference="rf8-7C-Jyq"/>
                                                     <include reference="uOf-g7-zYt"/>
                                                     <include reference="YLJ-hd-Cig"/>
+                                                    <include reference="fN4-aY-lgL"/>
+                                                    <include reference="rjA-kq-eWp"/>
+                                                    <include reference="MN1-jG-bj0"/>
+                                                    <include reference="cKL-jf-HU3"/>
+                                                    <exclude reference="iTI-BN-iCS"/>
                                                     <include reference="2fR-n5-0OJ"/>
                                                     <include reference="2o0-ne-b9Z"/>
                                                     <include reference="7bV-8n-83J"/>
-                                                    <include reference="fN4-aY-lgL"/>
-                                                    <include reference="rjA-kq-eWp"/>
                                                     <exclude reference="ExZ-cc-VvT"/>
                                                     <include reference="F2f-41-QzB"/>
                                                     <exclude reference="JIb-Lf-gJa"/>
                                                     <include reference="Pcs-B6-wHV"/>
                                                     <exclude reference="cjJ-vs-8Xo"/>
-                                                    <include reference="MN1-jG-bj0"/>
-                                                    <include reference="cKL-jf-HU3"/>
-                                                    <exclude reference="iTI-BN-iCS"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1805,6 +1805,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="b5h-Vr-nMU" id="wIJ-IL-Etz"/>
                                     <outlet property="delegate" destination="b5h-Vr-nMU" id="H6H-ds-Qd3"/>
+                                    <outlet property="emptyDataSetDelegate" destination="sFl-Uo-rWN" id="2Uo-Z2-r5l"/>
+                                    <outlet property="emptyDataSetSource" destination="sFl-Uo-rWN" id="Jnx-ma-rYd"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -1853,10 +1855,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="EmptyViewInfo" destination="sFl-Uo-rWN" id="Zwc-v5-PTy"/>
                         <outlet property="myAttentionerTableView" destination="flI-Ak-Z8m" id="F2o-HI-ySF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjK-Ww-ECO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="sFl-Uo-rWN" customClass="EmptyViewSet" customModule="CNBlogsClient" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1350" y="1992"/>
         </scene>
@@ -2102,7 +2106,7 @@
         <!--博客-->
         <scene sceneID="oHo-vA-eTT">
             <objects>
-                <viewController storyboardIdentifier="BlogOfBloggerViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HsQ-zh-PdM" customClass="BlogOfBloggerViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlogOfBloggerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HsQ-zh-PdM" customClass="BlogOfBloggerViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a0K-cw-yXZ"/>
                         <viewControllerLayoutGuide type="bottom" id="RWq-uT-15U"/>
@@ -2235,6 +2239,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="HsQ-zh-PdM" id="UYz-Ig-B1h"/>
                                     <outlet property="delegate" destination="HsQ-zh-PdM" id="IZD-f5-5Z2"/>
+                                    <outlet property="emptyDataSetDelegate" destination="pgC-4l-nrN" id="gI0-Pp-r0f"/>
+                                    <outlet property="emptyDataSetSource" destination="pgC-4l-nrN" id="OpI-2O-SaH"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -2243,7 +2249,7 @@
                             <constraint firstItem="RWq-uT-15U" firstAttribute="top" secondItem="3Jn-KT-082" secondAttribute="bottom" id="3g6-FQ-3TB"/>
                             <constraint firstAttribute="trailing" secondItem="3Jn-KT-082" secondAttribute="trailing" id="JEc-KO-wV4"/>
                             <constraint firstItem="3Jn-KT-082" firstAttribute="top" secondItem="DIH-9N-Xu7" secondAttribute="top" id="rTi-A7-NPo">
-                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="3Jn-KT-082" firstAttribute="leading" secondItem="DIH-9N-Xu7" secondAttribute="leading" id="tRF-kV-mt8"/>
                         </constraints>
@@ -2272,10 +2278,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="博客" id="eh2-kZ-yK0"/>
                     <connections>
+                        <outlet property="EmptyViewInfo" destination="pgC-4l-nrN" id="dg8-eX-V2m"/>
                         <outlet property="blogTableView" destination="3Jn-KT-082" id="DEZ-ya-Niv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLS-gi-KOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="pgC-4l-nrN" customClass="EmptyViewSet" customModule="CNBlogsClient" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2545.5" y="2328"/>
         </scene>
@@ -2622,9 +2630,9 @@
         <image name="userIcon" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6bq-Lr-IiL"/>
-        <segue reference="XYM-uq-boN"/>
-        <segue reference="8Ys-69-CNh"/>
+        <segue reference="2Fd-N8-pcb"/>
+        <segue reference="QbX-N8-d4L"/>
         <segue reference="RSy-i8-A6Q"/>
+        <segue reference="XYM-uq-boN"/>
     </inferredMetricsTieBreakers>
 </document>

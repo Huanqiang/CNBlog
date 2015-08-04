@@ -10,6 +10,7 @@ import UIKit
 
 class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var EmptyViewInfo: EmptyViewSet!
     var blogVM: BlogOfBloggerViewModel = BlogOfBloggerViewModel()
     @IBOutlet weak var blogTableView: UITableView!
     
@@ -22,6 +23,12 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
 
         self.setTableHeadRefreshing()
         self.setTableFooterRefreshing()
+        
+        // 空界面视图 设置
+        if !self.blogVM.isBloggerSelf {
+            blogVM.setEmptyViewInfo()
+            self.blogTableView.tableFooterView = UIView.new()
+        }
         
         //添加这行代码
         self.blogTableView.rowHeight = UITableViewAutomaticDimension
@@ -38,9 +45,7 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         // 如果是博主，重新获取博主数据
         self.blogVM.gainBloggerSelfInfo()
         // 判断一下 没有登录则提醒登录
-        if !self.blogVM.isBlogerSelfLogin {
-            self.alertLoginInfo()
-        }else {
+        if self.blogVM.isBlogerSelfLogin {
             // 当 列表没有数据 的时候加载
             if self.blogVM.gainBlogListsCount() == 0 {
                 self.beginTableHeadRefreshing()
@@ -55,20 +60,20 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         }        
     }
     
-    func alertLoginInfo() {
-        var alertView: UIAlertController = UIAlertController(title: "抱歉", message: "你尚未设置自己的博客", preferredStyle: UIAlertControllerStyle.Alert)
-        var sureAction: UIAlertAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler: nil)
-        alertView.addAction(sureAction)
-        var cancelAction: UIAlertAction = UIAlertAction(title: "设置", style: UIAlertActionStyle.Default){ (alertAction) -> Void in
-            // 跳转搜索界面
-            var searchVC: SearchBloggerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchBloggerViewController") as! SearchBloggerViewController
-            searchVC.searchBloggerVM = SearchBloggerViewModel(isBloggerSelf: true, searchBloggerVC: searchVC)
-            self.navigationController?.pushViewController(searchVC, animated: true)
-        }
-        alertView.addAction(cancelAction)
-        
-        self.presentViewController(alertView, animated: true, completion: nil)
-    }
+//    func alertLoginInfo() {
+//        var alertView: UIAlertController = UIAlertController(title: "抱歉", message: "你尚未设置自己的博客", preferredStyle: UIAlertControllerStyle.Alert)
+//        var sureAction: UIAlertAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler: nil)
+//        alertView.addAction(sureAction)
+//        var cancelAction: UIAlertAction = UIAlertAction(title: "设置", style: UIAlertActionStyle.Default){ (alertAction) -> Void in
+//            // 跳转搜索界面
+//            var searchVC: SearchBloggerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchBloggerViewController") as! SearchBloggerViewController
+//            searchVC.searchBloggerVM = SearchBloggerViewModel(isBloggerSelf: true, searchBloggerVC: searchVC)
+//            self.navigationController?.pushViewController(searchVC, animated: true)
+//        }
+//        alertView.addAction(cancelAction)
+//        
+//        self.presentViewController(alertView, animated: true, completion: nil)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

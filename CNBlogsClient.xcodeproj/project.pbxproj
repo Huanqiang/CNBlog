@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AFCFF2E1B6E5B660031ECFD /* EmptyViewSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFCFF2D1B6E5B660031ECFD /* EmptyViewSet.swift */; };
 		E60301201B3AA40A007E5390 /* SearchBloggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E603011F1B3AA40A007E5390 /* SearchBloggerViewModel.swift */; };
 		E6187FE51B3A5D28003F9FB7 /* SearchBloggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FE41B3A5D28003F9FB7 /* SearchBloggerViewController.swift */; };
 		E6187FE71B3A5D4A003F9FB7 /* MyAttentionerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6187FE61B3A5D4A003F9FB7 /* MyAttentionerViewController.swift */; };
@@ -104,6 +105,7 @@
 /* Begin PBXFileReference section */
 		13BE447160303073D1406A0A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7AA2F0EFF1CDD8A96E413EA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AFCFF2D1B6E5B660031ECFD /* EmptyViewSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyViewSet.swift; path = Function/EmptyDataSet/EmptyViewSet.swift; sourceTree = SOURCE_ROOT; };
 		E603011F1B3AA40A007E5390 /* SearchBloggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBloggerViewModel.swift; sourceTree = "<group>"; };
 		E6187FE41B3A5D28003F9FB7 /* SearchBloggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBloggerViewController.swift; sourceTree = "<group>"; };
 		E6187FE61B3A5D4A003F9FB7 /* MyAttentionerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAttentionerViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,14 @@
 				7AA2F0EFF1CDD8A96E413EA9 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7AFCFF2C1B6E5B320031ECFD /* EmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				7AFCFF2D1B6E5B660031ECFD /* EmptyViewSet.swift */,
+			);
+			name = EmptyDataSet;
 			sourceTree = "<group>";
 		};
 		9FAF540CDC7FAD0B26420138 /* Pods */ = {
@@ -593,6 +603,7 @@
 		E6EF87171B196C15009FF4A9 /* CNBlogsClient */ = {
 			isa = PBXGroup;
 			children = (
+				7AFCFF2C1B6E5B320031ECFD /* EmptyDataSet */,
 				E6D6E22E1B21BA1F00CEB66C /* HTML Parser  */,
 				E6B0FF231B211D5400FD5F80 /* Folder Operation */,
 				E69303921B2052AF00DE6E45 /* Top Alert */,
@@ -907,6 +918,7 @@
 				E6187FF01B3A5F77003F9FB7 /* BloggerTableViewCell.swift in Sources */,
 				E61901181B1C9A1A00E583C5 /* MJRefreshGifHeader.m in Sources */,
 				E6F6B8611B1B339A004BC482 /* NavigationController.swift in Sources */,
+				7AFCFF2E1B6E5B660031ECFD /* EmptyViewSet.swift in Sources */,
 				E6F6B8501B1B2E49004BC482 /* REFrostedViewController.m in Sources */,
 				E69303901B20521A00DE6E45 /* NSString+FontAwesome.m in Sources */,
 				E6B05F061B3CC4CC00AAD113 /* BlogOfBloggerViewModel.swift in Sources */,

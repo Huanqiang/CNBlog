@@ -35,7 +35,7 @@ class SaveImageToDisk: NSObject {
     */
     func saveImage(img: UIImage, imgName: String) -> String {
         let localIconPath = folder.saveImageToFolder(self.imgFolderName, image: img, imageName: imgName)
-        return localIconPath
+        return imgName
     }
     
     

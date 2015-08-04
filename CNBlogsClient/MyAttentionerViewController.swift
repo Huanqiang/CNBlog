@@ -11,6 +11,7 @@ import SDWebImage
 
 class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var EmptyViewInfo: EmptyViewSet!
     @IBOutlet weak var myAttentionerTableView: UITableView!
     var myAttentionerVM: MyAttentionerViewModel!
 
@@ -19,6 +20,9 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
 
         // Do any additional setup after loading the view.
         myAttentionerVM = MyAttentionerViewModel(myAttentionerVC: self)
+        // 空界面视图 设置
+        myAttentionerVM.setEmptyViewInfo()
+        self.myAttentionerTableView.tableFooterView = UIView.new()
     }
     
     override func viewWillAppear(animated: Bool) {
