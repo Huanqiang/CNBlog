@@ -21,6 +21,11 @@ class OfflineInfoViewModel: NSObject {
         super.init()
     }
     
+    init(offlineVC: OfflineInfoViewController) {
+        self.offlineVC = offlineVC
+    }
+    
+    
     init(isNewsView: Bool, offlineVC: OfflineInfoViewController) {
         super.init()
         self.offlineVC = offlineVC
@@ -84,4 +89,11 @@ class OfflineInfoViewModel: NSObject {
         return OfflineInfoDetailViewModel(offlineInfo: self.offlineAtIndex(index), vc: vc)
     }
     
+    // 设置关注人页面的空白页
+    func setEmptyViewInfo() {
+        // 设置 空白页信息
+        self.offlineVC.emptySetInfo.setEmptyViewDescription("还没有离线文章哟，赶紧在『新闻』和『博客』页添加吧（『新闻』/『博客』->『离线』）")
+        self.offlineVC.emptySetInfo.setEmptyViewImg("newsError")
+        self.offlineVC.emptySetInfo.setEmptyViewTitle("还没有离线的文章！")
+    }
 }

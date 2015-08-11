@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F19a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oqK-ON-Qs7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oqK-ON-Qs7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1516,6 +1516,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="tnf-qs-rKK" id="opB-SP-zZg"/>
                                     <outlet property="delegate" destination="tnf-qs-rKK" id="hFQ-w0-P3k"/>
+                                    <outlet property="emptyDataSetDelegate" destination="FjJ-YH-aj8" id="qkA-vO-jua"/>
+                                    <outlet property="emptyDataSetSource" destination="FjJ-YH-aj8" id="2Da-fq-SaG"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -1620,9 +1622,11 @@
                         <outlet property="OfflineInfoTableView" destination="mYH-pu-Gbf" id="wXA-1d-0SO"/>
                         <outlet property="OfflineNewsBtn" destination="kni-Bm-xIn" id="rUO-KJ-sSw"/>
                         <outlet property="OfflineNewsBtnView" destination="MDm-yb-IAR" id="9ei-3I-cHQ"/>
+                        <outlet property="emptySetInfo" destination="FjJ-YH-aj8" id="Qpf-Y2-6mu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMH-UO-YT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="FjJ-YH-aj8" customClass="EmptyViewSet" customModule="CNBlogsClient" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1350" y="999.75"/>
         </scene>
@@ -2106,7 +2110,7 @@
         <!--博客-->
         <scene sceneID="oHo-vA-eTT">
             <objects>
-                <viewController storyboardIdentifier="BlogOfBloggerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HsQ-zh-PdM" customClass="BlogOfBloggerViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlogOfBloggerViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HsQ-zh-PdM" customClass="BlogOfBloggerViewController" customModule="CNBlogsClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a0K-cw-yXZ"/>
                         <viewControllerLayoutGuide type="bottom" id="RWq-uT-15U"/>
@@ -2249,7 +2253,7 @@
                             <constraint firstItem="RWq-uT-15U" firstAttribute="top" secondItem="3Jn-KT-082" secondAttribute="bottom" id="3g6-FQ-3TB"/>
                             <constraint firstAttribute="trailing" secondItem="3Jn-KT-082" secondAttribute="trailing" id="JEc-KO-wV4"/>
                             <constraint firstItem="3Jn-KT-082" firstAttribute="top" secondItem="DIH-9N-Xu7" secondAttribute="top" id="rTi-A7-NPo">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                             </constraint>
                             <constraint firstItem="3Jn-KT-082" firstAttribute="leading" secondItem="DIH-9N-Xu7" secondAttribute="leading" id="tRF-kV-mt8"/>
                         </constraints>
@@ -2449,7 +2453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyJ-zo-Qda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439.5" y="250.5"/>
+            <point key="canvasLocation" x="-786" y="250.5"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="RTm-py-OEg">
@@ -2591,7 +2595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecs-4L-Yrj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439.5" y="935.25"/>
+            <point key="canvasLocation" x="-786" y="943.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZXy-xe-fCP">
@@ -2616,7 +2620,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5d4-Jn-ViL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="478.5" y="999.75"/>
+            <point key="canvasLocation" x="202.5" y="999.75"/>
         </scene>
     </scenes>
     <resources>
@@ -2630,9 +2634,9 @@
         <image name="userIcon" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2Fd-N8-pcb"/>
-        <segue reference="QbX-N8-d4L"/>
-        <segue reference="RSy-i8-A6Q"/>
         <segue reference="XYM-uq-boN"/>
+        <segue reference="6bq-Lr-IiL"/>
+        <segue reference="2Fd-N8-pcb"/>
+        <segue reference="RSy-i8-A6Q"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -42,6 +42,7 @@ class BlogOfBloggerViewModel: NSObject {
         var bloggerSelf: Blogger = BloggerOwned()
         if bloggerSelf.isLoginSelf() {
             bloggerSelf = bloggerSelf.gainBloggerSelfInfo()
+            isBlogerSelfLogin = true
         }else {
             isBlogerSelfLogin = false
         }
@@ -73,6 +74,10 @@ class BlogOfBloggerViewModel: NSObject {
         weak var weakSelf = self
         networkOperation.gainInfomationFromNetwork(CNBlogAPIOption.myBlogOption, parameters: parameters) { (onlineInfo) -> Void in
             if (onlineInfo != nil) {
+                // 先清楚一次上拉刷新，在加载一次
+                self.blogVC.blogTableView.removeFooter()
+                self.blogVC.setTableFooterRefreshing()
+                
                 // 为上拉和下拉分别设置数据
                 self.addNewBlog(weakSelf!, onlineInfo: onlineInfo as! [OnlineInformation])
                 weakSelf!.blogVC.reloadTabeleView()

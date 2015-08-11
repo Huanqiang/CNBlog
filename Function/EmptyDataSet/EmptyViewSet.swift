@@ -110,7 +110,7 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
         
         let attributtes = [
             NSFontAttributeName: UIFont.boldSystemFontOfSize(15.0),
-            NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+            NSForegroundColorAttributeName: UIColor(red: 159/255.0, green: 159/255.0, blue: 159/255.0, alpha: 1),
             NSParagraphStyleAttributeName: paragaraph
         ]
         return NSAttributedString(string: text, attributes: attributtes)

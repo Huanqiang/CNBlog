@@ -22,10 +22,9 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         self.title = self.blogVM.gainVCName()
 
         self.setTableHeadRefreshing()
-        self.setTableFooterRefreshing()
         
         // 空界面视图 设置
-        if !self.blogVM.isBloggerSelf {
+        if self.blogVM.isBloggerSelf {
             blogVM.setEmptyViewInfo()
             self.blogTableView.tableFooterView = UIView.new()
         }

@@ -10,18 +10,20 @@ import UIKit
 
 class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var emptySetInfo: EmptyViewSet!
     @IBOutlet weak var OfflineNewsBtn: UIButton!
     @IBOutlet weak var OfflineBlogBtn: UIButton!
     @IBOutlet weak var OfflineNewsBtnView: UIView!
     @IBOutlet weak var OfflineBlogBtnView: UIView!
     @IBOutlet weak var OfflineInfoTableView: UITableView!
     
-    var offlineInfoModel: OfflineInfoViewModel = OfflineInfoViewModel()
+    var offlineInfoModel: OfflineInfoViewModel!
     var isNewsView: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        offlineInfoModel = OfflineInfoViewModel(offlineVC: self)
+        
         // Do any additional setup after loading the view.
         self.OfflineInfoTableView.rowHeight = UITableViewAutomaticDimension
         self.OfflineInfoTableView.estimatedRowHeight = 44
@@ -29,6 +31,9 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
         // 设置提示线
         self.OfflineBlogBtnView.hidden = true
         self.OfflineNewsBtnView.hidden = false
+        
+        offlineInfoModel.setEmptyViewInfo()
+        self.OfflineInfoTableView.tableFooterView = UIView.new()
     }
     
     override func viewWillAppear(animated: Bool) {

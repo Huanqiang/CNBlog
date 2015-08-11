@@ -15,7 +15,7 @@ class NavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
         
-        self.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "panGestureRecognized:"))
+//        self.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "panGestureRecognized:"))
     }
 
     override func didReceiveMemoryWarning() {
