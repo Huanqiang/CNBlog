@@ -18,14 +18,10 @@ class OnlineNews: OnlineInformation {
         // 2、将 NewsInfo 信息（新闻、博客）中的所有的图片超链接全部修改为磁盘连接
         self.replaceContentImageUrl()
         // 3、创建离线新闻类
-        var offlineNews: OfflineNews = OfflineNews(onlineInfo: self)
+        let offlineNews: OfflineNews = OfflineNews(onlineInfo: self)
         offlineNews.setInfoContent(self.content)
         
-        if offlineNews.saveOfflineInfo() {
-            return true
-        }else {
-            return false
-        }
+        return offlineNews.saveOfflineInfo() ? true : false
     }
 
     override func gainContentNetworkOperation() ->NetworkOperation {

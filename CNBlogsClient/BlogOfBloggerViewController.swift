@@ -26,7 +26,7 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
         // 空界面视图 设置
         if self.blogVM.isBloggerSelf {
             blogVM.setEmptyViewInfo()
-            self.blogTableView.tableFooterView = UIView.new()
+            self.blogTableView.tableFooterView = UIView()
         }
         
         //添加这行代码
@@ -85,9 +85,9 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if equal(segue.identifier!, "BloggerInfoListWithoutImageToDetail") {
-            let indexPath = self.blogTableView.indexPathForSelectedRow()
-            var blogDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
+        if (segue.identifier!).characters.elementsEqual("BloggerInfoListWithoutImageToDetail".characters) {
+            let indexPath = self.blogTableView.indexPathForSelectedRow
+            let blogDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
             blogDetailVC.onlineInfoDetailVM = self.blogVM.newBlogDetailVM(indexPath!.row, vc: blogDetailVC)
         }
     }
@@ -158,7 +158,7 @@ class BlogOfBloggerViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: OnlineInfoWithoutImageTableViewCell = tableView.dequeueReusableCellWithIdentifier("BlogOfBloggerTableViewCell") as! OnlineInfoWithoutImageTableViewCell
+        let cell: OnlineInfoWithoutImageTableViewCell = tableView.dequeueReusableCellWithIdentifier("BlogOfBloggerTableViewCell") as! OnlineInfoWithoutImageTableViewCell
         
         let blog: OnlineInformation = self.blogVM.gainBlogAtIndex(indexPath.row)
         self.configurationNoImageCellOfIndex(cell, onlineInfo: blog)

@@ -21,9 +21,9 @@ class CoreDataOperation: NSObject {
     /**
     保存 离线数据（新闻 和 博客）
     
-    :param: offlineInfo 需要被离线的数据
+    - parameter offlineInfo: 需要被离线的数据
     
-    :returns: 离线成功返回true， 否则返回false
+    - returns: 离线成功返回true， 否则返回false
     */
     func insertOfflineInfo(offlineInfo: OfflineInformation) -> Bool {
         let isSuccessWithInsertNewsBase = self.insertOnlineBaseInfo(offlineInfo)
@@ -39,27 +39,27 @@ class CoreDataOperation: NSObject {
     /**
     保存 离线信息的 基本信息
     
-    :param: offlineInfo 需要被离线的数据
+    - parameter offlineInfo: 需要被离线的数据
     
-    :returns: 离线成功返回true， 否则返回false
+    - returns: 离线成功返回true， 否则返回false
     */
     func insertOnlineBaseInfo(offlineInfo: OfflineInformation) -> Bool { return true }
     
     /**
     保存 离线信息的 主内容
     
-    :param: offlineInfo 需要被离线的数据
+    - parameter offlineInfo: 需要被离线的数据
     
-    :returns: 离线成功返回true， 否则返回false
+    - returns: 离线成功返回true， 否则返回false
     */
     func insertOnlineInfoContent(offlineInfo: OfflineInformation) -> Bool { return true }
     
     /**
     删除离线数据
     
-    :param: offlineInfo 需要被删除的离线数据
+    - parameter offlineInfo: 需要被删除的离线数据
     
-    :returns: 删除成功返回true， 否则返回false
+    - returns: 删除成功返回true， 否则返回false
     */
     func deleteOfflineInfo(offlineInfo: OfflineInformation) -> Bool { return true }
     
@@ -67,7 +67,7 @@ class CoreDataOperation: NSObject {
     /**
     获取 数据（新闻、博客）列表
     
-    :returns: 数组
+    - returns: 数组
     */
     func gainOfflineBaseInfos() -> [OfflineInformation] {
        return []
@@ -82,16 +82,16 @@ class CoreDataOperation: NSObject {
     /**
     保存一个 博主（关注人）
     
-    :param: blogger 博主信息
+    - parameter blogger: 博主信息
     
-    :returns: 保存成功与否，成功true，失败false
+    - returns: 保存成功与否，成功true，失败false
     */
     func insertAttentioners(blogger: Blogger) -> Bool { return true }
     
     /**
     获取所有的关注人
     
-    :returns: 关注人列表
+    - returns: 关注人列表
     */
     func gainAttentioners() -> [Blogger] { return [] }
     
@@ -106,7 +106,7 @@ class CoreDataOperation: NSObject {
     
     //查询操作
     func gainAppointInfo(entity: NSEntityDescription, sortDescriptors: [NSSortDescriptor], predicates: [NSPredicate] ) -> [NSManagedObject] {
-        var fetchRequest: NSFetchRequest = NSFetchRequest()
+        let fetchRequest: NSFetchRequest = NSFetchRequest()
         fetchRequest.entity = entity
         
         // 设置排序条件
@@ -123,7 +123,7 @@ class CoreDataOperation: NSObject {
         
         var errorInfo:NSError?
         // 取结果集
-        var resultArr = self.managedObjectContext.executeFetchRequest(fetchRequest, error: &errorInfo) as! [NSManagedObject]
+        let resultArr = (try! self.managedObjectContext.executeFetchRequest(fetchRequest)) as! [NSManagedObject]
         
         return resultArr
     }
@@ -143,9 +143,9 @@ class CoreDataOperation: NSObject {
     /**
     通过升序的方式，创建一个属性的排序操作
     
-    :param: sortAttribute 属性名称
+    - parameter sortAttribute: 属性名称
     
-    :returns: 排序操作
+    - returns: 排序操作
     */
     func createSortDescriptorByAscend(sortAttribute: String) -> NSSortDescriptor {
         return NSSortDescriptor(key: sortAttribute, ascending: true)
@@ -154,9 +154,9 @@ class CoreDataOperation: NSObject {
     /**
     通过降序的方式，创建一个属性的排序操作
     
-    :param: sortAttribute 属性名称
+    - parameter sortAttribute: 属性名称
     
-    :returns: 排序操作
+    - returns: 排序操作
     */
     func createSortDescriptorByUnAscend(sortAttribute: String) -> NSSortDescriptor {
         return NSSortDescriptor(key: sortAttribute, ascending: false)
@@ -172,7 +172,7 @@ class CoreDataOperationWithNews: CoreDataOperation {
             return true
         }
         
-        var newsEntity: OfflineNewsBaseInfoEntity = self.gainNewEntity("OfflineNewsBaseInfoEntity") as! OfflineNewsBaseInfoEntity
+        let newsEntity: OfflineNewsBaseInfoEntity = self.gainNewEntity("OfflineNewsBaseInfoEntity") as! OfflineNewsBaseInfoEntity
         
         newsEntity.newsAuthor      = offlineInfo.author
         newsEntity.newsHasIcon     = offlineInfo.hasIcon
@@ -183,7 +183,12 @@ class CoreDataOperationWithNews: CoreDataOperation {
         newsEntity.newsTitle       = offlineInfo.title
         newsEntity.newsOfflineTime = NSDate()
         
-        return self.managedObjectContext.save(nil)
+        do {
+            try self.managedObjectContext.save()
+            return true
+        } catch _ {
+            return false
+        }
     }
     
     override func insertOnlineInfoContent(offlineInfo: OfflineInformation) -> Bool {
@@ -191,12 +196,17 @@ class CoreDataOperationWithNews: CoreDataOperation {
             return true
         }
         
-        var newsEntity: OfflineNewsContentEntity = self.gainNewEntity("OfflineNewsContentEntity") as! OfflineNewsContentEntity
+        let newsEntity: OfflineNewsContentEntity = self.gainNewEntity("OfflineNewsContentEntity") as! OfflineNewsContentEntity
         
         newsEntity.newsId      = offlineInfo.id
         newsEntity.newsContent = offlineInfo.content
         
-        return self.managedObjectContext.save(nil)
+        do {
+            try self.managedObjectContext.save()
+            return true
+        } catch _ {
+            return false
+        }
     }
     
     // ********** 删除离线数据 **********
@@ -206,7 +216,7 @@ class CoreDataOperationWithNews: CoreDataOperation {
     
     // MARK - ********** 获取离线数据 **********
     override func gainOfflineBaseInfos() -> [OfflineInformation] {
-        var offlineNewsBaseInfo: NSEntityDescription = self.gainAppointEntityDescription("OfflineNewsBaseInfoEntity")
+        let offlineNewsBaseInfo: NSEntityDescription = self.gainAppointEntityDescription("OfflineNewsBaseInfoEntity")
         let sortByDate = self.createSortDescriptorByUnAscend("newsOfflineTime")
         let searchResult = self.gainAppointInfo(offlineNewsBaseInfo, sortDescriptors: [sortByDate], predicates: [])
         var offlineInfoResults:[OfflineNews] = []
@@ -219,7 +229,7 @@ class CoreDataOperationWithNews: CoreDataOperation {
     }
     
     override func gainOfflineContentInfo(newsId: String) -> OfflineInformation {
-        var offlineNewsContent: NSEntityDescription = self.gainAppointEntityDescription("OfflineNewsContentEntity")
+        let offlineNewsContent: NSEntityDescription = self.gainAppointEntityDescription("OfflineNewsContentEntity")
         let predicateWithID: NSPredicate = NSPredicate(format: "newsId = %@", newsId)
         let searchResult = self.gainAppointInfo(offlineNewsContent, sortDescriptors: [], predicates: [predicateWithID])
         
@@ -235,7 +245,7 @@ class CoreDataOperationWithBlog: CoreDataOperation {
             return true
         }
         
-        var blogEntity: OfflineBlogBaseInfoEntity = self.gainNewEntity("OfflineBlogBaseInfoEntity") as! OfflineBlogBaseInfoEntity
+        let blogEntity: OfflineBlogBaseInfoEntity = self.gainNewEntity("OfflineBlogBaseInfoEntity") as! OfflineBlogBaseInfoEntity
         
         blogEntity.blogAuthor      = offlineInfo.author
         blogEntity.blogIconPath    = offlineInfo.iconPath
@@ -245,7 +255,12 @@ class CoreDataOperationWithBlog: CoreDataOperation {
         blogEntity.blogTitle       = offlineInfo.title
         blogEntity.blogOfflineTime = NSDate()
         
-        return self.managedObjectContext.save(nil)
+        do {
+            try self.managedObjectContext.save()
+            return true
+        } catch _ {
+            return false
+        }
     }
     
     override func insertOnlineInfoContent(offlineInfo: OfflineInformation) -> Bool {
@@ -253,12 +268,17 @@ class CoreDataOperationWithBlog: CoreDataOperation {
             return true
         }
         
-        var blogEntity: OfflineBlogContentEntity = self.gainNewEntity("OfflineBlogContentEntity") as! OfflineBlogContentEntity
+        let blogEntity: OfflineBlogContentEntity = self.gainNewEntity("OfflineBlogContentEntity") as! OfflineBlogContentEntity
         
         blogEntity.blogId      = offlineInfo.id
         blogEntity.blogContent = offlineInfo.content
         
-        return self.managedObjectContext.save(nil)
+        do {
+            try self.managedObjectContext.save()
+            return true
+        } catch _ {
+            return false
+        }
     }
     // ********** 删除离线数据 **********
     
@@ -267,7 +287,7 @@ class CoreDataOperationWithBlog: CoreDataOperation {
     
     // MARK - ********** 获取离线数据 **********
     override func gainOfflineBaseInfos() -> [OfflineInformation] {
-        var offlineNewsBaseInfo: NSEntityDescription = self.gainAppointEntityDescription("OfflineBlogBaseInfoEntity")
+        let offlineNewsBaseInfo: NSEntityDescription = self.gainAppointEntityDescription("OfflineBlogBaseInfoEntity")
         let sortByDate = self.createSortDescriptorByUnAscend("blogOfflineTime")
         let searchResult = self.gainAppointInfo(offlineNewsBaseInfo, sortDescriptors: [sortByDate], predicates: [])
         var offlineInfoResults:[OfflineBlog] = []
@@ -280,7 +300,7 @@ class CoreDataOperationWithBlog: CoreDataOperation {
     }
     
     override func gainOfflineContentInfo(newsId: String) -> OfflineInformation {
-        var offlineNewsContent: NSEntityDescription = self.gainAppointEntityDescription("OfflineBlogContentEntity")
+        let offlineNewsContent: NSEntityDescription = self.gainAppointEntityDescription("OfflineBlogContentEntity")
         let predicateWithID: NSPredicate = NSPredicate(format: "blogId = %@", newsId)
         let searchResult = self.gainAppointInfo(offlineNewsContent, sortDescriptors: [], predicates: [predicateWithID])
         
@@ -297,7 +317,7 @@ class CoreDataOperationWithBlogger: CoreDataOperation {
             return true
         }
         
-        var bloggerEntity: BloggerAttentionEntity = self.gainNewEntity("BloggerAttentionEntity") as! BloggerAttentionEntity
+        let bloggerEntity: BloggerAttentionEntity = self.gainNewEntity("BloggerAttentionEntity") as! BloggerAttentionEntity
         
         bloggerEntity.bloggerId           = blogger.bloggerId
         bloggerEntity.bloggerIconPath     = blogger.bloggerIconPath
@@ -305,12 +325,17 @@ class CoreDataOperationWithBlogger: CoreDataOperation {
         bloggerEntity.bloggerName         = blogger.bloggerName
         bloggerEntity.bloggerUpdatedTime  = blogger.bloggerUpdatedTime
         
-        return self.managedObjectContext.save(nil)
+        do {
+            try self.managedObjectContext.save()
+            return true
+        } catch _ {
+            return false
+        }
     }
     
     // MARK - 获取博主关注人信息列表
     override func gainAttentioners() -> [Blogger] {
-        var bloggerED: NSEntityDescription = self.gainAppointEntityDescription("BloggerAttentionEntity")
+        let bloggerED: NSEntityDescription = self.gainAppointEntityDescription("BloggerAttentionEntity")
         let sortById = self.createSortDescriptorByUnAscend("bloggerId")
         let searchResult = self.gainAppointInfo(bloggerED, sortDescriptors: [sortById], predicates: [])
         var bloggers:[Blogger] = []

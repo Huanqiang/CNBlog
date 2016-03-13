@@ -33,7 +33,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
         self.OfflineNewsBtnView.hidden = false
         
         offlineInfoModel.setEmptyViewInfo()
-        self.OfflineInfoTableView.tableFooterView = UIView.new()
+        self.OfflineInfoTableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -58,10 +58,10 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let index = self.OfflineInfoTableView.indexPathForSelectedRow()!.row
-        if equal(segue.identifier!, "OfflineInfoListWithImageToDetail") || equal(segue.identifier!, "OfflineInfoListWithoutImageToDetail") {
+        let index = self.OfflineInfoTableView.indexPathForSelectedRow!.row
+        if (segue.identifier!).characters.elementsEqual("OfflineInfoListWithImageToDetail".characters) || (segue.identifier!).characters.elementsEqual("OfflineInfoListWithoutImageToDetail".characters) {
             self.offlineInfoModel.setToDetail(true)
-            var offlineDetailInfoVC = segue.destinationViewController as! OfflineInfoDetailViewController
+            let offlineDetailInfoVC = segue.destinationViewController as! OfflineInfoDetailViewController
             offlineDetailInfoVC.offlineDetailInfoModel = self.offlineInfoModel.offlineInfoDetailViewModelForIndexPath(index, vc: offlineDetailInfoVC)
         }
     }
@@ -134,7 +134,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
         cell.infoAuathorLabel.text     = news.author
         cell.infoPublishTimeLabel.text = news.publishTime.dateToStringByBaseFormat()
         
-        cell.infoImageView.image = FolderOperation().gainImageFromFolder(NewsIconFolderName, imageName: news.iconPath.lastPathComponent)
+        cell.infoImageView.image = FolderOperation().gainImageFromFolder(NewsIconFolderName, imageName: (news.iconPath as NSString).lastPathComponent)
     }
     
     func configurationNoImageCellOfIndex(cell: OfflineInfoWithoutImageTableViewCell, news: OfflineInformation) {
@@ -147,7 +147,7 @@ class OfflineInfoViewController: UIViewController, UITableViewDataSource, UITabl
     /**
     用以判断当前视图是不是新闻视图
     
-    :param: isNews true为新闻视图，false为博客视图
+    - parameter isNews: true为新闻视图，false为博客视图
     */
     func setIsNewsTableView(isNews: Bool) {
         self.isNewsView = isNews

@@ -65,7 +65,7 @@ class OnlineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate,
     func gainOnlineInfoInfoSuccess() {
 //        self.OnlineInfoContentWebView.loadHTMLString(self.onlineInfoDetailVM.OnlineInfoInfo.content, baseURL: nil)
         let htmlData:NSData = self.onlineInfoDetailVM.onlineInfo.content.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!
-        var attributedString: NSAttributedString = NSAttributedString(HTMLData: htmlData, options: self.setAttributedOption() as [NSObject : AnyObject], documentAttributes: nil)
+        let attributedString: NSAttributedString = NSAttributedString(HTMLData: htmlData, options: self.setAttributedOption() as [NSObject : AnyObject], documentAttributes: nil)
         
         self.onlineInfoContextATextView.attributedString = attributedString;
         self.onlineInfoContextATextView.textDelegate = self
@@ -77,7 +77,11 @@ class OnlineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate,
     // 主要用于设置 图片的最大尺寸
     func setAttributedOption() -> NSMutableDictionary {
         let maxImageSize: CGSize = CGSizeMake(self.view.bounds.size.width - 20.0, self.view.bounds.size.height - 20.0)
-        let options: NSMutableDictionary = NSMutableDictionary(objectsAndKeys: NSNumber(float: 1.0), NSTextSizeMultiplierDocumentOption, NSValue(CGSize: maxImageSize), DTMaxImageSize)
+
+        NSMutableDictionary(dictionaryLiteral: ("name", "lnj"), ("age", 30))
+        
+        // TODO: 可能会错误
+        let options: NSMutableDictionary = NSMutableDictionary(dictionaryLiteral: (NSTextSizeMultiplierDocumentOption, NSNumber(float: 1.0)), (DTMaxImageSize, NSValue(CGSize: maxImageSize)))
         
         return options
     }
@@ -106,15 +110,15 @@ class OnlineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate,
     用来 跳转超链接
     */
     func attributedTextContentView(attributedTextContentView: DTAttributedTextContentView!, viewForLink url: NSURL!, identifier: String!, frame: CGRect) -> UIView! {
-        var linkButton: DTLinkButton = DTLinkButton(frame: frame)
+        let linkButton: DTLinkButton = DTLinkButton(frame: frame)
         linkButton.URL = url
         
         // get image with normal link text
-        var normalImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.Default)
+        let normalImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.Default)
         linkButton.setImage(normalImage, forState: UIControlState.Normal)
         
         // get image for highlighted link text
-        var highlightImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.DrawLinksHighlighted)
+        let highlightImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.DrawLinksHighlighted)
         linkButton.setImage(highlightImage, forState: UIControlState.Highlighted)
 
         linkButton.addTarget(self, action: "linkButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -130,7 +134,7 @@ class OnlineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate,
     */
     func attributedTextContentView(attributedTextContentView: DTAttributedTextContentView!, viewForAttachment attachment: DTTextAttachment!, frame: CGRect) -> UIView! {
         if attachment.isKindOfClass(DTImageTextAttachment.self) {
-            var dtImageView: DTLazyImageView = DTLazyImageView(frame: frame)
+            let dtImageView: DTLazyImageView = DTLazyImageView(frame: frame)
             dtImageView.delegate = self
             // sets the image if there is one
             dtImageView.image = (attachment as! DTImageTextAttachment).image
@@ -139,14 +143,14 @@ class OnlineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate,
             // if there is a hyperlink then add a link button on top of this image
             if (attachment.hyperLinkURL != nil) {
                 dtImageView.userInteractionEnabled = true
-                var linkButton: DTLinkButton = DTLinkButton(frame: frame)
+                let linkButton: DTLinkButton = DTLinkButton(frame: frame)
                 linkButton.URL = attachment.hyperLinkURL
                 // adjusts it's bounds so that button is always large enough
                 linkButton.minimumHitSize = CGSizeMake(25, 25)
                 linkButton.GUID = attachment.hyperLinkGUID
 
                 // demonstrate combination with long press
-                var longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "linkLongPressed:")
+                let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "linkLongPressed:")
                 linkButton.addGestureRecognizer(longPress)
                 dtImageView.addSubview(linkButton)
             }
@@ -158,10 +162,10 @@ class OnlineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate,
     // 长按用 Safari 打开图片链接
     func linkLongPressed(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizerState.Began {
-            var button: DTLinkButton = gesture.view as! DTLinkButton
+            let button: DTLinkButton = gesture.view as! DTLinkButton
             button.highlighted = false
             
-            button.URL.absoluteString?.openURL()
+            button.URL.absoluteString.openURL()
           
 //            if UIApplication.sharedApplication().canOpenURL(button.URL.absoluteURL!) {
 //                UIApplication.sharedApplication().openURL(button.URL.absoluteURL!)

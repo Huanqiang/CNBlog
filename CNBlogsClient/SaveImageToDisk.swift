@@ -29,9 +29,9 @@ class SaveImageToDisk: NSObject {
     /**
     将图片存储至磁盘
     
-    :param: img 图片
+    - parameter img: 图片
     
-    :returns: 图片的磁盘路径
+    - returns: 图片的磁盘路径
     */
     func saveImage(img: UIImage, imgName: String) -> String {
         let localIconPath = folder.saveImageToFolder(self.imgFolderName, image: img, imageName: imgName)

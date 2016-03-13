@@ -1,6 +1,6 @@
 PODS:
   - AEXML (1.3.0)
-  - Alamofire (1.3.0)
+  - Alamofire (3.2.1)
   - DTCoreText (1.6.15):
     - DTFoundation/Core (~> 1.7.5)
     - DTFoundation/DTAnimatedGIF (~> 1.7.5)
@@ -13,23 +13,23 @@ PODS:
   - DTFoundation/UIKit (1.7.5):
     - DTFoundation/Core
   - DZNEmptyDataSet (1.6.1)
-  - SDWebImage (3.7.2):
-    - SDWebImage/Core (= 3.7.2)
-  - SDWebImage/Core (3.7.2)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
   - AEXML
-  - Alamofire (~> 1.3)
+  - Alamofire (~> 3.2.1)
   - DTCoreText
   - DZNEmptyDataSet
-  - SDWebImage (~> 3.7.2)
+  - SDWebImage (~> 3.7.5)
 
 SPEC CHECKSUMS:
   AEXML: 01da6ad603b1db797f0c5476da40db4ca11bdbdd
-  Alamofire: 220403a8d5840e0b4c946a6fbaf209dbca124282
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   DTCoreText: 13ce06e63204a3b47c9db974e3d9be982bb0b1ed
   DTFoundation: 1d28080c20c3da041706545363f8238ab53a6204
   DZNEmptyDataSet: 3d31c27758230f03c71199f8c522bcfa99fba16c
-  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

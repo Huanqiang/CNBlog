@@ -13,7 +13,7 @@ import UIKit
 
 extension UITableView {
     func clearTableFooterView() {
-        var view = UIView()
+        let view = UIView()
         view.backgroundColor = UIColor.whiteColor()
         self.tableFooterView = view
     }
@@ -33,7 +33,7 @@ extension UIImage {
 
 extension String {
     func stringToDateWithDateFormat(dateFormatStrring: String) -> NSDate {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = dateFormatStrring
         return dateFormatter.dateFromString(self)!
     }
@@ -41,7 +41,7 @@ extension String {
     /**
     判断手机号码是否符合正则表达式的要求
     
-    :returns: 符合返回 ture，不符合返回 false
+    - returns: 符合返回 ture，不符合返回 false
     */
     func validateMobile() -> Bool {
         let mobileStr = "^((145|147)|(15[^4])|(17[6-8])|((13|18)[0-9]))\\d{8}$"
@@ -79,11 +79,11 @@ extension NSDate {
     /**
     NSDate 转换成的 字符串，返回形如 2015年6月4日的格式，同时如果是昨天，今天就返回昨天，今天
     
-    :returns: 形如 2015年6月4日 的格式，同时如果是昨天，今天就返回昨天，今天
+    - returns: 形如 2015年6月4日 的格式，同时如果是昨天，今天就返回昨天，今天
     */
     func dateToStringByBaseFormat() -> String {
         let now:NSDate = NSDate()
-        let yesterday: NSDate = NSDate()
+//        let yesterday: NSDate = NSDate()
         
         let time: NSTimeInterval = now.timeIntervalSinceDate(self)
         if  time < oneDayTimeInterval / 2 {
@@ -100,12 +100,12 @@ extension NSDate {
     /**
     NSDate 转换成相应的 字符串
     
-    :param: dateFormatStrring 要转化的时间戳格式
+    - parameter dateFormatStrring: 要转化的时间戳格式
     
-    :returns: 符合格式的 NSString
+    - returns: 符合格式的 NSString
     */
     func dateToStringWithDateFormat(dateFormatStrring: String) -> String {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = dateFormatStrring
         return dateFormatter.stringFromDate(self)
     }
@@ -113,7 +113,7 @@ extension NSDate {
     /**
     得到昨天的此时此刻
     
-    :returns: 返回昨天的日期数据
+    - returns: 返回昨天的日期数据
     */
     class func gainYesterdayDate() -> NSDate {
         return NSDate(timeIntervalSinceNow: -3600 * 24)
@@ -122,7 +122,7 @@ extension NSDate {
     /**
     得到明天的此时此刻
     
-    :returns: 返回明天的日期数据
+    - returns: 返回明天的日期数据
     */
     class func gainTomorrowDate() -> NSDate {
         return NSDate(timeIntervalSinceNow: 3600 * 24)
@@ -131,9 +131,9 @@ extension NSDate {
     /**
     得到 X 天后的此时此刻
     
-    :param: day 天数
+    - parameter day: 天数
     
-    :returns: 得到 X 天后的日期数据
+    - returns: 得到 X 天后的日期数据
     */
     class func gainSomeDayDate(day: Double) -> NSDate {
         return NSDate(timeIntervalSinceNow: 3600 * 24 * day)

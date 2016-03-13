@@ -49,7 +49,7 @@ class OfflineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate
     // MARK: - 加载离线资讯主内容
     func showOfflineInfoContent() {
         let htmlData:NSData = self.offlineDetailInfoModel.offlineInfo.content.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!
-        var attributedString: NSAttributedString = NSAttributedString(HTMLData: htmlData, options: self.setAttributedOption() as [NSObject : AnyObject], documentAttributes: nil)
+        let attributedString: NSAttributedString = NSAttributedString(HTMLData: htmlData, options: self.setAttributedOption() as [NSObject : AnyObject], documentAttributes: nil)
         
         self.offlineInfoContentTextView.attributedString = attributedString;
         self.offlineInfoContentTextView.textDelegate = self
@@ -63,7 +63,8 @@ class OfflineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate
     // 主要用于设置 图片的最大尺寸
     func setAttributedOption() -> NSMutableDictionary {
         let maxImageSize: CGSize = CGSizeMake(self.view.bounds.size.width - 20.0, self.view.bounds.size.height - 20.0)
-        let options: NSMutableDictionary = NSMutableDictionary(objectsAndKeys: NSNumber(float: 1.0), NSTextSizeMultiplierDocumentOption, NSValue(CGSize: maxImageSize), DTMaxImageSize)
+
+        let options: NSMutableDictionary = NSMutableDictionary(dictionaryLiteral: (NSTextSizeMultiplierDocumentOption, NSNumber(float: 1.0)), (DTMaxImageSize, NSValue(CGSize: maxImageSize)))
         
         return options
     }
@@ -73,15 +74,15 @@ class OfflineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate
     用来 跳转超链接
     */
     func attributedTextContentView(attributedTextContentView: DTAttributedTextContentView!, viewForLink url: NSURL!, identifier: String!, frame: CGRect) -> UIView! {
-        var linkButton: DTLinkButton = DTLinkButton(frame: frame)
+        let linkButton: DTLinkButton = DTLinkButton(frame: frame)
         linkButton.URL = url
         
         // get image with normal link text
-        var normalImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.Default)
+        let normalImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.Default)
         linkButton.setImage(normalImage, forState: UIControlState.Normal)
         
         // get image for highlighted link text
-        var highlightImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.DrawLinksHighlighted)
+        let highlightImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.DrawLinksHighlighted)
         linkButton.setImage(highlightImage, forState: UIControlState.Highlighted)
         
         linkButton.addTarget(self, action: "linkButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -89,7 +90,7 @@ class OfflineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate
     }
     
     @IBAction func linkButtonClicked(sender: DTLinkButton) {
-        sender.URL.absoluteString?.openURL()
+        sender.URL.absoluteString.openURL()
     }
     
     /**
@@ -97,7 +98,7 @@ class OfflineInfoDetailViewController: UIViewController, DTLazyImageViewDelegate
     */
     func attributedTextContentView(attributedTextContentView: DTAttributedTextContentView!, viewForAttachment attachment: DTTextAttachment!, frame: CGRect) -> UIView! {
         if attachment.isKindOfClass(DTImageTextAttachment.self) {
-            var dtImageView: DTLazyImageView = DTLazyImageView(frame: frame)
+            let dtImageView: DTLazyImageView = DTLazyImageView(frame: frame)
             // 从本地加载图片
             dtImageView.image = FolderOperation().gainImageFromFolder(NewsIconFolderName, imageName: attachment.contentURL.lastPathComponent!)
             // url for deferred loading

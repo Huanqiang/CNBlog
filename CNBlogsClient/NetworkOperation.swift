@@ -32,37 +32,51 @@ class NetworkOperation: NSObject {
     /**
     开始进行网络操作
     
-    :param: menuOption        接口 enum选项（选择哪一个接口）
-    :param: parameters        URL参数数组
-    :param: completionHandler 网络结果操作闭包
+    - parameter menuOption:        接口 enum选项（选择哪一个接口）
+    - parameter parameters:        URL参数数组
+    - parameter completionHandler: 网络结果操作闭包
     */
     func gainInfomationFromNetwork(menuOption: CNBlogAPIOption, parameters: [String], completionHandler: (onlineInfo : [AnyObject]?) -> Void) {
         // 获取网络操作数据
         // 1、Url拼凑
-        var urlString: String = self.gainURLString(menuOption, parameters: parameters)
+        let urlString: String = self.gainURLString(menuOption, parameters: parameters)
         Alamofire.request(.GET, urlString)
-            .responseString { (_, _, string, _) in
-                // 解析XML
-                var xmlInfoData = string?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            .response { (request, response, data, error) in
+//                var xmlInfoData = string?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                 
-                if (xmlInfoData != nil) {
+                if (data != nil) {
                     let xmlOperation = self.createXmlOpertion()
                     // 执行操作 completionHandler()
-                    completionHandler(onlineInfo: xmlOperation.gainXmlInfoLists(xmlInfoData!))
+                    completionHandler(onlineInfo: xmlOperation.gainXmlInfoLists(data!))
                 }else {
                     // 返回nil， 表示网络操作失败
                     completionHandler(onlineInfo: nil)
                 }
         }
+        
+//        Alamofire.request(.GET, urlString)
+//            .responseString { (_, _, string, _) in
+//                // 解析XML
+//                var xmlInfoData = string?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+//                
+//                if (xmlInfoData != nil) {
+//                    let xmlOperation = self.createXmlOpertion()
+//                    // 执行操作 completionHandler()
+//                    completionHandler(onlineInfo: xmlOperation.gainXmlInfoLists(xmlInfoData!))
+//                }else {
+//                    // 返回nil， 表示网络操作失败
+//                    completionHandler(onlineInfo: nil)
+//                }
+//        }
     }
     
     /**
     处理并获取相应的API信息
     
-    :param: menuOption 接口 enum选项（选择哪一个接口）
-    :param: parameters URL参数数组
+    - parameter menuOption: 接口 enum选项（选择哪一个接口）
+    - parameter parameters: URL参数数组
     
-    :returns: 返回相应的API的URL字符串
+    - returns: 返回相应的API的URL字符串
     */
     func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
         return ""
@@ -72,7 +86,7 @@ class NetworkOperation: NSObject {
     /**
     产生一个XMLOperation
     
-    :returns: 返回一个XMLOperation
+    - returns: 返回一个XMLOperation
     */
     func createXmlOpertion() -> XMLOperation {
         return XMLOperation()
@@ -92,7 +106,7 @@ class NetworkOperationWithNews: NetworkOperation {
         case CNBlogAPIOption.commendNews:
             urlString += "/recommend/paged"
         default:
-            println("")
+            print("")
         }
         
         for parameter in parameters {
@@ -130,7 +144,7 @@ class NetworkOperationWithBlog: NetworkOperation {
         switch menuOption {
         case CNBlogAPIOption.homePageBlog: urlString       += "/sitehome/paged"
         case CNBlogAPIOption.twoDayTopViewPosts: urlString += "/48HoursTopViewPosts"
-        default: println("")
+        default: print("")
         }
         
         for parameter in parameters {
@@ -161,7 +175,7 @@ class NetworkOperationWithBlogContext: NetworkOperation {
 // 获取 博主的博客操作类  blog/u/{Blogapp}/posts/1/5
 class NetworkOperationWithBlogListOfBlogger: NetworkOperation {
     override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
-        var urlString = CNBlogMainUrl + "/blog/u" + "/\(parameters[0])" + "/posts" + "/\(parameters[1])" + "/\(parameters[2])"
+        let urlString = CNBlogMainUrl + "/blog/u" + "/\(parameters[0])" + "/posts" + "/\(parameters[1])" + "/\(parameters[2])"
         return urlString
     }
     
@@ -174,7 +188,7 @@ class NetworkOperationWithBlogListOfBlogger: NetworkOperation {
 // 搜索博主 网络类
 class NetworkOperationWithSearchBlogger: NetworkOperation {
     override func gainURLString(menuOption: CNBlogAPIOption, parameters: [String]) -> String {
-        var urlString = CNBlogMainUrl + "/blog/bloggers/search?t=\(parameters[0])"
+        let urlString = CNBlogMainUrl + "/blog/bloggers/search?t=\(parameters[0])"
         return urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
     }
     

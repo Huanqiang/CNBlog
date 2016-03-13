@@ -48,9 +48,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var view = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 1))
+        let view = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 1))
         
-        var topLine:UIView = UIView(frame: CGRectMake(16, 0, self.view.frame.width, 0.3))
+        let topLine:UIView = UIView(frame: CGRectMake(16, 0, self.view.frame.width, 0.3))
         topLine.backgroundColor = UIColor.whiteColor()
         view.addSubview(topLine)
         
@@ -59,10 +59,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // 设置每一个 section 的标题
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var view = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 10))
+        let view = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 10))
         view.backgroundColor = UIColor.clearColor()
         
-        var label:UILabel = UILabel(frame: CGRectMake(16, 2, 0, 0))
+        let label:UILabel = UILabel(frame: CGRectMake(16, 2, 0, 0))
         label.text = menuViewModel.menuKeys[section];
         label.font = UIFont.systemFontOfSize(14);
         label.textColor = UIColor.whiteColor();
@@ -70,7 +70,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         label.sizeToFit()
         view.addSubview(label)
         
-        var buttomLine:UIView = UIView(frame: CGRectMake(16, label.frame.height + 7, self.view.frame.width, 0.3))
+        let buttomLine:UIView = UIView(frame: CGRectMake(16, label.frame.height + 7, self.view.frame.width, 0.3))
         buttomLine.backgroundColor = UIColor.whiteColor()
         view.addSubview(buttomLine)
 
@@ -78,7 +78,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("MenuTableCell") as? UITableViewCell
+        let cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("MenuTableCell")
         
         self.configurationCellOfIndex(cell!, indexPath: indexPath)
         
@@ -91,7 +91,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         // 界面跳转
-        var navigationController: UINavigationController = self.frostedViewController.contentViewController as! UINavigationController
+        let navigationController: UINavigationController = self.frostedViewController.contentViewController as! UINavigationController
         let menuItem:MenuItem = self.menuItemAtIndexPath(indexPath)
         
         navigationController.viewControllers = [menuItem.menuNextVC];

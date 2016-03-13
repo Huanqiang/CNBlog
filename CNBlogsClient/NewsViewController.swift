@@ -48,10 +48,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        var indexPath:NSIndexPath = newsListTableView.indexPathForSelectedRow()!
+        let indexPath:NSIndexPath = newsListTableView.indexPathForSelectedRow!
 
-        if equal(segue.identifier!, "NewsListWithImageToDetail") || equal(segue.identifier!, "NewsListWithoutImageToDetail") {
-            var newsDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
+        if (segue.identifier!).characters.elementsEqual("NewsListWithImageToDetail".characters) || (segue.identifier!).characters.elementsEqual("NewsListWithoutImageToDetail".characters) {
+            let newsDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
             newsDetailVC.onlineInfoDetailVM = self.newsModel.newsDetailViewModelForIndexPath(indexPath.row, vc: newsDetailVC)
         }
     }
@@ -82,7 +82,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         case 1: self.popNewsBtnStateView.hidden     = false
         case 2: self.recentNewsBtnStateView.hidden  = false
         case 3: self.commendNewsBtnStateView.hidden = false
-        default: println("")
+        default: print("")
         }
     }
 
@@ -208,7 +208,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // 获取标题图片
         weak var weakCell = cell
-        let url: NSURL = NSURL(string: news.iconURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
+        let url: NSURL = NSURL(string: news.iconURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!
+//        let url: NSURL = NSURL(string: news.iconURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
+        
         cell.onlineImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "tableCellDefaultImage")) {
             (image, error, SDImageCacheType, url) -> Void in
             weakCell!.onlineImageView.image = image

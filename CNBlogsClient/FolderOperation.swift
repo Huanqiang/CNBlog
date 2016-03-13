@@ -14,11 +14,11 @@ import UIKit
 class FolderOperation: NSObject {
    
     func gainDocumentPath() -> String {
-        return NSHomeDirectory().stringByAppendingPathComponent("Documents")
+        return (NSHomeDirectory() as NSString).stringByAppendingPathComponent("Documents")
     }
     
     func gainFolderPath(folderName: String) -> String {
-        return self.gainDocumentPath().stringByAppendingPathComponent(folderName)
+        return (self.gainDocumentPath() as NSString).stringByAppendingPathComponent(folderName)
     }
     
     // *********** 文件操作 **********
@@ -34,11 +34,11 @@ class FolderOperation: NSObject {
     /**
     保存图片
     
-    :param: folderName 文件夹名称
-    :param: imageData  图片数据
-    :param: imageName  图片名
+    - parameter folderName: 文件夹名称
+    - parameter imageData:  图片数据
+    - parameter imageName:  图片名
     
-    :returns: 图片路径
+    - returns: 图片路径
     */
     func saveImageToFolder(folderName: String, image: UIImage, imageName: String) -> String{
         // 将图片转化成data
@@ -47,7 +47,7 @@ class FolderOperation: NSObject {
         let folderPath: String = self.gainFolderPath(folderName)
         let imagePath: String = folderPath.stringByAppendingString("/\(imageName)")
         // 创建图片操作器
-        var fileManager: NSFileManager = NSFileManager.defaultManager()
+        let fileManager: NSFileManager = NSFileManager.defaultManager()
         //把刚刚图片转换的data对象保存至沙盒中
         fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil)
         return imagePath
@@ -58,7 +58,7 @@ class FolderOperation: NSObject {
     /**
     先判断一个指定文件夹存不存在，如果不存在就创建它
     
-    :param: folderName folderName 文件夹名称
+    - parameter folderName: folderName 文件夹名称
     */
     func createFolderWhenNon(folderName: String) {
         if !self.isExitsWithTheFolder(folderName) {
@@ -69,11 +69,17 @@ class FolderOperation: NSObject {
     /**
     创建指定文件夹(单层）
     
-    :param: folderName 文件夹名称
+    - parameter folderName: 文件夹名称
     */
     func createFolderInDocuments(folderName: String) {
         let path: String = self.gainFolderPath(folderName)
-        let bo = NSFileManager.defaultManager().createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil, error: nil)
+        let bo: Bool
+        do {
+            try NSFileManager.defaultManager().createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil)
+            bo = true
+        } catch _ {
+            bo = false
+        }
         assert(bo, "创建文件夹失败")
     }
 
@@ -81,9 +87,9 @@ class FolderOperation: NSObject {
     /**
     判断在Documents文件夹下是否存在指定文件夹
     
-    :param: folderName 文件夹名称
+    - parameter folderName: 文件夹名称
     
-    :returns: 存在返回ture；不存在返回false
+    - returns: 存在返回ture；不存在返回false
     */
     func isExitsWithTheFolder(folderName: String) -> Bool {
         let path: String = self.gainFolderPath(folderName)
@@ -93,18 +99,21 @@ class FolderOperation: NSObject {
     /**
     删除指定文件夹下的所有文件
     
-    :param: folderName 文件夹名称
+    - parameter folderName: 文件夹名称
     */
     func removeFileInTheFolder(folderName: String) {
         let path: String = self.gainFolderPath(folderName)
         
-        var fileManager: NSFileManager = NSFileManager.defaultManager()
-        let contents: NSArray = fileManager.contentsOfDirectoryAtPath(path, error: nil)!
-        var enumerator: NSEnumerator = contents.objectEnumerator()
+        let fileManager: NSFileManager = NSFileManager.defaultManager()
+        let contents: NSArray = try! fileManager.contentsOfDirectoryAtPath(path)
+        let enumerator: NSEnumerator = contents.objectEnumerator()
         
         var fileName: AnyObject? = enumerator.nextObject()
         while ((fileName) != nil) {
-            fileManager.removeItemAtPath(path.stringByAppendingPathComponent(fileName as! String), error: nil)
+            do {
+                try fileManager.removeItemAtPath((path as NSString).stringByAppendingPathComponent(fileName as! String))
+            } catch _ {
+            }
             fileName = enumerator.nextObject()
         }
     }

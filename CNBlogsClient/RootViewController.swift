@@ -24,8 +24,8 @@ class RootViewController: REFrostedViewController {
     
     // 设置主视图
     override func awakeFromNib() {
-        self.contentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController") as! UIViewController
-        self.menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MenuViewController") as!UIViewController
+        self.contentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NavigationController")
+        self.menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MenuViewController")
     }
     
 

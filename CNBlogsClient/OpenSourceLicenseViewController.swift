@@ -32,7 +32,7 @@ class OpenSourceLicenseViewController: UIViewController, DTAttributedTextContent
     // MARK: - 加载离线资讯主内容
     func showOpenSourceLicenseContent() {
         let htmlData:NSData = self.openSourceLicenseVM.gainOpenSourceLicenseContent()
-        var attributedString: NSAttributedString = NSAttributedString(HTMLData: htmlData, documentAttributes: nil)
+        let attributedString: NSAttributedString = NSAttributedString(HTMLData: htmlData, documentAttributes: nil)
         
         self.OpenSourceLicenseTextView.attributedString = attributedString;
         self.OpenSourceLicenseTextView.textDelegate = self
@@ -46,15 +46,15 @@ class OpenSourceLicenseViewController: UIViewController, DTAttributedTextContent
     用来 跳转超链接
     */
     func attributedTextContentView(attributedTextContentView: DTAttributedTextContentView!, viewForLink url: NSURL!, identifier: String!, frame: CGRect) -> UIView! {
-        var linkButton: DTLinkButton = DTLinkButton(frame: frame)
+        let linkButton: DTLinkButton = DTLinkButton(frame: frame)
         linkButton.URL = url
         
         // get image with normal link text
-        var normalImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.Default)
+        let normalImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.Default)
         linkButton.setImage(normalImage, forState: UIControlState.Normal)
         
         // get image for highlighted link text
-        var highlightImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.DrawLinksHighlighted)
+        let highlightImage: UIImage = attributedTextContentView.contentImageWithBounds(frame, options: DTCoreTextLayoutFrameDrawingOptions.DrawLinksHighlighted)
         linkButton.setImage(highlightImage, forState: UIControlState.Highlighted)
         
         linkButton.addTarget(self, action: "linkButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -62,6 +62,6 @@ class OpenSourceLicenseViewController: UIViewController, DTAttributedTextContent
     }
     
     @IBAction func linkButtonClicked(sender: DTLinkButton) {
-        sender.URL.absoluteString?.openURL()
+        sender.URL.absoluteString.openURL()
     }
 }

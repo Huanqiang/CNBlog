@@ -31,7 +31,7 @@ class MyAttentionerViewModel: NSObject {
     /**
     获取 关注人数量
     
-    :returns: 关注人数量
+    - returns: 关注人数量
     */
     func gainAttentionerCount() ->Int {
         return attentioners.count
@@ -40,9 +40,9 @@ class MyAttentionerViewModel: NSObject {
     /**
     获取指定关注人
     
-    :param: index 被指定的关注人序号
+    - parameter index: 被指定的关注人序号
     
-    :returns: 被指定的关注人信息
+    - returns: 被指定的关注人信息
     */
     func gainTheAttentionerAtIndex(index: Int) -> Blogger {
         return attentioners[index]

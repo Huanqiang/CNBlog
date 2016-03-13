@@ -22,7 +22,7 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
         myAttentionerVM = MyAttentionerViewModel(myAttentionerVC: self)
         // 空界面视图 设置
         myAttentionerVM.setEmptyViewInfo()
-        self.myAttentionerTableView.tableFooterView = UIView.new()
+        self.myAttentionerTableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,13 +42,13 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if equal(segue.identifier!, "ChangeBloggerAttentioner") {
+        if (segue.identifier!).characters.elementsEqual("ChangeBloggerAttentioner".characters) {
             // 跳转 搜索关注人 界面
             let searchVC: SearchBloggerViewController = segue.destinationViewController as! SearchBloggerViewController
             searchVC.searchBloggerVM = myAttentionerVM.newsSearchBloggerViewModel(searchVC)
-        }else if equal(segue.identifier!, "AttentionerToHisBlog") {
+        }else if (segue.identifier!).characters.elementsEqual("AttentionerToHisBlog".characters) {
             // 跳转 博主关注人/博主 博客列表
-            let indexPath = self.myAttentionerTableView.indexPathForSelectedRow()
+            let indexPath = self.myAttentionerTableView.indexPathForSelectedRow
             let attentionerBlogg: BlogOfBloggerViewController = segue.destinationViewController as! BlogOfBloggerViewController
             attentionerBlogg.blogVM = myAttentionerVM.newBlogOfAttentionerViewModel(indexPath!.row, vc: attentionerBlogg)
         }
@@ -97,7 +97,7 @@ class MyAttentionerViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: BloggerTableViewCell = tableView.dequeueReusableCellWithIdentifier("BloggerAttentionerCell") as! BloggerTableViewCell
+        let cell: BloggerTableViewCell = tableView.dequeueReusableCellWithIdentifier("BloggerAttentionerCell") as! BloggerTableViewCell
         
         self.configurationCellOfIndex(cell, index: indexPath.row)
         

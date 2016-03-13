@@ -35,22 +35,22 @@ class MenuViewModel: NSObject {
     
     // 设置菜单项
     func setMenuItem() {
-        var newsItem        = MenuItem(imageName: "menuNews", title: "最新新闻")
+        let newsItem        = MenuItem(imageName: "menuNews", title: "最新新闻")
         newsItem.menuNextVC = self.gainVCInStoryBoard("NewsViewController") as! NewsViewController
         
-        var blogItem        = MenuItem(imageName: "menuBlog", title: "热门博客")
+        let blogItem        = MenuItem(imageName: "menuBlog", title: "热门博客")
         blogItem.menuNextVC = self.gainVCInStoryBoard("BlogViewController") as! BlogViewController
         
-        var myBlogItem      = MenuItem(imageName: "menuMyBlog", title: "我的博客")
+        let myBlogItem      = MenuItem(imageName: "menuMyBlog", title: "我的博客")
         myBlogItem.menuNextVC = self.gainVCInStoryBoard("BlogOfBloggerViewController") as! BlogOfBloggerViewController        
         
-        var myAttentionItem = MenuItem(imageName: "menuMyAttention", title: "我的关注人")
+        let myAttentionItem = MenuItem(imageName: "menuMyAttention", title: "我的关注人")
         myAttentionItem.menuNextVC = self.gainVCInStoryBoard("MyAttentionerViewController") as! MyAttentionerViewController
         
-        var myOfflineInfo   = MenuItem(imageName: "menuMyOffline", title: "我的离线")
+        let myOfflineInfo   = MenuItem(imageName: "menuMyOffline", title: "我的离线")
         myOfflineInfo.menuNextVC = self.gainVCInStoryBoard("OfflineInfoViewController") as! OfflineInfoViewController
         
-        var settingItem     = MenuItem(imageName: "menuSetting", title: "设置")
+        let settingItem     = MenuItem(imageName: "menuSetting", title: "设置")
         settingItem.menuNextVC = self.gainVCInStoryBoard("SettingTableViewController") as! SettingTableViewController
         
         menuItems = ["推荐阅读": [newsItem, blogItem],
@@ -60,7 +60,7 @@ class MenuViewModel: NSObject {
     
     // 获取主StoryBoard里的视图
     func gainVCInStoryBoard(vcId: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(vcId) as! UIViewController
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(vcId) 
     }
     
     // 获取博主数据

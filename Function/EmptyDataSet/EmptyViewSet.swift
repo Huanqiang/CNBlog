@@ -31,7 +31,7 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     /**
     设置空白页中心图片（主图片）
     
-    :param: img 主图片名称
+    - parameter img: 主图片名称
     */
     func setEmptyViewImg(imgName: String) {
         self.emptyImgName = imgName
@@ -40,7 +40,7 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     /**
     设置空白页中心主标题（位于主图片下面）
     
-    :param: title 主标题内容
+    - parameter title: 主标题内容
     */
     func setEmptyViewTitle(title: String) {
         self.emptyTitle = title
@@ -49,7 +49,7 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     /**
     设置空白页详细描述
     
-    :param: description 详细描述内容
+    - parameter description: 详细描述内容
     */
     func setEmptyViewDescription(description: String) {
         self.emptyDescription = description
@@ -58,7 +58,7 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     /**
     设置空白页背景颜色
     
-    :param: bgColor 背景颜色
+    - parameter bgColor: 背景颜色
     */
     func setEmptyViewBgColor(bgColor: UIColor) {
         self.emptyBgColor = bgColor
@@ -67,7 +67,7 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     /**
     设置空白页背景图片
     
-    :param: bgImg 背景图片
+    - parameter bgImg: 背景图片
     */
     func setEmptyViewByImg(bgImgName: String) {
         self.emptyBgImgName = bgImgName
@@ -76,8 +76,8 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     /**
     设置空白页按钮信息
     
-    :param: btnName 按钮名称
-    :param: btnFunc 按钮的方法
+    - parameter btnName: 按钮名称
+    - parameter btnFunc: 按钮的方法
     */
     func setEmptyBtn(btnName: String, btnFunc: (Void -> Void)) {
         self.emptyButtonName = btnName
@@ -104,7 +104,7 @@ class EmptyViewSet: NSObject, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // 设置详细描述
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text: String = self.emptyDescription
-        let paragaraph = NSMutableParagraphStyle.new()
+        let paragaraph = NSMutableParagraphStyle()
         paragaraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
         paragaraph.alignment = NSTextAlignment.Center
         

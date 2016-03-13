@@ -65,7 +65,7 @@ class SettingTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        if equal(segue.identifier!, "ChangeBloggerSelf") {
+        if (segue.identifier!).characters.elementsEqual("ChangeBloggerSelf".characters) {
             // 跳转 搜索关注人 界面
             let searchVC: SearchBloggerViewController = segue.destinationViewController as! SearchBloggerViewController
             searchVC.searchBloggerVM = SearchBloggerViewModel(isBloggerSelf: true, searchBloggerVC: searchVC)

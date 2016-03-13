@@ -48,7 +48,7 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: BloggerTableViewCell = tableView.dequeueReusableCellWithIdentifier("SearchBloggerCell") as! BloggerTableViewCell
+        let cell: BloggerTableViewCell = tableView.dequeueReusableCellWithIdentifier("SearchBloggerCell") as! BloggerTableViewCell
         
         self.configurationCellOfIndex(cell, index: indexPath.row)
         
@@ -70,14 +70,14 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
             msg = "您确定 \(blogger.bloggerName) 为关注人？"
         }
         
-        var alertView: UIAlertController = UIAlertController(title: "", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
-        var sureAction: UIAlertAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
+        let alertView: UIAlertController = UIAlertController(title: "", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        let sureAction: UIAlertAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
             if blogger.saveBlogger() {
                 self.setBloggersSuccess()
             }
         }
         alertView.addAction(sureAction)
-        var cancelAction: UIAlertAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler: nil)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler: nil)
         alertView.addAction(cancelAction)
         
         self.presentViewController(alertView, animated: true, completion: nil)
@@ -88,7 +88,7 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.waitBloggersContent()
         searchBar.resignFirstResponder()
-        self.searchBlogger(searchBar.text)
+        self.searchBlogger(searchBar.text!)
     }
     
     
@@ -100,7 +100,7 @@ class SearchBloggerViewController: UIViewController, UITableViewDataSource, UITa
     
     // MARK: - 私有函数
     func configurationCellOfIndex(cell: BloggerTableViewCell, index: Int) {
-        var blogger: Blogger = searchBloggerVM.gainBloggerAtIndex(index)
+        let blogger: Blogger = searchBloggerVM.gainBloggerAtIndex(index)
         
         cell.bloggerArticleCountLabel.text = "\(blogger.bloggerArticleCount)"
         cell.bloggerNameLabel.text = blogger.bloggerName

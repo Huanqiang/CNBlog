@@ -49,7 +49,7 @@ class Blogger: NSObject {
     /**
     从磁盘获取当前博主的头像
     
-    :returns: 当前博主的头像
+    - returns: 当前博主的头像
     */
     func gainIconFromDick() -> UIImage {
         return folder.gainImageFromFolder(BloggerIconFolderName, imageName: self.bloggerIconPath)
@@ -64,7 +64,7 @@ class Blogger: NSObject {
     /**
     获取博主自己的信息
     
-    :returns: 博主自己的信息
+    - returns: 博主自己的信息
     */
     func gainBloggerSelfInfo() -> Blogger {
         return Blogger()
@@ -73,7 +73,7 @@ class Blogger: NSObject {
     /**
     判断博主自己是否登录
     
-    :returns: 登录返回True，否则返回False
+    - returns: 登录返回True，否则返回False
     */
     func isLoginSelf() ->Bool {
         return true
@@ -82,7 +82,7 @@ class Blogger: NSObject {
     /**
     获取所有的博主的关注人
     
-    :returns: 博主的关注人数组
+    - returns: 博主的关注人数组
     */
     func gainBloggerAttentioners() -> [Blogger] {
         return []
@@ -118,7 +118,7 @@ class BloggerOwned: Blogger {
     }
     
     override func gainBloggerSelfInfo() -> Blogger {
-        var bloggerSelf: BloggerOwned   = BloggerOwned()
+        let bloggerSelf: BloggerOwned   = BloggerOwned()
         bloggerSelf.bloggerArticleCount = self.gainBloggerArticleCount()
         bloggerSelf.bloggerIconPath     = self.gainBloggerIconPath()
         bloggerSelf.bloggerId           = self.gainBloggerID()
@@ -170,7 +170,7 @@ class BloggerOwned: Blogger {
     }
     
     func gainBloggerArticleCount() -> Int {
-        return (loginTool.getUserInfo("bloggerArticleCount") as String).toInt()!
+        return Int((loginTool.getUserInfo("bloggerArticleCount") as String))!
     }
     
     func gainBloggerUpdatedTime() -> NSDate {
@@ -208,12 +208,12 @@ class BloggerAttentioner: Blogger {
         self.saveIconToDisk()
         
         // 存到 CoreData 之中
-        var coreDataOperation: CoreDataOperation = CoreDataOperationWithBlogger()
+        let coreDataOperation: CoreDataOperation = CoreDataOperationWithBlogger()
         return coreDataOperation.insertAttentioners(self)
     }
     
     override func gainBloggerAttentioners() -> [Blogger] {
-        var coreDataOperation: CoreDataOperation = CoreDataOperationWithBlogger()
+        let coreDataOperation: CoreDataOperation = CoreDataOperationWithBlogger()
         return coreDataOperation.gainAttentioners()
     }
     

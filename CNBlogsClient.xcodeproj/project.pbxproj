@@ -89,7 +89,7 @@
 		E6F6B8641B1B35BB004BC482 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F6B8631B1B35BB004BC482 /* MenuViewController.swift */; };
 		E6F6B8661B1B395C004BC482 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F6B8651B1B395C004BC482 /* MenuViewModel.swift */; };
 		E6F6B86B1B1B5A3A004BC482 /* ExtensionUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F6B86A1B1B5A3A004BC482 /* ExtensionUIKit.swift */; };
-		F3C5675A7A777B458F122FD0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA2F0EFF1CDD8A96E413EA9 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F3C5675A7A777B458F122FD0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA2F0EFF1CDD8A96E413EA9 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -804,6 +804,8 @@
 		E6EF870D1B196C15009FF4A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "&#29579;&#28949;&#24378;";
 				TargetAttributes = {

@@ -26,9 +26,9 @@ class BlogOfBloggerViewModel: NSObject {
     /**
     给博主自己（软件使用者）使用的初始化
     
-    :param: blogVC BlogOfBloggerViewController界面类
+    - parameter blogVC: BlogOfBloggerViewController界面类
     
-    :returns: 一个博主自己的博客VM
+    - returns: 一个博主自己的博客VM
     */
     init(blogVC: BlogOfBloggerViewController) {
         super.init()
@@ -52,10 +52,10 @@ class BlogOfBloggerViewModel: NSObject {
     /**
     给博主关注人使用的初始化
     
-    :param: attentioner 当前的关注人类
-    :param: blogVC      BlogOfBloggerViewController界面类
+    - parameter attentioner: 当前的关注人类
+    - parameter blogVC:      BlogOfBloggerViewController界面类
     
-    :returns: 一个关注人的博客VM
+    - returns: 一个关注人的博客VM
     */
     init(attentioner: Blogger, blogVC: BlogOfBloggerViewController) {
         self.blogger       = attentioner
@@ -68,8 +68,8 @@ class BlogOfBloggerViewModel: NSObject {
     
     // 网络操作网络操作获取数据
     func gainBlogFormNetWork() {
-        var networkOperation: NetworkOperation = NetworkOperationWithBlogListOfBlogger()
-        var parameters = self.setParameters()
+        let networkOperation: NetworkOperation = NetworkOperationWithBlogListOfBlogger()
+        let parameters = self.setParameters()
         
         weak var weakSelf = self
         networkOperation.gainInfomationFromNetwork(CNBlogAPIOption.myBlogOption, parameters: parameters) { (onlineInfo) -> Void in
@@ -116,7 +116,7 @@ class BlogOfBloggerViewModel: NSObject {
     /**
     设置当前刷新是上拉刷新还是下拉属性，默认下拉
     
-    :param: isHeadRefresh 刷新的类型，true为下拉刷新，false为上拉刷新
+    - parameter isHeadRefresh: 刷新的类型，true为下拉刷新，false为上拉刷新
     */
     func setHeadRefresh(isHeadRefresh: Bool) {
         self.isHeadRefresh = isHeadRefresh
@@ -128,7 +128,7 @@ class BlogOfBloggerViewModel: NSObject {
     /**
     获取根据博主的名称设置的VC的名称
     
-    :returns: VC的名称
+    - returns: VC的名称
     */
     func gainVCName() ->String {
         if self.isBloggerSelf {
@@ -157,7 +157,7 @@ class BlogOfBloggerViewModel: NSObject {
         self.blogVC.EmptyViewInfo.setEmptyViewTitle("Who Am I?")
         self.blogVC.EmptyViewInfo.setEmptyBtn("点击设置自己博客") {
             // 跳转搜索界面
-            var searchVC: SearchBloggerViewController = self.blogVC.storyboard?.instantiateViewControllerWithIdentifier("SearchBloggerViewController") as! SearchBloggerViewController
+            let searchVC: SearchBloggerViewController = self.blogVC.storyboard?.instantiateViewControllerWithIdentifier("SearchBloggerViewController") as! SearchBloggerViewController
             searchVC.searchBloggerVM = SearchBloggerViewModel(isBloggerSelf: true, searchBloggerVC: searchVC)
             self.blogVC.navigationController?.pushViewController(searchVC, animated: true)
 

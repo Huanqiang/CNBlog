@@ -51,7 +51,7 @@ class OfflineInformation: NSObject {
     /**
     设置资讯内容
     
-    :param: oContent 资讯内容
+    - parameter oContent: 资讯内容
     */
     func setInfoContent(oContent:String) {
         self.content = oContent;

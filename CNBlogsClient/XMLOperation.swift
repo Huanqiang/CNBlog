@@ -17,16 +17,17 @@ class XMLOperation: NSObject {
     /**
     解析完整 API的 XML 信息（处理 XML 入口）
     
-    :param: xmlData 网络操作的NSData数据
+    - parameter xmlData: 网络操作的NSData数据
     
-    :returns: OnlineInformation 数组
+    - returns: OnlineInformation 数组
     */
     func gainXmlInfoLists(xmlData: NSData) -> [AnyObject] {
         xmlElements = []
-        
-        var error: NSError?
-        if let xmlDoc = AEXMLDocument(xmlData: xmlData, error: &error) {
+
+        do {
+            let xmlDoc = try AEXMLDocument(xmlData: xmlData)
             self.gainXmlDoc(xmlDoc)
+        } catch _ {
         }
         
         return xmlElements
@@ -35,16 +36,16 @@ class XMLOperation: NSObject {
     /**
     开始处理处理整个 XML 格式
     
-    :param: xmlDoc XML 信息
+    - parameter xmlDoc: XML 信息
     */
     func gainXmlDoc(xmlDoc: AEXMLDocument) { }
     
     /**
     获取单个 OnlineInformation 的信息
     
-    :param: newsList 单个XMl信息组
+    - parameter newsList: 单个XMl信息组
     
-    :returns: 单个 OnlineInformation 的信息
+    - returns: 单个 OnlineInformation 的信息
     */
     func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
         return OnlineInformation()
@@ -53,9 +54,9 @@ class XMLOperation: NSObject {
     /**
     获取单个的博主信息
     
-    :param: newsList 单个XML信息组
+    - parameter newsList: 单个XML信息组
     
-    :returns: 单个的博主信息
+    - returns: 单个的博主信息
     */
     func gainBloggerElement(newsList: AEXMLElement) -> Blogger {
         return Blogger()
@@ -73,14 +74,14 @@ class NewsXmlOperation: XMLOperation {
     }
 
     override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
-        var onlineInfo: OnlineNews = OnlineNews()
+        let onlineInfo: OnlineNews = OnlineNews()
         
         onlineInfo.id      = infoList["id"].stringValue
         onlineInfo.title   = infoList["title"].stringValue
         onlineInfo.summary = infoList["summary"].stringValue
-        onlineInfo.diggs   = infoList["diggs"].stringValue.toInt()!
-        onlineInfo.views   = infoList["views"].stringValue.toInt()!
-        if equal(infoList["topicIcon"].stringValue, "") {
+        onlineInfo.diggs   = Int(infoList["diggs"].stringValue)!
+        onlineInfo.views   = Int(infoList["views"].stringValue)!
+        if infoList["topicIcon"].stringValue.characters.elementsEqual("".characters) {
             onlineInfo.hasIcon = false
         }else {
             onlineInfo.hasIcon = true
@@ -104,7 +105,7 @@ class NewsContentXmlOperation: XMLOperation {
     }
     
     override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
-        var onlineInfo: OnlineInformation = OnlineNews()
+        let onlineInfo: OnlineInformation = OnlineNews()
         onlineInfo.content = infoList.stringValue
         return onlineInfo
     }
@@ -120,12 +121,12 @@ class BlogXmlOperation: XMLOperation {
     }
     
     override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
-        var onlineInfo: OnlineBlog = OnlineBlog()
+        let onlineInfo: OnlineBlog = OnlineBlog()
         onlineInfo.id          = infoList["id"].stringValue
         onlineInfo.title       = infoList["title"].stringValue
         onlineInfo.summary     = infoList["summary"].stringValue
-        onlineInfo.diggs       = infoList["diggs"].stringValue.toInt()!
-        onlineInfo.views       = infoList["views"].stringValue.toInt()!
+        onlineInfo.diggs       = Int(infoList["diggs"].stringValue)!
+        onlineInfo.views       = Int(infoList["views"].stringValue)!
         onlineInfo.authorUrl   = infoList["author"]["uri"].stringValue
         onlineInfo.author      = infoList["author"]["name"].stringValue
 
@@ -145,7 +146,7 @@ class BlogContentXmlOperation: XMLOperation {
     }
     
     override func gainOnlineInfoElement(infoList: AEXMLElement) -> OnlineInformation {
-        var onlineInfo: OnlineInformation = OnlineNews()
+        let onlineInfo: OnlineInformation = OnlineNews()
         onlineInfo.content = infoList.stringValue
         return onlineInfo
     }
@@ -164,11 +165,11 @@ class SearchBloggerXmlOperation: XMLOperation {
     }
     
     override func gainBloggerElement(newsList: AEXMLElement) -> Blogger {
-        var blogger: Blogger = Blogger()
+        let blogger: Blogger = Blogger()
         blogger.bloggerId           = newsList["blogapp"].stringValue
         blogger.bloggerIconURL      = newsList["avatar"].stringValue
         blogger.bloggerName         = newsList["title"].stringValue
-        blogger.bloggerArticleCount = newsList["postcount"].stringValue.toInt()!
+        blogger.bloggerArticleCount = Int(newsList["postcount"].stringValue)!
 
         let dateStr: String         = newsList["updated"].stringValue
         blogger.bloggerUpdatedTime  = dateStr.stringToDateWithDateFormat(CNBlogDateFormatForApi)

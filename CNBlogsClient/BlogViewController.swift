@@ -48,9 +48,9 @@ class BlogViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if equal(segue.identifier!, "blogToDetail") {
-            let indexPath = self.blogTableView.indexPathForSelectedRow()
-            var blogDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
+        if (segue.identifier!).characters.elementsEqual("blogToDetail".characters) {
+            let indexPath = self.blogTableView.indexPathForSelectedRow
+            let blogDetailVC: OnlineInfoDetailViewController = segue.destinationViewController as! OnlineInfoDetailViewController
             blogDetailVC.onlineInfoDetailVM = self.blogVM.newBlogDetailVM(indexPath!.row, vc: blogDetailVC)
         }
     }
@@ -80,7 +80,7 @@ class BlogViewController: UIViewController, UITableViewDataSource, UITableViewDe
         switch btnIndex {
         case 1: self.homeBlogBtnView.hidden     = false
         case 2: self.commandBlogBtnView.hidden  = false
-        default: println("")
+        default: print("")
         }
     }
     
@@ -168,7 +168,7 @@ class BlogViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let news: OnlineBlog = self.blogVM.gainOnlineBlogAtIndexPath(indexPath.row)
-        var cell: OnlineInfoWithoutImageTableViewCell = tableView.dequeueReusableCellWithIdentifier("BlogTableViewCell") as! OnlineInfoWithoutImageTableViewCell
+        let cell: OnlineInfoWithoutImageTableViewCell = tableView.dequeueReusableCellWithIdentifier("BlogTableViewCell") as! OnlineInfoWithoutImageTableViewCell
         
         self.configurationNoImageCellOfIndex(cell as OnlineInfoWithoutImageTableViewCell, news: news)
         

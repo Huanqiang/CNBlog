@@ -93,7 +93,7 @@ class NewsViewModel: NSObject {
     /**
     为当前表格设置数据
     
-    :param: newsList 需要被填入的数据
+    - parameter newsList: 需要被填入的数据
     */
     func gainDataForNewsElementLists(newsList: [OnlineInformation]) {
         // 判断当前表格是否有数据，没有的话网络获取，有的话直接刷新表格
@@ -108,8 +108,8 @@ class NewsViewModel: NSObject {
     /**
     为表格设置新的数据
     
-    :param: weakSelf   weak化后的self
-    :param: onlineInfo 新数据
+    - parameter weakSelf:   weak化后的self
+    - parameter onlineInfo: 新数据
     */
     func addNewNews(weakSelf: NewsViewModel,onlineInfo: [OnlineInformation]) {
         // 将值赋值给当前刷新的操作项的数据数组
@@ -118,7 +118,7 @@ class NewsViewModel: NSObject {
             case CNBlogAPIOption.recentNews: weakSelf.recentNewsElementLists   = onlineInfo
             case CNBlogAPIOption.popNews: weakSelf.popNewsElementLists         = onlineInfo
             case CNBlogAPIOption.commendNews: weakSelf.commendNewsElementLists = onlineInfo
-            default: println()
+            default: print("")
             }
         }else {
             if self.newsType == CNBlogAPIOption.recentNews {
@@ -138,7 +138,7 @@ class NewsViewModel: NSObject {
         case CNBlogAPIOption.recentNews: weakSelf.newsElementLists  = weakSelf.recentNewsElementLists
         case CNBlogAPIOption.popNews: weakSelf.newsElementLists     = weakSelf.popNewsElementLists
         case CNBlogAPIOption.commendNews: weakSelf.newsElementLists = weakSelf.commendNewsElementLists
-        default: println()
+        default: print("")
         }
     }
     
@@ -146,7 +146,7 @@ class NewsViewModel: NSObject {
     /**
     分别为上拉和下拉刷新设置 参数
     
-    :returns: 参数
+    - returns: 参数
     */
     func setParameters() ->[String] {
         if self.isHeadRefresh {
@@ -166,7 +166,7 @@ class NewsViewModel: NSObject {
     /**
     设置当前刷新是上拉刷新还是下拉属性，默认下拉
     
-    :param: isHeadRefresh 刷新的类型，true为下拉刷新，false为上拉刷新
+    - parameter isHeadRefresh: 刷新的类型，true为下拉刷新，false为上拉刷新
     */
     func setHeadRefresh(isHeadRefresh: Bool) {
         self.isHeadRefresh = isHeadRefresh
