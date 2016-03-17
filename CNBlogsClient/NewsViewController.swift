@@ -9,6 +9,11 @@
 import UIKit
 import SDWebImage
 
+enum NewsTableType: Int{
+    case PopNewsTable = 0, RecentNewsTable, CommendNewsTable
+}
+
+
 class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var newsModel: NewsViewModel = NewsViewModel()
@@ -17,6 +22,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var recentNewsBtnStateView: UIView!
     @IBOutlet weak var popNewsBtnStateView: UIView!
     @IBOutlet weak var commendNewsBtnStateView: UIView!
+    
+    var currentTableType: NewsTableType = .PopNewsTable;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +34,49 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.setTableHeadRefreshing()
         self.beginTableHeadRefreshing()
         
-        self.switchNewTypeWithBtnView(1)
+        self.switchNewTypeWithBtnView(NewsTableType.PopNewsTable)
         
         //添加这行代码
         self.newsListTableView.rowHeight = UITableViewAutomaticDimension
         self.newsListTableView.estimatedRowHeight = 44
+        
+        
+        
+        // 新增手势操作
+        let leftSwipeGR: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipeGesture:"))
+        leftSwipeGR.direction = .Left
+        
+        let rightSwipeGR: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipeGesture:"))
+        rightSwipeGR.direction = .Right;
+        
+        self.view.addGestureRecognizer(leftSwipeGR)
+        self.view.addGestureRecognizer(rightSwipeGR)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func swipeGesture(sender: UISwipeGestureRecognizer) {
+//        let direction = sender.direction;
+        
+        switch (sender.direction) {
+        case UISwipeGestureRecognizerDirection.Left:
+            if ((self.currentTableType.rawValue - 1) >= 0) {
+                self.switchNewTypeWithBtnView(NewsTableType(rawValue: self.currentTableType.rawValue - 1)!)
+            }
+        case UISwipeGestureRecognizerDirection.Right:
+            if ((self.currentTableType.rawValue + 1) < 3) {
+                self.switchNewTypeWithBtnView(NewsTableType(rawValue: self.currentTableType.rawValue + 1)!)
+            }
+        default:
+            print("news")
+        }
+    }
+    
+    
     
     
     
@@ -56,33 +95,37 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    // MARK: - 切换表格视图
     // 切换新闻列表按钮 操作
     @IBAction func gainRecentNews(sender: AnyObject) {
-        self.switchNewTypeWithBtnView(2)
-        self.newsModel.gainRecentNews()
+        self.switchNewTypeWithBtnView(NewsTableType.RecentNewsTable)
     }
     
     @IBAction func gainPopNews(sender: AnyObject) {
-        self.switchNewTypeWithBtnView(1)
-        self.newsModel.gainPopNews()
+        self.switchNewTypeWithBtnView(NewsTableType.PopNewsTable)
     }
     
     @IBAction func gainCommendNews(sender: AnyObject) {
-        self.switchNewTypeWithBtnView(3)
-        self.newsModel.gainCommendNews()
+        self.switchNewTypeWithBtnView(NewsTableType.CommendNewsTable)
     }
     
     // 切换三个按钮的指示图
-    func switchNewTypeWithBtnView(btnIndex: Int) {
+    func switchNewTypeWithBtnView(btnIndex: NewsTableType) {
         self.recentNewsBtnStateView.hidden  = true
         self.popNewsBtnStateView.hidden     = true
         self.commendNewsBtnStateView.hidden = true
+        self.currentTableType = btnIndex;
         
         switch btnIndex {
-        case 1: self.popNewsBtnStateView.hidden     = false
-        case 2: self.recentNewsBtnStateView.hidden  = false
-        case 3: self.commendNewsBtnStateView.hidden = false
-        default: print("")
+        case .PopNewsTable:
+            self.popNewsBtnStateView.hidden = false
+            self.newsModel.gainPopNews()
+        case .RecentNewsTable:
+            self.recentNewsBtnStateView.hidden = false
+            self.newsModel.gainRecentNews()
+        case .CommendNewsTable:
+            self.commendNewsBtnStateView.hidden = false
+            self.newsModel.gainCommendNews()
         }
     }
 

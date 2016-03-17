@@ -121,7 +121,7 @@ class CoreDataOperation: NSObject {
             }
         }
         
-        var errorInfo:NSError?
+//        var errorInfo:NSError?
         // 取结果集
         let resultArr = (try! self.managedObjectContext.executeFetchRequest(fetchRequest)) as! [NSManagedObject]
         
